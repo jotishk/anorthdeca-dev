@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from '@/lib/firebase';
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, provider } from '@/lib/firebase';
 
 export default function Signup() {
   return (
@@ -60,7 +60,7 @@ function SignupForm() {
       setLoading(false);
     }
   }
- 
+
   return (
     <form onSubmit = {(e) => {e.preventDefault(); handleSignup()}}>
         <input value = {email} type = "email" className = {`${styles.signupforminput} ${styles.signupforminputtop}`} placeholder='Email address' onChange={e=>setEmail(e.target.value)}></input>
@@ -77,9 +77,25 @@ function SignupForm() {
 }
 
 function SignupGoogle() {
+  const [err, setErr] = useState('');
+  const [loading, setLoading] = useState(false);
+  async function handleSignupGoogle() {
+    setLoading(true);
+    setErr('');
+    try {
+      signInWithPopup(auth,provider);
+      console.log(credential.user + ' successfully created');
+      // Redirect to main page
+    } catch (err) {
+      setErr(err);
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
     <>
-      <button className={styles.signupgooglebtn} value="Sign in with Google">
+      <button onClick = {handleSignupGoogle} className={styles.signupgooglebtn} value="Sign in with Google">
         <img className={styles.signupgooglelogo} src="/header/googlelogo.png"  />
         <p className = {styles.signupgoogletxt}>Sign in with Google</p>
       </button>
