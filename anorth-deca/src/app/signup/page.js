@@ -51,7 +51,7 @@ function SignupForm() {
     setErr('');
     try {
       const credential = await createUserWithEmailAndPassword(auth,email,password);
-      console.log(credential.user + ' successfully created');
+      
       // Redirect to main page
     } catch (err) {
       setErr(err);
@@ -84,7 +84,7 @@ function SignupGoogle() {
     setErr('');
     try {
       signInWithPopup(auth,provider);
-      console.log(credential.user + ' successfully created');
+     
       // Redirect to main page
     } catch (err) {
       setErr(err);
