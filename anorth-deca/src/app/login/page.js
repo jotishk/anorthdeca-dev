@@ -1,11 +1,11 @@
 import styles from './page.module.css'
 
-export default function Signup() {
+export default function Login() {
   return (
     <>
       <Header/>
       <div className = {styles.signupcontainer}>
-        <SignupForm/>
+        <LoginForm/>
       </div>
       
     </>
@@ -22,26 +22,28 @@ function Header() {
   );
 }
 
-function SignupForm() {
+function LoginForm() {
   return (
     <div className = {styles.signupformdiv}>
-      <p className = {styles.signupformtitle}>Create New Account</p>
+      <p className = {styles.signupformtitle}>Login to your account</p>
+      <p className = {styles.signupformsubtitle}>Please enter your details</p>
+
       <form>
         <input className = {`${styles.signupforminput} ${styles.signupforminputtop}`} placeholder='Email address'></input>
-        <input className = {styles.signupforminput} placeholder='Username'></input>
         <input className = {styles.signupforminput} placeholder='Password'></input>
+        <a className = {styles.signupformforgot} href ="">Forgot password</a>
         <input className = {styles.signupformsubmit} value = "Sign Up" type = "submit"></input>
-        <SignupGoogle/>
+        <LoginGoogle/>
         <p className = {styles.signupformswitch}>
           Have an account?
-          <a href = "/login"className = {styles.signupformloginlnk}>Log in</a>
+          <a href = "/signup" className = {styles.signupformloginlnk}>Sign up</a>
         </p>
       </form>
     </div>
   );
 }
 
-function SignupGoogle() {
+function LoginGoogle() {
   return (
     <>
       <button className={styles.signupgooglebtn} value="Sign in with Google">

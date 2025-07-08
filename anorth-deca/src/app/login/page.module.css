@@ -47,6 +47,7 @@ body {
   font-family: var(--txtfont);
   font-size: 2rem;
   font-weight: 600;
+  margin-bottom: 0px;
 }
 .signupforminput {
   display: block;
@@ -64,11 +65,11 @@ body {
   font-weight: 600;
 }
 .signupforminputtop{
-  margin-top: 3rem;
+  margin-top: 2.25rem;
 }
 .signupformsubmit {
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   height: 2.75rem;
   background: linear-gradient(90deg, #0057B7 0%, #2196F3 100%);
   color: #fff;
@@ -121,7 +122,21 @@ body {
 }
 .signupformloginlnk {
   margin-left: 0.5rem;
- 
 }
-
+.signupformforgot {
+  display:block;
+  font-family: var(--txtfont);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.signupformsubtitle {
+  display:block;
+  font-family: var(--txtfont);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color:var(--txt);
+  margin: 0px;
+  margin-top: 0.75rem;
+}
 
