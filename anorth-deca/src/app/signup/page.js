@@ -1,11 +1,16 @@
-import styles from './page.module.css'
+'use client'
+
+import { useState } from 'react';
+import styles from './page.module.css';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '@/lib/firebase';
 
 export default function Signup() {
   return (
     <>
       <Header/>
       <div className = {styles.signupcontainer}>
-        <SignupForm/>
+        <SignupDiv/>
       </div>
       
     </>
@@ -22,14 +27,45 @@ function Header() {
   );
 }
 
-function SignupForm() {
+function SignupDiv() {
+  
+
   return (
     <div className = {styles.signupformdiv}>
       <p className = {styles.signupformtitle}>Create New Account</p>
-      <form>
-        <input className = {`${styles.signupforminput} ${styles.signupforminputtop}`} placeholder='Email address'></input>
-        <input className = {styles.signupforminput} placeholder='Username'></input>
-        <input className = {styles.signupforminput} placeholder='Password'></input>
+      <SignupForm/>
+    </div>
+  );
+}
+
+
+function SignupForm() {
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [err, setErr] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  async function handleSignup() {
+    setLoading(true);
+    setErr('');
+    try {
+      const credential = await createUserWithEmailAndPassword(auth,email,password);
+      console.log(credential.user + ' successfully created');
+      // Redirect to main page
+    } catch (err) {
+      setErr(err);
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+ 
+  return (
+    <form onSubmit = {(e) => {e.preventDefault(); handleSignup()}}>
+        <input value = {email} type = "email" className = {`${styles.signupforminput} ${styles.signupforminputtop}`} placeholder='Email address' onChange={e=>setEmail(e.target.value)}></input>
+        <input value = {username} type = "text" className = {styles.signupforminput} placeholder='Username' onChange={e=>setUsername(e.target.value)}></input>
+        <input value = {password} type = "password" className = {styles.signupforminput} placeholder='Password' onChange={e=>setPassword(e.target.value)}></input>
         <input className = {styles.signupformsubmit} value = "Sign Up" type = "submit"></input>
         <SignupGoogle/>
         <p className = {styles.signupformswitch}>
@@ -37,7 +73,6 @@ function SignupForm() {
           <a href = "/login"className = {styles.signupformloginlnk}>Log in</a>
         </p>
       </form>
-    </div>
   );
 }
 

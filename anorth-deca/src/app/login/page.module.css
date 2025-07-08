@@ -97,6 +97,10 @@ body {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  background-color: var(--bglight);
+}
+.signupgooglebtn:hover {
+  background-color: var(--bg);
 }
 .signupgooglelogo {
   width: 2rem;
