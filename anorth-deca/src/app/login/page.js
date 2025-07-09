@@ -64,7 +64,7 @@ function LoginForm() {
       <input value = {email} type = "email" className = {`${styles.signupforminput} ${styles.signupforminputtop}`} placeholder='Email address' onChange={e=>setEmail(e.target.value)}></input>
       <input value = {password} type = "password" className = {styles.signupforminput} placeholder='Password' onChange={e=>setPassword(e.target.value)}></input>
       <a className = {styles.signupformforgot} href ="">Forgot password</a>
-      <input className = {styles.signupformsubmit} value = "Sign Up" type = "submit"></input>
+      <input className = {styles.signupformsubmit} value = "Log in" type = "submit"></input>
       <LoginGoogle/>
       <p className = {styles.signupformswitch}>
         Have an account?
@@ -101,3 +101,4 @@ function LoginGoogle() {
     </>
   );
 }
+

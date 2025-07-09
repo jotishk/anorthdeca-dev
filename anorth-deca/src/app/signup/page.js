@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth, provider } from '@/lib/firebase';
+import { auth, provider, firebaseErrorMap } from '@/lib/firebase';
 
 export default function Signup() {
   return (
@@ -54,7 +54,7 @@ function SignupForm() {
       
       // Redirect to main page
     } catch (err) {
-      setErr(err);
+      setErr(err.code);
       console.log(err);
     } finally {
       setLoading(false);
@@ -62,7 +62,9 @@ function SignupForm() {
   }
 
   return (
-    <form onSubmit = {(e) => {e.preventDefault(); handleSignup()}}>
+    <>
+      <ErrStatusBar code = {err}/>
+      <form onSubmit = {(e) => {e.preventDefault(); handleSignup()}}>
         <input value = {email} type = "email" className = {`${styles.signupforminput} ${styles.signupforminputtop}`} placeholder='Email address' onChange={e=>setEmail(e.target.value)}></input>
         <input value = {username} type = "text" className = {styles.signupforminput} placeholder='Username' onChange={e=>setUsername(e.target.value)}></input>
         <input value = {password} type = "password" className = {styles.signupforminput} placeholder='Password' onChange={e=>setPassword(e.target.value)}></input>
@@ -73,6 +75,7 @@ function SignupForm() {
           <a href = "/login"className = {styles.signupformloginlnk}>Log in</a>
         </p>
       </form>
+    </>
   );
 }
 
@@ -87,14 +90,14 @@ function SignupGoogle() {
      
       // Redirect to main page
     } catch (err) {
-      setErr(err);
-      console.log(err);
+      setErr(err.code);
     } finally {
       setLoading(false);
     }
   }
   return (
     <>
+      <ErrStatusBar code = {err}/>
       <button onClick = {handleSignupGoogle} className={styles.signupgooglebtn} value="Sign in with Google">
         <img className={styles.signupgooglelogo} src="/header/googlelogo.png"  />
         <p className = {styles.signupgoogletxt}>Sign in with Google</p>
@@ -102,3 +105,15 @@ function SignupGoogle() {
     </>
   );
 }
+
+function ErrStatusBar({code}) {
+  
+
+  return (
+    code !== '' 
+    ? <div className={styles.signuperrbar}>{code}</div> 
+    : null
+
+  );
+}
+

@@ -26,4 +26,20 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 auth.languageCode = 'it';
-export { auth, provider };
+
+const firebaseErrorMap = {
+  "auth/email-already-in-use": "Email already registered.",
+  "auth/invalid-email": "Email not valid.",
+  "auth/weak-password": "Password must be at least 6 characters.",
+  "auth/user-not-found": "No account found with that email.",
+  "auth/wrong-password": "Incorrect password. Please try again.",
+  "auth/missing-password": "Please enter your password.",
+  "auth/too-many-requests": "Too many attempts.",
+  "auth/network-request-failed": "Network error.",
+};
+
+function translateErr() {
+
+}
+
+export { auth, provider, firebaseErrorMap };
