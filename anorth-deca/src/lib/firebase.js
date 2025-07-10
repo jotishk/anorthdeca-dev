@@ -21,6 +21,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 // const analytics = getAnalytics(app);
 
 const auth = getAuth();
@@ -48,7 +49,7 @@ const firebaseErrorMap = {
 };
 
 function translateErr(code) {
-  let translation = '';
+  let translation = 'An unexpected error occured.';
   for (let x of Object.keys(firebaseErrorMap)) {
     if (x === code) {
       translation = firebaseErrorMap[x];
@@ -57,4 +58,4 @@ function translateErr(code) {
   return translation;
 }
 
-export { auth, provider, translateErr };
+export { auth, provider, translateErr, db };

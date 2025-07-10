@@ -5,6 +5,7 @@ import styles from './page.module.css';
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider, translateErr} from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
+import { createUser } from '@/lib/firebaseService';
 
 export default function Signup() {
   return (
@@ -51,8 +52,12 @@ function SignupForm() {
   async function handleSignup() {
     setLoading(true);
     setErr('');
+    // Add check for username ''
     try {
       const credential = await createUserWithEmailAndPassword(auth,email,password);
+      console.log('created');
+      await createUser(credential.user.uid,email,username,'','member');
+      console.log('Success');
       router.push('/main');
     } catch (err) {
       setErr(err.code);
