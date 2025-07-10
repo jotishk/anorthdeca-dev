@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,7 +21,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
@@ -36,10 +37,24 @@ const firebaseErrorMap = {
   "auth/missing-password": "Please enter your password.",
   "auth/too-many-requests": "Too many attempts.",
   "auth/network-request-failed": "Network error.",
+  "auth/invalid-email": "The email address is badly formatted.",
+  "auth/user-disabled": "This user account has been disabled.",
+  "auth/user-not-found": "No account found with this email.",
+  "auth/wrong-password": "Incorrect password. Please try again.",
+  "auth/too-many-requests": "Too many failed attempts. Please try again later.",
+  "auth/network-request-failed": "Network error. Check your connection.",
+  "auth/internal-error": "An unexpected error occurred. Please try again.",
+  "auth/invalid-credential": "Invalid email or password.",
 };
 
-function translateErr() {
-
+function translateErr(code) {
+  let translation = '';
+  for (let x of Object.keys(firebaseErrorMap)) {
+    if (x === code) {
+      translation = firebaseErrorMap[x];
+    }
+  }
+  return translation;
 }
 
-export { auth, provider, firebaseErrorMap };
+export { auth, provider, translateErr };

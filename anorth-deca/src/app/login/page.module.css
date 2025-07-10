@@ -143,4 +143,19 @@ body {
   margin: 0px;
   margin-top: 0.75rem;
 }
+.signuperrbar {
+  position: absolute;
+  top: 24.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+  font-family: var(--txtfont);
+  font-size: 1rem;
+  font-weight: 600;
+  color:var(--txt);
+  width: 24rem;
+  height: 3rem;
+  color: red;
+}
 

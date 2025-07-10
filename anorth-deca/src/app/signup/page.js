@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth, provider, firebaseErrorMap } from '@/lib/firebase';
+import { auth, provider, translateErr} from '@/lib/firebase';
+import { useRouter } from 'next/navigation';
 
 export default function Signup() {
   return (
@@ -45,17 +46,16 @@ function SignupForm() {
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   async function handleSignup() {
     setLoading(true);
     setErr('');
     try {
       const credential = await createUserWithEmailAndPassword(auth,email,password);
-      
-      // Redirect to main page
+      router.push('/main');
     } catch (err) {
       setErr(err.code);
-      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -82,13 +82,13 @@ function SignupForm() {
 function SignupGoogle() {
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   async function handleSignupGoogle() {
     setLoading(true);
     setErr('');
     try {
-      signInWithPopup(auth,provider);
-     
-      // Redirect to main page
+      await signInWithPopup(auth,provider);
+      router.push('/main');
     } catch (err) {
       setErr(err.code);
     } finally {
@@ -107,11 +107,9 @@ function SignupGoogle() {
 }
 
 function ErrStatusBar({code}) {
-  
-
   return (
     code !== '' 
-    ? <div className={styles.signuperrbar}>{code}</div> 
+    ? <div className={styles.signuperrbar}>{translateErr(code)}</div> 
     : null
 
   );
