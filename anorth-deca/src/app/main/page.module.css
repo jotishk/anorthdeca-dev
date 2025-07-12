@@ -1,0 +1,64 @@
+@import '../globals.css';
+
+body {
+  margin: 0px;
+  background-color: var(--bg);
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--bglight);
+  height: 4rem;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-bottom: none;
+}
+.headerlogo {
+  height:2.5rem;
+  width: 2.5rem;
+  margin-left: 1rem;
+}
+.headerlogotext {
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: var(--txtfont);
+}
+.testsidebardiv {
+  position: absolute;
+  background-color: var(--bglight);
+  top: 4rem;
+  left:0rem;
+  bottom: 0rem;
+  width: 20rem;
+  border-top: 1px solid hsl(0, 0%, 80%);
+}
+.testselectcatdiv {
+  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; 
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  top: 0rem;
+  left:0rem;
+  width: 20rem;
+  height: 4rem;
+  
+}
+.selectcatdropdown {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  border: none;
+}
+.dropdownoptions {
+  display: flex;
+  flex-direction: column;
+  
+}
