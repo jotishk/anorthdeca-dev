@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import styles from './page.module.css';
-import { Settings, ClipboardPen, ChartGantt, Zap, School } from 'lucide-react';
+import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot } from 'lucide-react';
 export default function Main() {
   const [page,setPage] = useState('tests');
   return (
@@ -69,6 +69,7 @@ function HeaderNav({txt}) {
 function TestSidebar({page}) {
   const [category,setCategory] = useState('Finance');
   const [dropVisible, setDrop] = useState(false);
+  const [accordion, setAccordion] = useState([false,false,false]);
   const handleDrop = () => {
     setDrop(!dropVisible);
   }
@@ -86,6 +87,7 @@ function TestSidebar({page}) {
           </button>
           <DropDown visible = {dropVisible} handleChange = {handleChange}/>
         </div>
+        <SideBarAccordion active = {accordion[0]} txt = {'Sample'}/>
       </div>
     );
   } 
@@ -109,4 +111,26 @@ function DropDown({visible, handleChange}) {
   return null;
 }
 
+function SideBarAccordion({active,txt}) {
+  if (!active) {
+    return (
+      <>
+        <div className = {styles.sidebaraccordion}>
+          <p className = {styles.accordiontxt}>{txt}</p>
+          <img className = {styles.accordiondropicon} src = "/sidebar/dropdownicon.png"></img>
+        </div>
+        <SideBarTestCell txt = {'2018 ICDC Finance'}/>
+      </>
+    );
+  }
+}
+
+function SideBarTestCell({txt, id}) {
+  return (
+    <div className = {styles.testcelldiv}>
+      <Dot className = {styles.testcelldot} color="#878282" />
+      <p className = {styles.testcelltxt}>{txt}</p>
+    </div>
+  );
+}
 

@@ -88,17 +88,56 @@ body {
   border-right: 1px solid #e0e0e0;
   
 }
+.testcelldiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20rem;
+  height: 3.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  margin-left: 1rem;
+}
+.testcelldot {
+  width: 3rem;
+  height: 3rem;
+}
+.testcelltxt {
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--txtfont);
+  color:hsl(0, 0%, 30%);
+  /* margin-left: 0.1rem; */
+}
+.sidebaraccordion {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20rem;
+  height: 3.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  margin-left: 1rem;
+}
+.accordiontxt {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--txtfont);
+  background-color: transparent;
+}
+.accordiondropicon {
+  margin-top: 0.2rem;
+  margin-left: 12.5rem;
+  width: 0.75rem;
+  height: 1rem;
+  rotate: 270deg;
+}
 .testselectcatdiv {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; 
-  position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  top: 0rem;
-  left:0rem;
   width: 20rem;
   height: 4rem;
   border-bottom: 1px solid #e0e0e0;
@@ -116,7 +155,7 @@ body {
   font-weight: 500;
   font-family: var(--txtfont);
   background-color: transparent;
-  
+  z-index: 1;
 }
 .selectcatdropdown:hover {
   cursor: pointer;
