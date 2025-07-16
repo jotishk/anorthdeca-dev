@@ -30,8 +30,10 @@ function TestPage({tid}) {
   if (!active) {
     return (
       <div className = {styles.testpagediv}>
-        <p className = {styles.testtitleNA}>2018 ICDC Finance</p>
-        <button className = {styles.testbuttonNA}>Start</button>
+        <div className = {styles.testpageNAmid}>
+          <p className = {styles.testtitleNA}>2018 ICDC Finance</p>
+          <button className = {styles.testbuttonNA}>Continue</button>
+        </div>
       </div>
     );
   }
