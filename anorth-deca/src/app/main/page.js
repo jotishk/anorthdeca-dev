@@ -4,16 +4,39 @@ import styles from './page.module.css';
 import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot } from 'lucide-react';
 export default function Main() {
   const [page,setPage] = useState('tests');
-  return (
-    <>
-      <Header/>
-      <TestSidebar page = {page}/>
-    </>
-    
-  );
+  const [tid, setTid] = useState('');
+
+  const handleTestChange = (tid) => {
+    setTid(tid);
+  }
+  if (page === 'tests') {
+    return (
+      <div className = {styles.main}>
+        <Header/>
+        <TestSidebar handleTestChange = {handleTestChange} page = {page}/>
+        <TestPage tid = {tid}/>
+      </div>
+      
+    );
+  }
+  
   
 }
-
+function TestPage({tid}) {
+  const [active, setActive] = useState(false);
+  if (tid === '') {
+    return <div className = {styles.testpagediv}></div>
+  }
+  if (!active) {
+    return (
+      <div className = {styles.testpagediv}>
+        <p className = {styles.testtitleNA}>2018 ICDC Finance</p>
+        <button className = {styles.testbuttonNA}>Start</button>
+      </div>
+    );
+  }
+  
+}
 function Header() {
   return (
     <div className = {[styles.header]}>
@@ -66,7 +89,7 @@ function HeaderNav({txt}) {
     );
   }
 }
-function TestSidebar({page}) {
+function TestSidebar({page,handleTestChange}) {
   const [category,setCategory] = useState('Finance');
   const [dropVisible, setDrop] = useState(false);
   const [accordion, setAccordion] = useState([false,false,false]);
@@ -77,19 +100,47 @@ function TestSidebar({page}) {
     setCategory(n);
     setDrop(!dropVisible);
   }
+  const handleAccordion = (id) => {
+    const newAccordion = accordion.map((c,i) => {
+      if (i === id) {
+        return !c;
+      } else {
+        return c;
+      }
+    })
+    setAccordion(newAccordion);
+  }
   if (page === 'tests') {
-    return (
-      <div className = {styles.testsidebardiv}>
-        <div className = {styles.testselectcatdiv}>
-          <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
-            {category}
-            <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
-          </button>
-          <DropDown visible = {dropVisible} handleChange = {handleChange}/>
+    if (category === 'Finance') {
+      return (
+        <div className = {styles.testsidebardiv}>
+          <div className = {styles.testselectcatdiv}>
+            <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
+              {category}
+              <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
+            </button>
+            <DropDown visible = {dropVisible} handleChange = {handleChange}/>
+          </div>
+          <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
+            <SideBarTestCell handleTestChange={handleTestChange} txt = {'2018 ICDC Finance'}/>
+          </SideBarAccordion>
         </div>
-        <SideBarAccordion active = {accordion[0]} txt = {'Sample'}/>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className = {styles.testsidebardiv}>
+          <div className = {styles.testselectcatdiv}>
+            <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
+              {category}
+              <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
+            </button>
+            <DropDown visible = {dropVisible} handleChange = {handleChange}/>
+          </div>
+          
+        </div>
+      );
+    }
+    
   } 
   
   return null;
@@ -111,23 +162,31 @@ function DropDown({visible, handleChange}) {
   return null;
 }
 
-function SideBarAccordion({active,txt}) {
+function SideBarAccordion({id,children, active,txt,handleAccordion}) {
   if (!active) {
     return (
-      <>
+      <div className = {styles.accordiondiv}>
         <div className = {styles.sidebaraccordion}>
-          <p className = {styles.accordiontxt}>{txt}</p>
-          <img className = {styles.accordiondropicon} src = "/sidebar/dropdownicon.png"></img>
+            <p className = {styles.accordiontxt}>{txt}</p>
+            <img onClick = {()=>handleAccordion(id)} className = {styles.accordiondropicon} src = "/sidebar/dropdownicon.png"></img>
         </div>
-        <SideBarTestCell txt = {'2018 ICDC Finance'}/>
-      </>
+      </div> 
     );
   }
+  return (
+    <div className = {styles.accordiondiv}>
+        <div className = {styles.sidebaraccordion}>
+          <p className = {styles.accordiontxt}>{txt}</p>
+          <img onClick = {()=>handleAccordion(id)} className = {styles.accordiondropiconactive} src = "/sidebar/dropdownicon.png"></img>
+        </div>
+        {children}
+    </div>
+  );
 }
 
-function SideBarTestCell({txt, id}) {
+function SideBarTestCell({txt, id, handleTestChange}) {
   return (
-    <div className = {styles.testcelldiv}>
+    <div onClick = {() => handleTestChange(id)} className = {styles.testcelldiv}>
       <Dot className = {styles.testcelldot} color="#878282" />
       <p className = {styles.testcelltxt}>{txt}</p>
     </div>

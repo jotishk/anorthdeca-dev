@@ -4,6 +4,11 @@ body {
   margin: 0px;
   background-color: var(--bg);
 }
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 .header {
   display: flex;
   flex-direction: row;
@@ -94,12 +99,16 @@ body {
   align-items: center;
   width: 20rem;
   height: 3.5rem;
-  border-bottom: 1px solid #e0e0e0;
-  margin-left: 1rem;
+  transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+.testcelldiv:hover {
+  cursor:pointer;
+  background-color: #f0f4fa;
 }
 .testcelldot {
   width: 3rem;
   height: 3rem;
+  margin-left: 1rem;
 }
 .testcelltxt {
   font-size: 0.9rem;
@@ -108,13 +117,16 @@ body {
   color:hsl(0, 0%, 30%);
   /* margin-left: 0.1rem; */
 }
+.accordiondiv {
+  border-bottom: 1px solid #e0e0e0;
+}
 .sidebaraccordion {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 20rem;
   height: 3.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  /* border-bottom: 1px solid #e0e0e0; */
   margin-left: 1rem;
 }
 .accordiontxt {
@@ -125,10 +137,24 @@ body {
 }
 .accordiondropicon {
   margin-top: 0.2rem;
-  margin-left: 12.5rem;
+  margin-left: 14rem;
   width: 0.75rem;
-  height: 1rem;
+  height: 0.75rem;
   rotate: 270deg;
+}
+.accordiondropiconactive {
+  margin-top: 0.2rem;
+  margin-left: 14rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  rotate: 270deg;
+  rotate: 0deg;
+}
+.accordiondropicon:hover {
+  cursor: pointer;
+}
+.accordiondropiconactive:hover {
+  cursor: pointer;
 }
 .testselectcatdiv {
   -webkit-appearance: none;
@@ -191,4 +217,24 @@ body {
   width: 1rem;
   height: 1rem;
   opacity: 0.5;
+}
+.testpagediv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  flex: 1;
+  padding-left: 20rem;
+}
+.testtitleNA {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: var(--txtfont);
+  margin: 0px;
+}
+.testbuttonNA {
+  width: 10rem;
+  height: 4rem;
+  margin-top: 2rem;
 }
