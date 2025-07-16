@@ -24,6 +24,10 @@ export default function Main() {
 }
 function TestPage({tid}) {
   const [active, setActive] = useState(false);
+  const [qnum, setQnum] = useState(1);
+  const handleActive = () => {
+    setActive(!active); 
+  }
   if (tid === '') {
     return <div className = {styles.testpagediv}></div>
   }
@@ -32,12 +36,24 @@ function TestPage({tid}) {
       <div className = {styles.testpagediv}>
         <div className = {styles.testpageNAmid}>
           <p className = {styles.testtitleNA}>2018 ICDC Finance</p>
-          <button className = {styles.testbuttonNA}>Continue</button>
+          <button onClick = {handleActive} className = {styles.testbuttonNA}>Continue</button>
         </div>
       </div>
     );
   }
-  
+  return (
+    <div className = {styles.testpagediv}>
+      <QuestionPanel qnum = {qnum}/>
+    </div>
+  )
+}
+function QuestionPanel({qnum}) {
+  return (
+    <div className = "questionpanel">
+      <p>{'Question ' + qnum}</p>
+      <QuestionChoices/>
+    </div>
+  );
 }
 function Header() {
   return (

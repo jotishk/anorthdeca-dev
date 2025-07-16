@@ -231,6 +231,7 @@ body {
   font-weight: 700;
   font-family: var(--txtfont);
   margin: 0px;
+  margin-top: -2rem;
 }
 .testbuttonNA {
   position: relative;
@@ -242,8 +243,12 @@ body {
   background-color: white;
   color: black;
   border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 16px 0 rgba(0, 113, 186, 0.6), 0 0 32px 4px rgba(0, 113, 186, 0.3);
 }
-
+.testbuttonNA:hover {
+  cursor: pointer;
+}
 .testpageNAmid {
   display: flex;
   flex-direction: column;
