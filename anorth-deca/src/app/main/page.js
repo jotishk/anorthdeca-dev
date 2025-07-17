@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import styles from './page.module.css';
-import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot } from 'lucide-react';
+import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
 export default function Main() {
   const [page,setPage] = useState('tests');
   const [tid, setTid] = useState('');
@@ -72,13 +72,36 @@ function QuestionPanel({qnum}) {
   return (
     <div className = {styles.questionpanel}>
       <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
-      <p className = {styles.questioncontent}>"The human-resources manager sends an e-mail to all employees stating that they will need to park on the street on Tuesday because the maintenance department will be repairing the company's parking lot. This is an example of a(n)"</p>
+      <p className = {styles.questioncontent}>"The hum to all employees stating that they will need to park on the street on Tuesday because the maintenance department will be repairing the company's parking lot. This is an example of a(n)"</p>
       <div className = {styles.questionchoicesdiv}>
         <QuestionChoices handleSelected = {handleSelected} selected = {selected[0]} qnum = {qnum} altr = {'A'}/>
         <QuestionChoices handleSelected = {handleSelected} selected = {selected[1]} qnum = {qnum} altr = {'B'}/>
         <QuestionChoices handleSelected = {handleSelected} selected = {selected[2]} qnum = {qnum} altr = {'C'}/>
         <QuestionChoices handleSelected = {handleSelected} selected = {selected[3]} qnum = {qnum} altr = {'D'}/>
       </div> 
+      <QuestionPanelBtm qnum = {qnum}/>
+    </div>
+  );
+}
+function QuestionPanelBtm({qnum}) {
+  if (qnum === 1) {
+    return (
+      <div className = {styles.questionpanelbtmdiv}>
+        <button className = {styles.questionpanelnextbtn}><MoveRight size = "35px" color = "white"/></button>
+      </div>
+    );
+  }
+  if (qnum === 100) {
+    return (
+      <div className = {styles.questionpanelbtmdiv}>
+        <button className = {styles.questionpanelnextbtn}><MoveLeft size = "35px" color = "white"/></button>
+      </div>
+    );
+  }
+  return (
+    <div className = {styles.questionpanelbtmdiv}>
+      <button className = {styles.questionpanelnextbtn}><MoveLeft size = "35px" color = "white" /></button>
+      <button className = {styles.questionpanelnextbtn}><MoveRight size = "35px" color = "white"/></button>
     </div>
   );
 }
@@ -183,7 +206,10 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell handleTestChange={handleTestChange} txt = {'2018 ICDC Finance'}/>
+            <SideBarTestCell handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
+          </SideBarAccordion>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+            <SideBarTestCell handleTestChange={handleTestChange} txt = {'2018 State Finance'}/>
           </SideBarAccordion>
         </div>
       );

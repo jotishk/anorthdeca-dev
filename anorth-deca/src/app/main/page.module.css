@@ -127,17 +127,20 @@ body {
   width: 20rem;
   height: 3.5rem;
   /* border-bottom: 1px solid #e0e0e0; */
-  margin-left: 1rem;
+  
 }
 .accordiontxt {
   font-size: 1rem;
   font-weight: 500;
   font-family: var(--txtfont);
   background-color: transparent;
+  margin-left: 1rem;
 }
 .accordiondropicon {
   margin-top: 0.2rem;
-  margin-left: 14rem;
+  /* margin-left: 14rem; */
+  position: relative;
+  right:0rem;
   width: 0.75rem;
   height: 0.75rem;
   rotate: 270deg;
@@ -260,7 +263,12 @@ body {
   flex-direction: column;
   width: 30rem;
   height: 35rem;
-
+  background-color: var(--bglight);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: 1px solid #e0e0e0;
 }
 .questiontitle {
   margin-top: 0px;
@@ -279,10 +287,11 @@ body {
   
 }
 .questioncontent {
+  min-height: 6rem;
   font-size: 1.05rem;
   font-weight: 400;
   font-family: var(--txtfont);
-  height: fit-content;
+  /* height: fit-content; */
 }
 .questionchoicediv {
   display: flex;
@@ -333,4 +342,24 @@ body {
   font-weight: 500;
   font-family: var(--txtfont);
   color: black;
+}
+.questionpanelbtmdiv {
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  gap: 1rem;
+}
+.questionpanelnextbtn {
+  margin-top: 1rem;
+  width: 5rem;
+  height: 2.5rem;
+  background-color: var(--decablue);
+  border: none;
+  cursor: pointer;
+}
+.questionpanelnextbtn:hover {
+  opacity: 0.9;
 }
