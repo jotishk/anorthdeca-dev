@@ -48,10 +48,53 @@ function TestPage({tid}) {
   )
 }
 function QuestionPanel({qnum}) {
+  const [selected,setSelected] = useState([false,false,false,false]);
+  const handleSelected = (ltr) => {
+    let id = 0;
+    if (ltr === 'A') {
+      id = 0;
+    } else if (ltr === 'B') {
+      id = 1;
+    } else if (ltr === 'C') {
+      id = 2;
+    } else {
+      id = 3;
+    }
+    const update = selected.map((c,i) => {
+      if (i === id) {
+        return true;
+      } else {
+        return false;
+      }
+    }); 
+    setSelected(update);
+  }
   return (
-    <div className = "questionpanel">
-      <p>{'Question ' + qnum}</p>
-      <QuestionChoices/>
+    <div className = {styles.questionpanel}>
+      <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
+      <p className = {styles.questioncontent}>"The human-resources manager sends an e-mail to all employees stating that they will need to park on the street on Tuesday because the maintenance department will be repairing the company's parking lot. This is an example of a(n)"</p>
+      <div className = {styles.questionchoicesdiv}>
+        <QuestionChoices handleSelected = {handleSelected} selected = {selected[0]} qnum = {qnum} altr = {'A'}/>
+        <QuestionChoices handleSelected = {handleSelected} selected = {selected[1]} qnum = {qnum} altr = {'B'}/>
+        <QuestionChoices handleSelected = {handleSelected} selected = {selected[2]} qnum = {qnum} altr = {'C'}/>
+        <QuestionChoices handleSelected = {handleSelected} selected = {selected[3]} qnum = {qnum} altr = {'D'}/>
+      </div> 
+    </div>
+  );
+}
+function QuestionChoices({qnum,altr,selected,handleSelected}) {
+  if (selected) {
+    return (
+    <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
+      <div className = {styles.questionchoiceltractive}>{altr}</div>
+      <p className = {styles.answerchoicetxt}>Insert Answer Choice Here</p>
+    </div>
+  );
+  } 
+  return (
+    <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
+      <div className = {styles.questionchoiceltr}>{altr}</div>
+      <p className = {styles.answerchoicetxt}>Insert Answer Choice Here</p>
     </div>
   );
 }
