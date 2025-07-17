@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
 export default function Main() {
@@ -14,7 +14,7 @@ export default function Main() {
       <div className = {styles.main}>
         <Header/>
         <TestSidebar handleTestChange = {handleTestChange} page = {page}/>
-        <TestPage tid = {tid}/>
+        <TestPage key = {tid} tid = {tid}/>
       </div>
       
     );
@@ -25,6 +25,7 @@ export default function Main() {
 function TestPage({tid}) {
   const [active, setActive] = useState(false);
   const [qnum, setQnum] = useState(1);
+  
   const handleActive = () => {
     setActive(!active); 
   }
@@ -35,7 +36,7 @@ function TestPage({tid}) {
     return (
       <div className = {styles.testpagediv}>
         <div className = {styles.testpageNAmid}>
-          <p className = {styles.testtitleNA}>2018 ICDC Finance</p>
+          <p className = {styles.testtitleNA}>{tid}</p>
           <button onClick = {handleActive} className = {styles.testbuttonNA}>Continue</button>
         </div>
       </div>
@@ -72,7 +73,7 @@ function QuestionPanel({qnum}) {
   return (
     <div className = {styles.questionpanel}>
       <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
-      <p className = {styles.questioncontent}>"The hum to all employees stating that they will need to park on the street on Tuesday because the maintenance department will be repairing the company's parking lot. This is an example of a(n)"</p>
+      <p className = {styles.questioncontent}>"Justine's rich uncle wants to give her $5,000 towards the purchase of a car. But since Justine doesn't plan to buy the car for at least another year, her uncle told her that she can have the money now, or he can wait and give her the money when she actually buys the car. Justine chooses to take the money now and deposit it in her savings account. After all, her deposit will yield 6% interest compounded annually. A year from now, her $5,000 will be worth $5,300. What financial concept does this scenario illustrate?"</p>
       <div className = {styles.questionchoicesdiv}>
         <QuestionChoices handleSelected = {handleSelected} selected = {selected[0]} qnum = {qnum} altr = {'A'}/>
         <QuestionChoices handleSelected = {handleSelected} selected = {selected[1]} qnum = {qnum} altr = {'B'}/>
@@ -173,6 +174,24 @@ function HeaderNav({txt}) {
     );
   }
 }
+
+
+function DropDown({visible, handleChange}) {
+  if (visible) {
+    return (
+      <div className = {styles.dropdownoptions}>
+        <div onClick = {() => handleChange('Principles')} className = {styles.catOption}>Principles</div>
+        <div onClick = {() => handleChange('Finance')} className = {styles.catOption}>Finance</div>
+        <div onClick = {() => handleChange('Marketing')} className = {styles.catOption}>Marketing</div>
+        <div onClick = {() => handleChange('Business Administration')} className = {styles.catOption}>Business Administration</div>
+        <div onClick = {() => handleChange('Hospitality and Tourism')} className = {styles.catOption}>Hospitality and Tourism</div>
+        <div onClick = {() => handleChange('Entrepreneurship')} className = {styles.catOption}>Entrepreneurship</div>
+      </div>
+    );
+  }
+  return null;
+}
+
 function TestSidebar({page,handleTestChange}) {
   const [category,setCategory] = useState('Finance');
   const [dropVisible, setDrop] = useState(false);
@@ -206,10 +225,10 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
+            <SideBarTestCell id = {1002} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
           </SideBarAccordion>
           <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
-            <SideBarTestCell handleTestChange={handleTestChange} txt = {'2018 State Finance'}/>
+            <SideBarTestCell id = {1001} handleTestChange={handleTestChange} txt = {'2018 State Finance'}/>
           </SideBarAccordion>
         </div>
       );
@@ -230,22 +249,6 @@ function TestSidebar({page,handleTestChange}) {
     
   } 
   
-  return null;
-}
-
-function DropDown({visible, handleChange}) {
-  if (visible) {
-    return (
-      <div className = {styles.dropdownoptions}>
-        <div onClick = {() => handleChange('Principles')} className = {styles.catOption}>Principles</div>
-        <div onClick = {() => handleChange('Finance')} className = {styles.catOption}>Finance</div>
-        <div onClick = {() => handleChange('Marketing')} className = {styles.catOption}>Marketing</div>
-        <div onClick = {() => handleChange('Business Administration')} className = {styles.catOption}>Business Administration</div>
-        <div onClick = {() => handleChange('Hospitality and Tourism')} className = {styles.catOption}>Hospitality and Tourism</div>
-        <div onClick = {() => handleChange('Entrepreneurship')} className = {styles.catOption}>Entrepreneurship</div>
-      </div>
-    );
-  }
   return null;
 }
 

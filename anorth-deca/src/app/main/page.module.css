@@ -2,7 +2,7 @@
 
 body {
   margin: 0px;
-  background-color: var(--bg);
+  background-color: var(--bglight);
 }
 .main {
   display: flex;
@@ -138,16 +138,16 @@ body {
 }
 .accordiondropicon {
   margin-top: 0.2rem;
-  /* margin-left: 14rem; */
-  position: relative;
-  right:0rem;
+  margin-left: auto;
   width: 0.75rem;
   height: 0.75rem;
   rotate: 270deg;
+  margin-right: 1rem;
 }
 .accordiondropiconactive {
+  margin-left: auto;
+  margin-right: 1rem;
   margin-top: 0.2rem;
-  margin-left: 14rem;
   width: 0.75rem;
   height: 0.75rem;
   rotate: 270deg;
@@ -288,6 +288,8 @@ body {
 }
 .questioncontent {
   min-height: 6rem;
+  max-height: 8rem;
+  overflow-y: auto;
   font-size: 1.05rem;
   font-weight: 400;
   font-family: var(--txtfont);
@@ -331,7 +333,7 @@ body {
   height: 1.5rem;
   border-radius: 0.75rem;
   margin-right: 1rem;
-  background-color: black;
+  background-color: var(--decablue);
   color: white;
   font-size: 0.9rem;
   font-weight: 600;

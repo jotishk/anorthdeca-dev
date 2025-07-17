@@ -49,15 +49,17 @@ function LoginForm() {
   async function handleLogin() {
     setLoading(true);
     setErr('');
-    
+    console.log('trying login')
     if (email === '' || password === '') {
       setErr('Email or Password is invalid.')
       return;
     }
     try {
       const credential = await signInWithEmailAndPassword(auth,email,password);
-      router.push('/main');
+      console.log('successful login');
+      
     } catch (err) {
+      console.log(err)
       setErr(err.code);
     } finally {
       setLoading(false);
