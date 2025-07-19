@@ -1,26 +1,43 @@
 import { db } from '@/lib/firebase';
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, query, setDoc } from "firebase/firestore"; 
 import { v4 as uuidv4 } from 'uuid';
 
 
 async function checkUsernameExists() {
 
 }
+
+async function retrieveSession(UID,TID) {
+  const sessionsQuery = query(collection(db,"user",UID,"sessions"),where("tid", "==", TID));
+  const sessions = await getDocs(sessionsQuery);
+  for (const doc of sessions.docs) {
+    const sessionData = doc.data();
+    if (sessionData.status === 'active') {
+      return {id:doc.id,...sessionData};
+    }
+  }
+  return null;
+}
 async function createSession(UID,TID) {
   let emptyAnswers = {};
   const sessionID = uuidv4();
+  const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
+  const sessions = await getDocs(sessionsQuery);
   for (let i = 1; i<= 100; i++) {
     emptyAnswers[`q${i}`] = "";
   } 
   const sessionData = {
     tid: TID,
-    answers: emptyAnswers
+    status: 'active',
+    answers: emptyAnswers,
+    attempt: sessions.docs.length + 1
   }
   try {
     await setDoc(doc(db,"users",UID,"sessions",sessionID),sessionData);
   } catch(err) {
     throw err;
   }
+  return {id: sessionID, ...sessionData};
 }
 async function createUser(UID, Email, Username, ChapterID, Role) {
   const userData = {
@@ -109,4 +126,4 @@ async function createTest(text) {
 
 
 
-export { createUser, createTest, createSession };
+export { createUser, createTest, createSession, retrieveSession};

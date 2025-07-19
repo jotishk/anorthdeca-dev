@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
-import { createSession } from '@/lib/firebaseService';
+import { createSession, retrieveSession } from '@/lib/firebaseService';
 import { useAuth } from '@/context/AuthContext';
 
 export default function Main() {
@@ -29,11 +29,30 @@ export default function Main() {
 function TestPage({tid, user}) {
   const [active, setActive] = useState(false);
   const [qnum, setQnum] = useState(1);
-  
-  const handleActive = () => {
-    createSession(user.uid,tid)
-    setActive(!active); 
+  const [status, setStatus] = useState('Start');
+  const [session, setSession] = useState(null);
+  useEffect(()=> {
+    if (user.id===null) return;
+    async function fetchSession() {
+      const sessionData = await retrieveSession(user.id,tid);
+      if (sessionData) {
+        setStatus('Continue');
+      } else {
+        setStatus('Start');
+      }
+      setSession(sessionData);
+    }
+    fetchSession();
+  },[user.id,tid])
+
+  const handleActive = async () => {
+    if (status === 'Start') {
+      const newSession = await createSession(user.id,tid);
+      setSession(newSession);
+    } 
+    setActive(true); 
   }
+
   if (tid === '') {
     return <div className = {styles.testpagediv}></div>
   }
@@ -42,7 +61,7 @@ function TestPage({tid, user}) {
       <div className = {styles.testpagediv}>
         <div className = {styles.testpageNAmid}>
           <p className = {styles.testtitleNA}>{tid}</p>
-          <button onClick = {handleActive} className = {styles.testbuttonNA}>Continue</button>
+          <button onClick = {handleActive} className = {styles.testbuttonNA}>{status}</button>
         </div>
       </div>
     );
@@ -230,10 +249,10 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {1002} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
+            <SideBarTestCell id = {100} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
           </SideBarAccordion>
           <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
-            <SideBarTestCell id = {1001} handleTestChange={handleTestChange} txt = {'2018 State Finance'}/>
+            <SideBarTestCell id = {101} handleTestChange={handleTestChange} txt = {'2018 State Finance'}/>
           </SideBarAccordion>
         </div>
       );
