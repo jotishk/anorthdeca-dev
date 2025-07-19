@@ -46,11 +46,9 @@ function SignupForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   async function handleSignup() {
-    setLoading(true);
     setErr('');
     // Add check for username ''
     try {
@@ -61,9 +59,7 @@ function SignupForm() {
       router.push('/main');
     } catch (err) {
       setErr(err.code);
-    } finally {
-      setLoading(false);
-    }
+    } 
   }
 
   return (

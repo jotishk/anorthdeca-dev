@@ -1,10 +1,14 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
+import { createSession } from '@/lib/firebaseService';
+import { useAuth } from '@/context/AuthContext';
+
 export default function Main() {
   const [page,setPage] = useState('tests');
-  const [tid, setTid] = useState('');
+  const [tid, setTid] = useState('finance');
+  const {user, loading} = useAuth();
 
   const handleTestChange = (tid) => {
     setTid(tid);
@@ -14,7 +18,7 @@ export default function Main() {
       <div className = {styles.main}>
         <Header/>
         <TestSidebar handleTestChange = {handleTestChange} page = {page}/>
-        <TestPage key = {tid} tid = {tid}/>
+        <TestPage user = {user} key = {tid} tid = {tid}/>
       </div>
       
     );
@@ -22,11 +26,12 @@ export default function Main() {
   
   
 }
-function TestPage({tid}) {
+function TestPage({tid, user}) {
   const [active, setActive] = useState(false);
   const [qnum, setQnum] = useState(1);
   
   const handleActive = () => {
+    createSession(user.uid,tid)
     setActive(!active); 
   }
   if (tid === '') {

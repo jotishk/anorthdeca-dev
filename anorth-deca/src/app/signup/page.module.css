@@ -9,20 +9,20 @@ body {
   flex-direction: row;
   align-items: center;
   /* background-color: #0057B7; */
-  height: 5rem;
+  height: 4rem;
   width: 100%;
   /* border-bottom-width: 1px;
   border-bottom-color: var(--txtlight);
   border-bottom-style: solid; */
 }
 .headerlogo {
-  height:3rem;
-  width: 3rem;
+  height:2.5rem;
+  width: 2.5rem;
   margin-left: 1rem;
 }
 .headerlogotext {
   margin-left: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   font-family: var(--txtfont);
 }
@@ -129,7 +129,7 @@ body {
 }
 .signuperrbar {
   position: absolute;
-  top: 24.5rem;
+  top: 23.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

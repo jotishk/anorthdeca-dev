@@ -44,10 +44,10 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
-  const [loading, setLoading] = useState(false);
+  
   const router = useRouter();
   async function handleLogin() {
-    setLoading(true);
+
     setErr('');
     console.log('trying login')
     if (email === '' || password === '') {
@@ -61,9 +61,7 @@ function LoginForm() {
     } catch (err) {
       console.log(err)
       setErr(err.code);
-    } finally {
-      setLoading(false);
-    }
+    } 
   }
   return (
     <>
