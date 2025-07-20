@@ -2,12 +2,12 @@
 import { useContext, useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
-import { createSession, retrieveSession } from '@/lib/firebaseService';
+import { createSession, retrieveSession, fetchQuestions } from '@/lib/firebaseService';
 import { useAuth } from '@/context/AuthContext';
 
 export default function Main() {
   const [page,setPage] = useState('tests');
-  const [tid, setTid] = useState('finance');
+  const [tid, setTid] = useState('100');
   const {user, loading} = useAuth();
 
   const handleTestChange = (tid) => {
@@ -28,9 +28,10 @@ export default function Main() {
 }
 function TestPage({tid, user}) {
   const [active, setActive] = useState(false);
-  const [qnum, setQnum] = useState(1);
   const [status, setStatus] = useState('Start');
   const [session, setSession] = useState(null);
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [questionData, setQuestionData] = useState({});
   useEffect(()=> {
     if (user === null) return;
     async function fetchSession() {
@@ -52,7 +53,16 @@ function TestPage({tid, user}) {
     if (status === 'Start') {
       const newSession = await createSession(user.uid,tid);
       setSession(newSession);
-    } 
+      let emptyAnswers = {};
+      for (let i = 1; i<= 100; i++) {
+        emptyAnswers[`q${i}`] = "";
+      } 
+      setSelectedAnswers(emptyAnswers);
+    } else {
+      setSelectedAnswers(session.answers);
+    }
+    const retrievedTest = await fetchQuestions(tid);
+    setQuestionData(retrievedTest);
     setActive(true); 
   }
 
@@ -71,12 +81,29 @@ function TestPage({tid, user}) {
   }
   return (
     <div className = {styles.testpagediv}>
-      <QuestionPanel qnum = {qnum}/>
+      <QuestionPanel questionData = {questionData} selectedAnswers = {selectedAnswers}/>
     </div>
   )
 }
-function QuestionPanel({qnum}) {
+function QuestionPanel({selectedAnswers, questionData}) {
   const [selected,setSelected] = useState([false,false,false,false]);
+  const [qnum, setQnum] = useState(1);
+  useEffect(() => {
+    if (selectedAnswers[qnum] === 'A') {
+      setSelected([true,false,false,false]);
+    } else if (selectedAnswers[qnum] === 'B') {
+      setSelected([false,true,false,false]);
+    } else if (selectedAnswers[qnum] === 'C') {
+      setSelected([false,false,true,false]);
+    } else {
+      setSelected([false,false,false,true]);
+    }
+  },[qnum])
+
+  const handleQuestion = (curr,direction)=> {
+    const newNum = curr + direction;
+    setQnum(newNum);
+  }
   const handleSelected = (ltr) => {
     let id = 0;
     if (ltr === 'A') {
@@ -100,52 +127,52 @@ function QuestionPanel({qnum}) {
   return (
     <div className = {styles.questionpanel}>
       <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
-      <p className = {styles.questioncontent}>"Justine's rich uncle wants to give her $5,000 towards the purchase of a car. But since Justine doesn't plan to buy the car for at least another year, her uncle told her that she can have the money now, or he can wait and give her the money when she actually buys the car. Justine chooses to take the money now and deposit it in her savings account. After all, her deposit will yield 6% interest compounded annually. A year from now, her $5,000 will be worth $5,300. What financial concept does this scenario illustrate?"</p>
+      <p className = {styles.questioncontent}>{questionData["questions"][`q${qnum}`]}</p>
       <div className = {styles.questionchoicesdiv}>
-        <QuestionChoices handleSelected = {handleSelected} selected = {selected[0]} qnum = {qnum} altr = {'A'}/>
-        <QuestionChoices handleSelected = {handleSelected} selected = {selected[1]} qnum = {qnum} altr = {'B'}/>
-        <QuestionChoices handleSelected = {handleSelected} selected = {selected[2]} qnum = {qnum} altr = {'C'}/>
-        <QuestionChoices handleSelected = {handleSelected} selected = {selected[3]} qnum = {qnum} altr = {'D'}/>
+        <QuestionChoices answerChoice = {questionData["choices"][`q${qnum}`]["A"]} handleSelected = {handleSelected} selected = {selected[0]} qnum = {qnum} altr = {'A'}/>
+        <QuestionChoices answerChoice = {questionData["choices"][`q${qnum}`]["B"]} handleSelected = {handleSelected} selected = {selected[1]} qnum = {qnum} altr = {'B'}/>
+        <QuestionChoices answerChoice = {questionData["choices"][`q${qnum}`]["C"]} handleSelected = {handleSelected} selected = {selected[2]} qnum = {qnum} altr = {'C'}/>
+        <QuestionChoices answerChoice = {questionData["choices"][`q${qnum}`]["D"]} handleSelected = {handleSelected} selected = {selected[3]} qnum = {qnum} altr = {'D'}/>
       </div> 
-      <QuestionPanelBtm qnum = {qnum}/>
+      <QuestionPanelBtm qnum = {qnum} handleQuestion = {handleQuestion}/>
     </div>
   );
 }
-function QuestionPanelBtm({qnum}) {
+function QuestionPanelBtm({qnum,handleQuestion}) {
   if (qnum === 1) {
     return (
       <div className = {styles.questionpanelbtmdiv}>
-        <button className = {styles.questionpanelnextbtn}><MoveRight size = "35px" color = "white"/></button>
+        <button className = {styles.questionpanelnextbtn}><MoveRight onClick = {() => handleQuestion(qnum,1)} size = "35px" color = "white"/></button>
       </div>
     );
   }
   if (qnum === 100) {
     return (
       <div className = {styles.questionpanelbtmdiv}>
-        <button className = {styles.questionpanelnextbtn}><MoveLeft size = "35px" color = "white"/></button>
+        <button className = {styles.questionpanelnextbtn}><MoveLeft onClick = {() => handleQuestion(qnum,-1)} size = "35px" color = "white"/></button>
       </div>
     );
   }
   return (
     <div className = {styles.questionpanelbtmdiv}>
-      <button className = {styles.questionpanelnextbtn}><MoveLeft size = "35px" color = "white" /></button>
-      <button className = {styles.questionpanelnextbtn}><MoveRight size = "35px" color = "white"/></button>
+      <button className = {styles.questionpanelnextbtn}><MoveLeft onClick = {() => handleQuestion(qnum,-1)} size = "35px" color = "white" /></button>
+      <button className = {styles.questionpanelnextbtn}><MoveRight onClick = {() => handleQuestion(qnum,1)} size = "35px" color = "white"/></button>
     </div>
   );
 }
-function QuestionChoices({qnum,altr,selected,handleSelected}) {
+function QuestionChoices({qnum,altr,selected,handleSelected,answerChoice}) {
   if (selected) {
     return (
     <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
       <div className = {styles.questionchoiceltractive}>{altr}</div>
-      <p className = {styles.answerchoicetxt}>Insert Answer Choice Here</p>
+      <p className = {styles.answerchoicetxt}>{answerChoice}</p>
     </div>
   );
   } 
   return (
     <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
       <div className = {styles.questionchoiceltr}>{altr}</div>
-      <p className = {styles.answerchoicetxt}>Insert Answer Choice Here</p>
+      <p className = {styles.answerchoicetxt}>{answerChoice}</p>
     </div>
   );
 }

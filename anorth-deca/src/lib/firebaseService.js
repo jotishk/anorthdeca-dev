@@ -1,16 +1,21 @@
 import { db } from '@/lib/firebase';
-import { doc, setDoc, collection, query, where, getDocs } from "firebase/firestore"; 
+import { doc, setDoc, collection, query, where, getDocs, getDoc } from "firebase/firestore"; 
 import { v4 as uuidv4 } from 'uuid';
 
 
 async function checkUsernameExists() {
 
 }
-
+async function fetchQuestions(TID) {
+  const docRef = doc(db, "tests", TID);
+  const docSnap = await getDoc(docRef);
+  console.log(docSnap.data());
+  return docSnap.data();
+} 
 async function retrieveSession(UID,TID) {
   const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
   const sessions = await getDocs(sessionsQuery);
-  console.log(TID);
+  
   for (const doc of sessions.docs) {
     
     const sessionData = doc.data();
@@ -129,4 +134,4 @@ async function createTest(text) {
 
 
 
-export { createUser, createTest, createSession, retrieveSession};
+export { createUser, createTest, createSession, retrieveSession, fetchQuestions};
