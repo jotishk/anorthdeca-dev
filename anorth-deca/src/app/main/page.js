@@ -32,9 +32,9 @@ function TestPage({tid, user}) {
   const [status, setStatus] = useState('Start');
   const [session, setSession] = useState(null);
   useEffect(()=> {
-    if (user.id===null) return;
+    if (user === null) return;
     async function fetchSession() {
-      const sessionData = await retrieveSession(user.id,tid);
+      const sessionData = await retrieveSession(user.uid,tid);
       if (sessionData) {
         setStatus('Continue');
       } else {
@@ -42,12 +42,15 @@ function TestPage({tid, user}) {
       }
       setSession(sessionData);
     }
+    
     fetchSession();
-  },[user.id,tid])
+    
+    
+  },[user,tid])
 
   const handleActive = async () => {
     if (status === 'Start') {
-      const newSession = await createSession(user.id,tid);
+      const newSession = await createSession(user.uid,tid);
       setSession(newSession);
     } 
     setActive(true); 

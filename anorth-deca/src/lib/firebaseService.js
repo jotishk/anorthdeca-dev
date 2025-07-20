@@ -1,5 +1,5 @@
 import { db } from '@/lib/firebase';
-import { doc, query, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, collection, query, where, getDocs } from "firebase/firestore"; 
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -8,11 +8,14 @@ async function checkUsernameExists() {
 }
 
 async function retrieveSession(UID,TID) {
-  const sessionsQuery = query(collection(db,"user",UID,"sessions"),where("tid", "==", TID));
+  const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
   const sessions = await getDocs(sessionsQuery);
+  console.log(TID);
   for (const doc of sessions.docs) {
+    
     const sessionData = doc.data();
     if (sessionData.status === 'active') {
+      
       return {id:doc.id,...sessionData};
     }
   }
