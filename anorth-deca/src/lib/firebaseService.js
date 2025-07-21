@@ -1,10 +1,17 @@
 import { db } from '@/lib/firebase';
-import { doc, setDoc, collection, query, where, getDocs, getDoc } from "firebase/firestore"; 
+import { doc, setDoc, collection, query, where, getDocs, getDoc, updateDoc } from "firebase/firestore"; 
 import { v4 as uuidv4 } from 'uuid';
 
 
 async function checkUsernameExists() {
 
+}
+
+async function saveSelectedAnswers(UID, SID, answers) {
+  const sessionRef = doc(db,"users",UID,"sessions", SID);
+  await updateDoc(sessionRef, {
+    answers: answers
+  }, { merge:true });
 }
 async function fetchQuestions(TID) {
   const docRef = doc(db, "tests", TID);
@@ -134,4 +141,4 @@ async function createTest(text) {
 
 
 
-export { createUser, createTest, createSession, retrieveSession, fetchQuestions};
+export { createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};

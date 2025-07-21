@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from 'react';
 import styles from './page.module.css';
 import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
-import { createSession, retrieveSession, fetchQuestions } from '@/lib/firebaseService';
+import { createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
 import { useAuth } from '@/context/AuthContext';
 
 export default function Main() {
@@ -49,6 +49,18 @@ function TestPage({tid, user}) {
     
   },[user,tid])
 
+  useEffect(() => {
+    async function saveAnswers() {
+      if (active && user && tid) {
+        await saveSelectedAnswers(user.uid,session.id,selectedAnswers);
+      }
+    }
+    const interval = setInterval(() => {
+      saveAnswers();
+    }, 10000);
+
+    return () => clearInterval(interval); 
+  },[active,user,tid,session,selectedAnswers])
   const handleActive = async () => {
     if (status === 'Start') {
       const newSession = await createSession(user.uid,tid);
@@ -81,22 +93,24 @@ function TestPage({tid, user}) {
   }
   return (
     <div className = {styles.testpagediv}>
-      <QuestionPanel questionData = {questionData} selectedAnswers = {selectedAnswers}/>
+      <QuestionPanel questionData = {questionData} setSelectedAnswers = {setSelectedAnswers} selectedAnswers = {selectedAnswers}/>
     </div>
   )
 }
-function QuestionPanel({selectedAnswers, questionData}) {
+function QuestionPanel({selectedAnswers, setSelectedAnswers, questionData}) {
   const [selected,setSelected] = useState([false,false,false,false]);
   const [qnum, setQnum] = useState(1);
   useEffect(() => {
-    if (selectedAnswers[qnum] === 'A') {
+    if (selectedAnswers[`q${qnum}`] === 'A') {
       setSelected([true,false,false,false]);
-    } else if (selectedAnswers[qnum] === 'B') {
+    } else if (selectedAnswers[`q${qnum}`] === 'B') {
       setSelected([false,true,false,false]);
-    } else if (selectedAnswers[qnum] === 'C') {
+    } else if (selectedAnswers[`q${qnum}`] === 'C') {
       setSelected([false,false,true,false]);
-    } else {
+    } else if (selectedAnswers[`q${qnum}`] === 'D') {
       setSelected([false,false,false,true]);
+    } else {
+      setSelected([false,false,false,false]);
     }
   },[qnum])
 
@@ -123,6 +137,7 @@ function QuestionPanel({selectedAnswers, questionData}) {
       }
     }); 
     setSelected(update);
+    setSelectedAnswers({ ...selectedAnswers, [`q${qnum}`]: ltr })
   }
   return (
     <div className = {styles.questionpanel}>
