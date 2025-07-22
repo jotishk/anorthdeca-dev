@@ -1,7 +1,8 @@
 'use client'
-import { useContext, useEffect, useState } from 'react';
+import { useRef, useContext, useEffect, useState } from 'react';
 import styles from '@/app/main/page.module.css';
 import { createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
+import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
 
 const tidToLabel = {
   100: "2013 ICDC Finance Exam"
@@ -54,7 +55,7 @@ export function TestPage({tid, user}) {
     } else {
       setSelectedAnswers(session.answers);
     }
-    const retrievedTest = await fetchQuestions(tid);
+    const retrievedTest = await fetchQuestions("" + tid);
     setQuestionData(retrievedTest);
     setActive(true); 
   }
@@ -74,6 +75,7 @@ export function TestPage({tid, user}) {
   }
   return (
     <div className = {styles.testpagediv}>
+      <p className = {styles.testpageinfo}>{questionData["category"] + " > " + tidToLabel[tid]}</p>
       <QuestionPanel questionData = {questionData} setSelectedAnswers = {setSelectedAnswers} selectedAnswers = {selectedAnswers}/>
     </div>
   )
@@ -81,6 +83,7 @@ export function TestPage({tid, user}) {
 export function QuestionPanel({selectedAnswers, setSelectedAnswers, questionData}) {
   const [selected,setSelected] = useState([false,false,false,false]);
   const [qnum, setQnum] = useState(1);
+
   useEffect(() => {
     if (selectedAnswers[`q${qnum}`] === 'A') {
       setSelected([true,false,false,false]);
@@ -94,6 +97,7 @@ export function QuestionPanel({selectedAnswers, setSelectedAnswers, questionData
       setSelected([false,false,false,false]);
     }
   },[qnum])
+
 
   const handleQuestion = (curr,direction)=> {
     const newNum = curr + direction;
