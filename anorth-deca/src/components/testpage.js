@@ -1,8 +1,8 @@
 'use client'
 import { useRef, useContext, useEffect, useState } from 'react';
 import styles from '@/app/main/page.module.css';
-import { createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
-import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
+import { fetchAttempts, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
+import { Plus, MoveLeft, MoveRight } from 'lucide-react';
 
 const tidToLabel = {
   100: "2013 ICDC Finance Exam"
@@ -69,6 +69,7 @@ export function TestPage({tid, user}) {
         <div className = {styles.testpageNAmid}>
           <p className = {styles.testtitleNA}>{tidToLabel[tid]}</p>
           <button onClick = {handleActive} className = {styles.testbuttonNA}>{status}</button>
+          <AttemptsAccordion uid = {user.uid} tid = {tid}/>
         </div>
       </div>
     );
@@ -173,6 +174,53 @@ export function QuestionChoices({qnum,altr,selected,handleSelected,answerChoice}
     <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
       <div className = {styles.questionchoiceltr}>{altr}</div>
       <p className = {styles.answerchoicetxt}>{answerChoice}</p>
+    </div>
+  );
+}
+function AttemptsAccordion({uid,tid}) {
+  const [active, setActive] = useState(false);
+  const [attemptData, setAttemptData] = useState({});
+  const handleActive = () => {
+    setActive(!active);
+  }
+  useEffect(() => {
+    async function fetchData() {
+      let data = await fetchAttempts(uid,tid);
+       console.log(data);
+      setAttemptData(data);
+    }
+    fetchData();
+   
+  },[uid,tid])
+
+  if (!active) {
+    return (
+      <div className = {styles.testattemptsdiv}>
+        <div className = {styles.attemptsaccordion}>
+          <p className = {styles.attemptsaccordiontxt}>View Attempts</p>
+          <Plus onClick = {() => handleActive()} className = {styles.attemptsaccordionplus} color="#ffffff" />
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className = {styles.testattemptsdiv}>
+      <div className = {styles.attemptsaccordion}>
+        <p className = {styles.attemptsaccordiontxt}>View Attempts</p>
+        <Plus onClick = {() => handleActive()} className = {styles.attemptsaccordionplus} color="#ffffff" />
+        </div>
+      {attemptData.map(data => (
+        <AttemptsCell key = {data} info = {data}/>
+      ))}
+    </div>
+  );
+  
+}
+function AttemptsCell({info}) {
+  return (
+    <div className = {styles.testattemptscelldiv}>
+      <p className = {styles.testattemptscellcount}>{"Attempt " + info.num}</p>
+      <p className = {styles.testattemptscellscore}>60%</p>
     </div>
   );
 }

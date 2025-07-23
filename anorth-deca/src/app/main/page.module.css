@@ -388,3 +388,55 @@ body {
 .questionpanelnextbtn:hover {
   opacity: 0.9;
 }
+
+.testattemptsdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 5rem;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.attemptsaccordion {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 3rem;
+  width: 30rem;
+  background-color: var(--decablue);
+}
+.attemptsaccordiontxt {
+  color: white;
+  font-family: var(--txtfont);
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+.attemptsaccordionplus {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+.testattemptscelldiv {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 3rem;
+  width: 30rem;
+  background-color: #007cce;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); */
+}
+.testattemptscellcount {
+  color: white;
+  font-family: var(--txtfont);
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+.testattemptscellscore {
+  color: white;
+  font-family: var(--txtfont);
+  font-size: 1.1rem;
+  position: absolute;
+  right: 1rem;
+}

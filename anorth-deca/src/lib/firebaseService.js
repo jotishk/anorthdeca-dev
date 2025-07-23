@@ -6,7 +6,20 @@ import { v4 as uuidv4 } from 'uuid';
 async function checkUsernameExists() {
 
 }
-
+async function fetchAttempts(UID,TID) {
+  const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
+  const sessions = await getDocs(sessionsQuery);
+  let data = [];
+  
+  for (const doc of sessions.docs) {
+    
+    const sessionData = doc.data();
+    if (sessionData.status !== 'active') {
+      data.push({num:sessionData["attempt"]});
+    }
+  }
+  return data;
+}
 async function saveSelectedAnswers(UID, SID, answers) {
   const sessionRef = doc(db,"users",UID,"sessions", SID);
   await updateDoc(sessionRef, {
@@ -16,7 +29,6 @@ async function saveSelectedAnswers(UID, SID, answers) {
 async function fetchQuestions(TID) {
   const docRef = doc(db, "tests", TID);
   const docSnap = await getDoc(docRef);
-  console.log(docSnap.data());
   return docSnap.data();
 } 
 async function retrieveSession(UID,TID) {
@@ -141,4 +153,4 @@ async function createTest(text) {
 
 
 
-export { createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
+export { fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
