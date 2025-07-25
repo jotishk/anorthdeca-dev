@@ -255,7 +255,7 @@ body {
   position: relative;
   width: 9.5rem;
   height: 3.5rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   font-size: 1.5rem;
   font-weight: 500;
   background-color: var(--bglight);
@@ -286,6 +286,8 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem;
   border: 1px solid #e0e0e0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); 
+  border-radius: 0.5rem;
 }
 .questiontitle {
   margin-top: 0px;
@@ -323,6 +325,8 @@ body {
 }
 .questionchoicediv:hover {
   cursor: pointer;
+  background-color: #f3f6fa;
+  /* border-color: var(--decablue); */
 }
 .questionchoiceltr {
   display: flex;

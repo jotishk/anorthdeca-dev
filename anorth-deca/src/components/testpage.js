@@ -88,6 +88,7 @@ export function TestPage({tid, user}) {
     <div className = {styles.testpagediv}>
       <p className = {styles.testpageinfo}>{questionData["category"] + " > " + tidToLabel[tid]}</p>
       <QuestionPanel questionData = {questionData} setSelectedAnswers = {setSelectedAnswers} selectedAnswers = {selectedAnswers}/>
+      <QuestionMap selectedAnswers = {selectedAnswers}>
     </div>
   )
 }
@@ -207,7 +208,7 @@ function AttemptsAccordion({uid,tid}) {
     return (
       <div className = {styles.testattemptsdiv}>
         <div className = {styles.attemptsaccordion}>
-          <p className = {styles.attemptsaccordiontxt}>View Attempts</p>
+          <p className = {styles.attemptsaccordiontxt}>{`Past Attempts (${attemptData.length})`}</p>
           <Plus onClick = {() => handleActive()} className = {styles.attemptsaccordionplus} color="#ffffff" />
         </div>
       </div>
@@ -232,5 +233,21 @@ function AttemptsCell({info}) {
       <p className = {styles.testattemptscellcount}>{"Attempt " + info.num}</p>
       <p className = {styles.testattemptscellscore}>60%</p>
     </div>
+  );
+}
+function QuestionMap({selectedAnswers}) {
+  return(
+    <div className = {styles.questionmapdiv}>
+      <div className = {styles.questionmapgrid}>
+        {selectedAnswers.map((answer,qnum)=>(
+          <QuestionBox key={qnum} qnum={qnum} answerState={answer}/>
+        ))}
+      </div>
+    </div>
+  );
+}
+function QuestionBox({qnum,answerState}) {
+  return(
+    <div className = {styles.questionboxdiv}>{qnum}</div>
   );
 }
