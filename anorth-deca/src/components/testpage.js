@@ -2,7 +2,7 @@
 import { useRef, useContext, useEffect, useState } from 'react';
 import styles from '@/app/main/page.module.css';
 import { fetchAttempts, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
-import { Plus, MoveLeft, MoveRight } from 'lucide-react';
+import { Clock,Plus, MoveLeft, MoveRight } from 'lucide-react';
 
 const tidToLabel = {
   100: "2013 ICDC Finance Exam"
@@ -68,8 +68,18 @@ export function TestPage({tid, user}) {
       <div className = {styles.testpagediv}>
         <div className = {styles.testpageNAmid}>
           <p className = {styles.testtitleNA}>{tidToLabel[tid]}</p>
-          <button onClick = {handleActive} className = {styles.testbuttonNA}>{status}</button>
+          <p className = {styles.testdescription}>
+            {`This is a 100 question multiple choice test from the `}
+            <p className = {styles.testdescriptionhighlight}>{`${tidToLabel[tid].split(" ")[0]} ${tidToLabel[tid].split(" ")[1]}`}</p>
+            {` administration of the exam from the 
+            ${tidToLabel[tid].split(" ")[2]} cluster.`}
+          </p>
           <AttemptsAccordion uid = {user.uid} tid = {tid}/>
+          <button onClick = {handleActive} className = {styles.testbuttonNA}>{status}</button>
+        </div>
+        <div className = {styles.testpagetimediv}>
+          <Clock size="30px"/>
+          <p className = {styles.testpagetimetxt}>Recommended time limit is 60 min</p>
         </div>
       </div>
     );
