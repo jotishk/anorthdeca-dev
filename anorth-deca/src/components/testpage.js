@@ -2,7 +2,7 @@
 import { useRef, useContext, useEffect, useState } from 'react';
 import styles from '@/app/main/page.module.css';
 import { fetchAttempts, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
-import { Clock,Plus, MoveLeft, MoveRight } from 'lucide-react';
+import { ChevronUp,Clock,Plus, MoveLeft, MoveRight } from 'lucide-react';
 
 const tidToLabel = {
   100: "2013 ICDC Finance Exam"
@@ -237,21 +237,54 @@ function AttemptsCell({info}) {
 }
 function QuestionMap({selectedAnswers}) {
   const [mapPage, setMapPage] = useState(1);
+  const handleMapPage = () => {
+    console.log('ran');
+    if (mapPage == 1) {
+      setMapPage(2);
+    } else {
+      setMapPage(1);
+    }
+  }
   return(
     <div className = {styles.questionmapdiv}>
       <p className = {styles.questionmapheader}>Review your answers</p>
       <div className = {styles.questionmapgrid}>
-        {Object.entries(selectedAnswers).map((answer,qnum)=>(
-          
-          <QuestionBox key={qnum} qnum={qnum + 1} answerState={answer}/>
-        ))}
+        {Object.entries(selectedAnswers).map((answer, qnum) =>
+          (mapPage && 50 * (mapPage-1) <= qnum  && qnum < 50 * mapPage) ? (
+            <QuestionBox key={qnum} qnum={qnum + 1} answerState={selectedAnswers[`q${qnum+1}`]}/>
+          ) : null
+        )}
       </div>
-      <button className = {styles.questionmapgridsubmit}>Submit</button>
+      <div className = {styles.questionmapbtm}>
+        <BlackDropBox onClick = {() => handleMapPage()} txt = {(mapPage == 1) ? 'Questions 1 - 50' : 'Questions 50 - 100'}/>
+        <BlueBtn txt = {'Submit'}/>
+      </div>
     </div>
   );
 }
 function QuestionBox({qnum,answerState}) {
-  return(
-    <div className = {styles.questionboxdiv}>{qnum}</div>
+  if (answerState == "") {
+    return(
+      <div className = {styles.questionboxdivempty}>{qnum}</div>
+    );
+  } else {
+    return(
+      <div className = {styles.questionboxdivfull}>{qnum}</div>
+    );
+  }
+}
+function BlackDropBox({txt,children, onClick}) {
+  return (
+    <button className = {styles.blackdropbox} onClick={onClick}>
+      {txt}
+      <ChevronUp className = {styles.blackdropboxchevron} size={'20px'}/>
+    </button>
   );
+}
+function BlueBtn({txt}) {
+  return (
+    <button className = {styles.bluebtn}>
+      {txt}
+    </button>
+  )
 }

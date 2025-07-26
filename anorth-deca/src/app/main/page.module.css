@@ -475,26 +475,27 @@ body {
 }
 .questionmapdiv {
   position: absolute;
-  width: 31rem;
-  height: 35rem;
-  /* background-color: var(--bglight); */
-  background-color: green;
+  width: 41rem;
+  height: 30rem;
+  background-color: var(--bglight);
+  /* visibility: hidden; */
+  /* background-color: green; */
 }
 .questionmapgrid {
   display: grid;
-  grid-template-columns: 2rem 2rem 2rem 2rem 2rem 2rem 2rem 2rem 2rem 2rem;
+  grid-template-columns: 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem;
   column-gap: 1rem;
   row-gap: 1rem;
-  width: 29rem;
-  height: 29rem;
-  background-color: #ee0979;
+  width: 39rem;
+  height: 19rem;
+  /* background-color: #ee0979; */
   margin-top: 1rem;
   margin-left: 1rem;
 }
 .questionboxdiv {
-  width: 2rem;
-  height: 2rem;
-  background-color: blue;
+  width: 3rem;
+  height: 3rem;
+  /* background-color: blue; */
 }
 .questionmapheader {
   font-family: var(--txtfont);
@@ -503,5 +504,71 @@ body {
   margin: 0;
   margin-left: 1rem;
   margin-top: 0.8rem;
+}
+.questionboxdivempty {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--decablue);
+  color: var(--decablue);
+  font-family: var(--txtfont);
+  font-size: 1.4rem;
+  font-weight: 600;  
+}
+.questionboxdivfull {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--txtfont);
+  font-size: 1.4rem;
+  font-weight: 600;  
+  background-color: var(--decablue);
+  color: white;
+  /* background-color: var(--decablue); */
+}
+.questionmapbtm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* background-color: pink; */
+  width: 39rem;
+  height:5rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.blackdropbox {
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.4rem;
+  background-color: black;
+  color: white;
+  border: none;
+  font-family: var(--txtfont);
+  font-size: 0.9rem;
+  font-weight:550; 
+  border-radius: 4px;
+  cursor: pointer;
+}
+.blackdropboxchevron {
+  margin-left: 0.2rem;
+}
+.bluebtn {
+  border: none;
+  background-color: var(--decablue);
+  height: 2.25rem;
+  font-family: var(--txtfont);
+  font-size: 0.9rem;
+  font-weight:550; 
+  border-radius: 1.125rem;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
 
 }
