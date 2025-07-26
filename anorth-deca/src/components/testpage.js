@@ -70,7 +70,7 @@ export function TestPage({tid, user}) {
           <p className = {styles.testtitleNA}>{tidToLabel[tid]}</p>
           <p className = {styles.testdescription}>
             {`This is a 100 question multiple choice test from the `}
-            <p className = {styles.testdescriptionhighlight}>{`${tidToLabel[tid].split(" ")[0]} ${tidToLabel[tid].split(" ")[1]}`}</p>
+            <span className = {styles.testdescriptionhighlight}>{`${tidToLabel[tid].split(" ")[0]} ${tidToLabel[tid].split(" ")[1]}`}</span>
             {` administration of the exam from the 
             ${tidToLabel[tid].split(" ")[2]} cluster.`}
           </p>
@@ -88,7 +88,7 @@ export function TestPage({tid, user}) {
     <div className = {styles.testpagediv}>
       <p className = {styles.testpageinfo}>{questionData["category"] + " > " + tidToLabel[tid]}</p>
       <QuestionPanel questionData = {questionData} setSelectedAnswers = {setSelectedAnswers} selectedAnswers = {selectedAnswers}/>
-      <QuestionMap selectedAnswers = {selectedAnswers}>
+      <QuestionMap selectedAnswers = {selectedAnswers}/>
     </div>
   )
 }
@@ -236,13 +236,17 @@ function AttemptsCell({info}) {
   );
 }
 function QuestionMap({selectedAnswers}) {
+  const [mapPage, setMapPage] = useState(1);
   return(
     <div className = {styles.questionmapdiv}>
+      <p className = {styles.questionmapheader}>Review your answers</p>
       <div className = {styles.questionmapgrid}>
-        {selectedAnswers.map((answer,qnum)=>(
-          <QuestionBox key={qnum} qnum={qnum} answerState={answer}/>
+        {Object.entries(selectedAnswers).map((answer,qnum)=>(
+          
+          <QuestionBox key={qnum} qnum={qnum + 1} answerState={answer}/>
         ))}
       </div>
+      <button className = {styles.questionmapgridsubmit}>Submit</button>
     </div>
   );
 }
