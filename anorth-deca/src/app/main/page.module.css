@@ -4,10 +4,22 @@ body {
   margin: 0px;
   background-color: var(--bg);
 }
+
 .main {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+.coverup {
+  position: absolute;
+  background-color: black;
+  opacity: 0.5;
+  left: 20rem;
+  right: 0rem;
+  bottom: 0rem;
+  top: 0rem;
+  z-index: 10;
+
 }
 .header {
   display: flex;
@@ -476,10 +488,11 @@ body {
 .questionmapdiv {
   position: absolute;
   width: 41rem;
-  height: 30rem;
+  height: 28rem;
   background-color: var(--bglight);
-  /* visibility: hidden; */
-  /* background-color: green; */
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); 
+  z-index: 11;
 }
 .questionmapgrid {
   display: grid;
@@ -498,6 +511,8 @@ body {
   /* background-color: blue; */
 }
 .questionmapheader {
+  display: flex;
+  align-items: center;
   font-family: var(--txtfont);
   font-size: 1.6rem;
   font-weight: 600;
@@ -515,6 +530,7 @@ body {
   font-family: var(--txtfont);
   font-size: 1.4rem;
   font-weight: 600;  
+  cursor: pointer;
 }
 .questionboxdivfull {
   display: flex;
@@ -526,6 +542,7 @@ body {
   font-weight: 600;  
   background-color: var(--decablue);
   color: white;
+  cursor: pointer;
   /* background-color: var(--decablue); */
 }
 .questionmapbtm {
@@ -537,7 +554,7 @@ body {
   width: 39rem;
   height:5rem;
   margin-left: 1rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   gap: 1rem;
 }
 .blackdropbox {
@@ -570,5 +587,13 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
   cursor: pointer;
-
+  transition: transform 0.1s cubic-bezier(0.4,0,0.2,1);
+}
+.bluebtn:active {
+  transform: scale(0.96);
+}
+.questionmapexit {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
 }
