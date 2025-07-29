@@ -8,8 +8,8 @@ const tidToLabel = {
   100: "2013 ICDC Finance Exam"
 }
 
-export function TestPage({tid, user}) {
-  const [active, setActive] = useState(false);
+export function TestPage({tid, user,active, setActive}) {
+  
   const [status, setStatus] = useState('Start');
   const [session, setSession] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -19,6 +19,7 @@ export function TestPage({tid, user}) {
   useEffect(()=> {
     if (user === null) return;
     async function fetchSession() {
+      
       const sessionData = await retrieveSession(user.uid,tid);
       if (sessionData) {
         setStatus('Continue');
@@ -31,7 +32,7 @@ export function TestPage({tid, user}) {
     fetchSession();
     
     
-  },[user,tid])
+  },[user,tid,active])
 
   useEffect(() => {
     async function saveAnswers() {
@@ -205,7 +206,6 @@ function AttemptsAccordion({uid,tid}) {
   useEffect(() => {
     async function fetchData() {
       let data = await fetchAttempts(uid,tid);
-       console.log(data);
       setAttemptData(data);
     }
     fetchData();
@@ -225,7 +225,7 @@ function AttemptsAccordion({uid,tid}) {
   return (
     <div className = {styles.testattemptsdiv}>
       <div className = {styles.attemptsaccordion}>
-        <p className = {styles.attemptsaccordiontxt}>View Attempts</p>
+        <p className = {styles.attemptsaccordiontxt}>{`Past Attempts (${attemptData.length})`}</p>
         <Plus onClick = {() => handleActive()} className = {styles.attemptsaccordionplus} color="#ffffff" />
         </div>
       {attemptData.map(data => (

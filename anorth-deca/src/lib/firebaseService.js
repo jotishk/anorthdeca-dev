@@ -6,6 +6,9 @@ import { v4 as uuidv4 } from 'uuid';
 async function checkUsernameExists() {
 
 }
+async function submitTest(UID,TID,selectedAnswers) {
+  
+}
 async function fetchAttempts(UID,TID) {
   const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
   const sessions = await getDocs(sessionsQuery);
@@ -32,9 +35,9 @@ async function fetchQuestions(TID) {
   return docSnap.data();
 } 
 async function retrieveSession(UID,TID) {
+  console.log(TID);
   const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
   const sessions = await getDocs(sessionsQuery);
-  
   for (const doc of sessions.docs) {
     
     const sessionData = doc.data();
@@ -76,7 +79,6 @@ async function createUser(UID, Email, Username, ChapterID, Role) {
   try {
     await setDoc(doc(db, "users", UID), userData);
   } catch (err) {
-    console.log(err);
     throw err;
   }
 }

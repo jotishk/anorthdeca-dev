@@ -9,16 +9,18 @@ export default function Main() {
   const [page,setPage] = useState('tests');
   const [tid, setTid] = useState('100');
   const {user, loading} = useAuth();
-  
+  const [active, setActive] = useState(false);
+
   const handleTestChange = (tid) => {
     setTid(tid);
+    setActive(false);
   }
   if (page === 'tests') {
     return (
       <div className = {styles.main}>
         <Header/>
         <TestSidebar handleTestChange = {handleTestChange} page = {page}/>
-        <TestPage user = {user} key = {tid} tid = {tid}/>
+        <TestPage active = {active} setActive = {setActive} user = {user} key = {tid} tid = {tid}/>
       </div>
       
     );
@@ -128,10 +130,10 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {100} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
+            <SideBarTestCell id = {'100'} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
           </SideBarAccordion>
           <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
-            <SideBarTestCell id = {101} handleTestChange={handleTestChange} txt = {'2018 State Finance'}/>
+            <SideBarTestCell id = {'101'} handleTestChange={handleTestChange} txt = {'2018 State Finance'}/>
           </SideBarAccordion>
         </div>
       );
