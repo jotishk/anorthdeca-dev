@@ -1,7 +1,7 @@
 'use client'
 import { useRef, useContext, useEffect, useState } from 'react';
 import styles from '@/app/main/page.module.css';
-import { fetchAttempts, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
+import { submitTest, fetchAttempts, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
 import { X,ChevronUp,Clock,Plus, MoveLeft, MoveRight } from 'lucide-react';
 
 const tidToLabel = {
@@ -16,6 +16,7 @@ export function TestPage({tid, user,active, setActive}) {
   const [questionData, setQuestionData] = useState({});
   const [questionMap,setQuestionMap] = useState(false);
   const [qnum, setQnum] = useState(1);
+
   useEffect(()=> {
     if (user === null) return;
     async function fetchSession() {
@@ -46,6 +47,7 @@ export function TestPage({tid, user,active, setActive}) {
 
     return () => clearInterval(interval); 
   },[active,user,tid,session,selectedAnswers])
+
   const handleActive = async () => {
     if (status === 'Start') {
       const newSession = await createSession(user.uid,tid);
@@ -62,12 +64,19 @@ export function TestPage({tid, user,active, setActive}) {
     setQuestionData(retrievedTest);
     setActive(true); 
   }
+
   const handleQuestionMap = () => {
     setQuestionMap(!questionMap)
   }
+
+  const submitSession = async () => {
+    await submitTest(user.uid, session.id, tid, selectedAnswers);
+  }
+
   if (tid === '') {
     return <div className = {styles.testpagediv}></div>
   }
+
   if (!active) {
     return (
       <div className = {styles.testpagediv}>
@@ -93,7 +102,7 @@ export function TestPage({tid, user,active, setActive}) {
     <div className = {styles.testpagediv}>
       <p className = {styles.testpageinfo}>{questionData["category"] + " > " + tidToLabel[tid]}</p>
       <QuestionPanel qnum = {qnum} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap} questionData = {questionData} setSelectedAnswers = {setSelectedAnswers} selectedAnswers = {selectedAnswers}/>
-      {questionMap ? <QuestionMap setQnum = {setQnum} handleQuestionMap = {handleQuestionMap} selectedAnswers = {selectedAnswers}/> : null }
+      {questionMap ? <QuestionMap submitSession = {submitSession} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap} selectedAnswers = {selectedAnswers}/> : null }
       {questionMap ? <div className = {styles.coverup}></div>: null }
     </div>
   )
@@ -243,7 +252,7 @@ function AttemptsCell({info}) {
     </div>
   );
 }
-function QuestionMap({selectedAnswers,handleQuestionMap,setQnum}) {
+function QuestionMap({submitSession, selectedAnswers,handleQuestionMap,setQnum}) {
   const [mapPage, setMapPage] = useState(1);
   const handleMapPage = () => {
     if (mapPage == 1) {
@@ -252,6 +261,7 @@ function QuestionMap({selectedAnswers,handleQuestionMap,setQnum}) {
       setMapPage(1);
     }
   }
+  
   return(
     <div className = {styles.questionmapdiv}>
       <p className = {styles.questionmapheader}>
@@ -267,7 +277,7 @@ function QuestionMap({selectedAnswers,handleQuestionMap,setQnum}) {
       </div>
       <div className = {styles.questionmapbtm}>
         <BlackDropBox onClick = {() => handleMapPage()} txt = {(mapPage == 1) ? 'Questions 1 - 50' : 'Questions 50 - 100'}/>
-        <BlueBtn txt = {'Submit'}/>
+        <BlueBtn onClick = {submitSession} txt = {'Submit'}/>
       </div>
     </div>
   );

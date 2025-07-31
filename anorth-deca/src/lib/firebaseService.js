@@ -6,8 +6,25 @@ import { v4 as uuidv4 } from 'uuid';
 async function checkUsernameExists() {
 
 }
-async function submitTest(UID,TID,selectedAnswers) {
-  
+async function submitTest(UID,SID,TID,selectedAnswers) {
+  const answersQuery = query(collection(db,"tests"),where("tid", "==", TID));
+  const answers = await getDocs(answersQuery);
+  let correct = 0;
+  for (const doc of answers.docs) {
+    const answerData = doc.data();
+    console.log('Answer key ' + answerData.anskey);
+    console.log('Actual answers ' + selectedAnswers);
+    for (let i = 1; i<= 100; i++) {
+      if (answerData.anskey[`q${i}`] == selectedAnswers[`q${i}`]) {
+        correct++;
+      }
+    }
+  }
+  const testRef = doc(db,"users",UID,"sessions",SID);
+  await updateDoc(testRef, {
+    status: 'inactive',
+    score: correct
+  });
 }
 async function fetchAttempts(UID,TID) {
   const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
@@ -35,7 +52,6 @@ async function fetchQuestions(TID) {
   return docSnap.data();
 } 
 async function retrieveSession(UID,TID) {
-  console.log(TID);
   const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
   const sessions = await getDocs(sessionsQuery);
   for (const doc of sessions.docs) {
@@ -155,4 +171,4 @@ async function createTest(text) {
 
 
 
-export { fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
+export { submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
