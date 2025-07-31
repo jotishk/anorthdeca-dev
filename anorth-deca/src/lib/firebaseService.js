@@ -7,19 +7,18 @@ async function checkUsernameExists() {
 
 }
 async function submitTest(UID,SID,TID,selectedAnswers) {
-  const answersQuery = query(collection(db,"tests"),where("tid", "==", TID));
-  const answers = await getDocs(answersQuery);
+  const answers = await getDoc(doc(db,'tests',TID));
+  const answerData = answers.data();
   let correct = 0;
-  for (const doc of answers.docs) {
-    const answerData = doc.data();
-    console.log('Answer key ' + answerData.anskey);
-    console.log('Actual answers ' + selectedAnswers);
-    for (let i = 1; i<= 100; i++) {
-      if (answerData.anskey[`q${i}`] == selectedAnswers[`q${i}`]) {
-        correct++;
-      }
+  
+  console.log('Answer key ' + answerData.anskey);
+  console.log('Actual answers ' + selectedAnswers);
+  for (let i = 1; i<= 100; i++) {
+    if (answerData['anskey'][`q${i}`] == selectedAnswers[`q${i}`]) {
+      correct++;
     }
   }
+  
   const testRef = doc(db,"users",UID,"sessions",SID);
   await updateDoc(testRef, {
     status: 'inactive',
@@ -35,7 +34,10 @@ async function fetchAttempts(UID,TID) {
     
     const sessionData = doc.data();
     if (sessionData.status !== 'active') {
-      data.push({num:sessionData["attempt"]});
+      data.push({
+        num:sessionData["attempt"],
+        score: sessionData["score"]
+      });
     }
   }
   return data;

@@ -248,7 +248,7 @@ function AttemptsCell({info}) {
   return (
     <div className = {styles.testattemptscelldiv}>
       <p className = {styles.testattemptscellcount}>{"Attempt " + info.num}</p>
-      <p className = {styles.testattemptscellscore}>60%</p>
+      <p className = {styles.testattemptscellscore}>{`${info.score}%`}</p>
     </div>
   );
 }
