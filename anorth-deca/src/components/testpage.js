@@ -8,7 +8,8 @@ const tidToLabel = {
   100: "2013 ICDC Finance Exam"
 }
 
-export function TestPage({tid, user,active, setActive}) {
+export function TestPage({user,active, setActive}) {
+  const [tid, setTid] = useState('100');
   
   const [status, setStatus] = useState('Start');
   const [session, setSession] = useState(null);
@@ -71,6 +72,11 @@ export function TestPage({tid, user,active, setActive}) {
 
   const submitSession = async () => {
     await submitTest(user.uid, session.id, tid, selectedAnswers);
+  }
+
+  const handleTestChange = (tid) => {
+    setTid(tid);
+    setActive(false);
   }
 
   if (tid === '') {

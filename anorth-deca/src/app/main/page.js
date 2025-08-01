@@ -7,48 +7,54 @@ import { TestPage, QuestionPanel, QuestionPanelBtm,QuestionChoices} from '@/comp
 
 export default function Main() {
   const [page,setPage] = useState('tests');
-  const [tid, setTid] = useState('100');
   const {user, loading} = useAuth();
   const [active, setActive] = useState(false);
 
-  const handleTestChange = (tid) => {
-    setTid(tid);
-    setActive(false);
+  const handlePageChange = (page) => {
+    setPage(page);
   }
   if (page === 'tests') {
     return (
       <div className = {styles.main}>
-        <Header/>
-        <TestSidebar handleTestChange = {handleTestChange} page = {page}/>
-        <TestPage active = {active} setActive = {setActive} user = {user} key = {tid} tid = {tid}/>
+        <Header handlePageChange = {handlePageChange}/>
+        <TestSidebar key = {page} page = {page}/>
+        <TestPage active = {active} setActive = {setActive} user = {user}/>
       </div>
       
     );
   }
+  if (page === 'analytics') {
+    return (
+      <div className = {styles.main}>
+        <Header handlePageChange = {handlePageChange}/>
+        <TestSidebar key = {page} page = {page}/>
+      </div>
+    );
+  }
 }
 
-function Header() {
+function Header({handlePageChange}) {
   return (
     <div className = {[styles.header]}>
       <img className = {styles.headerlogo} src="/header/HeaderLogo.png" />
       <p className = {styles.headerlogotext}>Appleton North Deca</p>
       <div className = {[styles.headerrightsection]}>
-        <HeaderNav className = {styles.headernav} txt = {'Tests'}/>
-        <HeaderNav className = {styles.headernav} txt = {'Analytics'}/>
-        <HeaderNav className = {styles.headernav} txt = {'Quick Practice'}/>
-        <HeaderNav className = {styles.headernav} txt = {'Chapters'}/>
-        <HeaderNav className = {styles.headernav} txt = {'Settings'}/>
+        <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Tests'}/>
+        <HeaderNav onClick = {() => {handlePageChange('analytics')}} className = {styles.headernav} txt = {'Analytics'}/>
+        <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Quick Practice'}/>
+        <HeaderNav onClick = {() => {handlePageChange('tests')}}className = {styles.headernav} txt = {'Chapters'}/>
+        <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Settings'}/>
       </div>
     </div>
   );
 }
-function HeaderNav({txt}) {
+function HeaderNav({txt, onClick, className}) {
   if (txt === 'Settings') {
-    return <Settings className = {styles.settingsicon} size={30}/>;
+    return <Settings className = {styles.settingsicon} size={30} onClick={onClick}/>;
   }
   if (txt === 'Analytics') {
     return (
-      <div className={styles.headernav}>
+      <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
         <ChartGantt />
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
@@ -56,7 +62,7 @@ function HeaderNav({txt}) {
   }
   if (txt === 'Quick Practice') {
     return (
-      <div className={styles.headernav}>
+      <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
         <Zap /> 
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
@@ -64,7 +70,7 @@ function HeaderNav({txt}) {
   }
   if (txt === 'Tests') {
     return (
-      <div className={styles.headernav}>
+      <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
         <ClipboardPen />
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
@@ -72,7 +78,7 @@ function HeaderNav({txt}) {
   }
   if (txt === 'Chapters') {
     return (
-      <div className={styles.headernav}>
+      <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
         <School />
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
@@ -118,7 +124,7 @@ function TestSidebar({page,handleTestChange}) {
     })
     setAccordion(newAccordion);
   }
-  if (page === 'tests') {
+  if (page === 'tests' || page === 'analytics') {
     if (category === 'Finance') {
       return (
         <div className = {styles.testsidebardiv}>
