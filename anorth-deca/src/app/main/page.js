@@ -4,6 +4,7 @@ import styles from './page.module.css';
 import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { TestPage, QuestionPanel, QuestionPanelBtm,QuestionChoices} from '@/components/testpage';
+import { AnalyticsPage } from '@/components/analyticspage';
 
 export default function Main() {
   const [page,setPage] = useState('tests');
@@ -28,6 +29,7 @@ export default function Main() {
       <div className = {styles.main}>
         <Header handlePageChange = {handlePageChange}/>
         <TestSidebar key = {page} page = {page}/>
+        <AnalyticsPage user = {user}/>
       </div>
     );
   }

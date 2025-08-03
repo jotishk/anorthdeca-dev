@@ -25,7 +25,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: var(--bg);
+  background-color: var(--bglight);
   height: 4rem;
   width: 100%;
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); */
@@ -95,7 +95,7 @@ body {
 }
 .testsidebardiv {
   position: absolute;
-  background-color: var(--bg);
+  background-color: var(--bglight);
   top: 4rem;
   left:0rem;
   bottom: 0rem;
