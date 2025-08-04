@@ -69,7 +69,6 @@
   width: 35rem;
   height: 30rem;
   border-radius: 1rem;
-  padding-left: 1rem;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
 }
 .categoriesdiv {
@@ -81,15 +80,16 @@
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
 }
 .semidonut {
-  background-color: rgb(43, 165, 35);
   --percentage : 80; 
-  --fill: #FF3D00 ;
+  --fill: var(--decablue) ;
+  margin-top: 2rem;
   width: 300px;
   height: 150px;
   position: relative;
   color: #fff;
-  font-size: 22px;
+  font-size: 4rem;
   font-weight: 600;
+  font-family: var(--txtfont);
   overflow: hidden;
   color: var(--fill);
   display: flex;
@@ -111,4 +111,32 @@
     animation : fillAnimation 1s ease-in;
   }
 }
-
+.scoresummarybtm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+.scoresummaryinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 9rem;
+  gap: 1rem;
+}
+.scoresummaryinfotxt {
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: var(--txtfont);
+  color:	#6b6b6b;
+}
+.analyticscardheader {
+  font-family: var(--txtfont);
+  font-size: 1.3rem;
+  font-weight: 600;  
+}
+.cardheaderdiv {
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  /* padding-bottom: rem; */
+}

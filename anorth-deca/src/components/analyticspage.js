@@ -1,6 +1,7 @@
 'use client'
 import styles from '../css/analyticspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
+import { Square } from 'lucide-react';
 
 export function AnalyticsPage({user}) {
   return (
@@ -15,9 +16,28 @@ export function AnalyticsPage({user}) {
 }
 function ScoreSummary() {
   return (
-    <div className = {styles.scoresummarydiv}>
-      <div className = {styles.semidonut}>
+    <div className={styles.scoresummarydiv}>
+      <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
+        <p className={styles.analyticscardheader} style={{ textAlign: 'left', margin: 0 }}>
+          Score Summary
+        </p>
+      </div>
+      <div className={styles.semidonut}>
         72
+      </div>
+      <div className={styles.scoresummarybtm}>
+        <div className={styles.scoresummaryinfo}>
+          <Square strokeWidth={20} color="#04cb2c" />
+          <p className={styles.scoresummaryinfotxt}>72 correct</p>
+        </div>
+        <div className={styles.scoresummaryinfo}>
+          <Square strokeWidth={20} color="rgb(224, 37, 37)" />
+          <p className={styles.scoresummaryinfotxt}>27 incorrect</p>
+        </div>
+        <div className={styles.scoresummaryinfo}>
+          <Square strokeWidth={20} color="#333333" />
+          <p className={styles.scoresummaryinfotxt}>1 unanswered</p>
+        </div>
       </div>
     </div>
   );
