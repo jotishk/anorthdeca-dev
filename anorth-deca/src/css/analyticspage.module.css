@@ -51,3 +51,64 @@
   opacity: 0.5;
   right: 0.75rem;
 }
+.firstrowanalytics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 72rem;
+  height: 30rem;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+.scoresummarydiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bglight);
+  width: 35rem;
+  height: 30rem;
+  border-radius: 1rem;
+  padding-left: 1rem;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+}
+.categoriesdiv {
+  background-color: var(--bglight);
+  width: 35rem;
+  height: 30rem;
+  border-radius: 1rem;
+  padding-left: 1rem;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+}
+.semidonut {
+  background-color: rgb(43, 165, 35);
+  --percentage : 80; 
+  --fill: #FF3D00 ;
+  width: 300px;
+  height: 150px;
+  position: relative;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  overflow: hidden;
+  color: var(--fill);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-sizing : border-box;
+  &:after{
+    content: '';
+    width: 300px;
+    height: 300px;
+    border:50px solid;
+    border-color : rgba(0,0,0,0.15) rgba(0,0,0,0.15) var(--fill) var(--fill);
+    position: absolute;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    box-sizing : border-box;
+    transform: rotate( calc( 1deg * ( -45 + var(--percentage) * 1.8 ) ) );
+    animation : fillAnimation 1s ease-in;
+  }
+}
+

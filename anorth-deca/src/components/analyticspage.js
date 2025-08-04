@@ -6,10 +6,28 @@ export function AnalyticsPage({user}) {
   return (
     <div className = {styles.analyticspagediv}>
       <SelectAnalytic />
+      <div className = {styles.firstrowanalytics}>
+        <ScoreSummary />
+        <CategoriesSummary/>
+      </div>
     </div>
   );
 }
-
+function ScoreSummary() {
+  return (
+    <div className = {styles.scoresummarydiv}>
+      <div className = {styles.semidonut}>
+        72
+      </div>
+    </div>
+  );
+}
+function CategoriesSummary() {
+  return (
+    <div className = {styles.categoriesdiv}>
+    </div>
+  );
+}
 function SelectAnalytic() {
   return(
     <div className = {styles.selectattemptdiv}> 
