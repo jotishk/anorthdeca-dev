@@ -72,11 +72,14 @@
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
 }
 .categoriesdiv {
+  display: flex;
+  flex-direction: column;
+
   background-color: var(--bglight);
   width: 35rem;
   height: 30rem;
   border-radius: 1rem;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
 }
 .semidonut {
@@ -139,4 +142,10 @@
   padding-left: 1.5rem;
   padding-top: 1rem;
   /* padding-bottom: rem; */
+}
+.categoriesgraphrow {
+  background-color: pink;
+  height: 2rem;
+  width: 100%;
+  margin-left: 1rem;
 }

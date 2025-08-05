@@ -45,6 +45,12 @@ function ScoreSummary() {
 function CategoriesSummary() {
   return (
     <div className = {styles.categoriesdiv}>
+      <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
+        <p className={styles.analyticscardheader} style={{ textAlign: 'left', margin: 0 }}>
+          Categories Summary
+        </p>
+      </div>
+      <CategoriesGraph label = {'Business Law'}/>
     </div>
   );
 }
@@ -62,6 +68,14 @@ function SelectAttemptDropdown() {
     <div className = {styles.selectattemptdropdown}>
       <p className = {styles.selectattempttxt}>Attempt 1</p>
       <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
+    </div>
+  );
+}
+function CategoriesGraph({label, numCorrect, numTotal}) {
+  return (
+    <div className={styles.categoriesgraphrow}>
+      <p className={styles.categoriesgraphlabel}>{label}</p>
+      <div className={styles.categoriesgraphbox}></div>
     </div>
   );
 }
