@@ -50,7 +50,9 @@ function CategoriesSummary() {
           Categories Summary
         </p>
       </div>
-      <CategoriesGraph label = {'Business Law'}/>
+      <CategoriesGraph numCorrect = {22} numTotal={22} label = {'Financial-Information Management'}/>
+      <CategoriesGraph numCorrect = {15} numTotal={18} label = {'Marketing'}/>
+
     </div>
   );
 }
@@ -74,8 +76,8 @@ function SelectAttemptDropdown() {
 function CategoriesGraph({label, numCorrect, numTotal}) {
   return (
     <div className={styles.categoriesgraphrow}>
-      <p className={styles.categoriesgraphlabel}>{label}</p>
-      <div className={styles.categoriesgraphbox}></div>
+      <p className={styles.categoriesgraphlabel}>{label + ' (' + numCorrect + '/' + numTotal + ')'}</p>
+      <div style={{ width: `${numCorrect*20/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
     </div>
   );
 }

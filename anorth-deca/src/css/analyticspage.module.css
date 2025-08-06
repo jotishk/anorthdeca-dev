@@ -144,8 +144,24 @@
   /* padding-bottom: rem; */
 }
 .categoriesgraphrow {
-  background-color: pink;
-  height: 2rem;
-  width: 100%;
-  margin-left: 1rem;
+  margin-top: 1rem;
+  /* background-color: pink; */
+  /* height: 2rem; */
+  width: 33.5rem;
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.categoriesgraphlabel {
+  margin: 0;
+  font-family: var(--txtfont);
+  font-size: 1.1rem;
+  font-weight: 500; 
+  width: 11rem;
+}
+.categoriesgraphbox {
+  height: 1.5rem;
+  width: 5rem;
+  background-color: black;
 }
