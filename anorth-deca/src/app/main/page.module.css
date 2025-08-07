@@ -3,6 +3,7 @@
 body {
   margin: 0px;
   background-color: var(--bg);
+  
 }
 
 .main {
@@ -22,6 +23,7 @@ body {
 
 }
 .header {
+  position: fixed;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,6 +32,7 @@ body {
   width: 100%;
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); */
   border-bottom: 1px solid #e0e0e0;
+  z-index: 1;
 }
 .headerlogo {
   height:2.5rem;
@@ -94,7 +97,7 @@ body {
   margin-left: 0.5rem;
 }
 .testsidebardiv {
-  position: absolute;
+  position: fixed;
   background-color: var(--bglight);
   top: 4rem;
   left:0rem;

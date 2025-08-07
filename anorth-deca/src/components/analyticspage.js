@@ -11,6 +11,7 @@ export function AnalyticsPage({user}) {
         <ScoreSummary />
         <CategoriesSummary/>
       </div>
+      <QuestionBreakdown/>
     </div>
   );
 }
@@ -78,6 +79,20 @@ function CategoriesGraph({label, numCorrect, numTotal}) {
     <div className={styles.categoriesgraphrow}>
       <p className={styles.categoriesgraphlabel}>{label + ' (' + numCorrect + '/' + numTotal + ')'}</p>
       <div style={{ width: `${numCorrect*20/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
+    </div>
+  );
+}
+function QuestionBreakdown() {
+  const [qnum,setQnum] = useState(1);
+  return(
+    <div className = {styles.questionbreakdowndiv}>
+      <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
+        <p className={styles.analyticscardheader} style={{ textAlign: 'left', margin: 0 }}>
+          Question Breakdown
+        </p>
+      </div>
+      <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
+
     </div>
   );
 }
