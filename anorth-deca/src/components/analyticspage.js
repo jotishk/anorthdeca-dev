@@ -91,8 +91,35 @@ function QuestionBreakdown() {
           Question Breakdown
         </p>
       </div>
-      <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
-
+      <div className = {styles.questionpanel}>
+        <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
+        <p className = {styles.questioncontent}>
+          {/* {questionData["questions"][`q${qnum}`]} */}
+          Lucy authorized her accountant, attorney, and life-insurance agent to care for her assets and make decisions regarding her money and property. Her accountant, attorney, and life-insurance agent are her
+        </p>
+        <div className = {styles.questionchoicesdiv}>
+          <QuestionChoices qnum={qnum} altr = {'A'} selected={true} answerChoice={'This is an answer choice'}/>
+          <QuestionChoices qnum={qnum} altr = {'B'} selected={true} answerChoice={'This is an answer choice'}/>
+          <QuestionChoices qnum={qnum} altr = {'C'} selected={true} answerChoice={'This is an answer choice'}/>
+          <QuestionChoices qnum={qnum} altr = {'D'} selected={true} answerChoice={'This is an answer choice'}/>
+        </div>
+      </div>
+    </div>
+  );
+}
+function QuestionChoices({qnum,altr,selected,answerChoice}) {
+  if (selected) {
+    return (
+    <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
+      <div className = {styles.questionchoiceltractive}>{altr}</div>
+      <p className = {styles.answerchoicetxt}>{answerChoice}</p>
+    </div>
+  );
+  } 
+  return (
+    <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
+      <div className = {styles.questionchoiceltr}>{altr}</div>
+      <p className = {styles.answerchoicetxt}>{answerChoice}</p>
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function Main() {
       <div className = {styles.main}>
         <Header handlePageChange = {handlePageChange}/>
         <TestSidebar key = {page} page = {page}/>
-        <TestPage active = {active} setActive = {setActive} user = {user}/>
+        <TestPage  active = {active} setActive = {setActive} user = {user}/>
       </div>
       
     );
