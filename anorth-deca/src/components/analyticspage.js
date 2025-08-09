@@ -1,7 +1,7 @@
 'use client'
 import styles from '../css/analyticspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
-import { Square } from 'lucide-react';
+import { X, Check, Square } from 'lucide-react';
 
 export function AnalyticsPage({user}) {
   return (
@@ -91,33 +91,60 @@ function QuestionBreakdown() {
           Question Breakdown
         </p>
       </div>
-      <div className = {styles.questionpanel}>
-        <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
-        <p className = {styles.questioncontent}>
-          {/* {questionData["questions"][`q${qnum}`]} */}
-          Lucy authorized her accountant, attorney, and life-insurance agent to care for her assets and make decisions regarding her money and property. Her accountant, attorney, and life-insurance agent are her
-        </p>
-        <div className = {styles.questionchoicesdiv}>
-          <QuestionChoices qnum={qnum} altr = {'A'} selected={true} answerChoice={'This is an answer choice'}/>
-          <QuestionChoices qnum={qnum} altr = {'B'} selected={true} answerChoice={'This is an answer choice'}/>
-          <QuestionChoices qnum={qnum} altr = {'C'} selected={true} answerChoice={'This is an answer choice'}/>
-          <QuestionChoices qnum={qnum} altr = {'D'} selected={true} answerChoice={'This is an answer choice'}/>
+      <div className = {styles.questionbreakdowncontent}>
+        <div className = {styles.questionpanel}>
+          <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
+          <p className = {styles.questioncontent}>
+            {/* {questionData["questions"][`q${qnum}`]} */}
+            Lucy authorized her accountant, attorney, and life-insurance agent to care for her assets and make decisions regarding her money and property. Her accountant, attorney, and life-insurance agent are her
+          </p>
+          <div className = {styles.questionchoicesdiv}>
+            <QuestionChoices qnum={qnum} altr = {'A'} selected={true} status = {'correct'} answerChoice={'This is an answer choice'}/>
+            <QuestionChoices qnum={qnum} altr = {'B'} selected={true} status = {'incorrect'} answerChoice={'This is an answer choice'}/>
+            <QuestionChoices qnum={qnum} altr = {'C'} selected={true} answerChoice={'This is an answer choice'}/>
+            <QuestionChoices qnum={qnum} altr = {'D'} selected={true} answerChoice={'This is an answer choice'}/>
+          </div>
+          
+        </div>
+        <div className = {styles.questionpaneldescription}>
+          <p className = {styles.qpaneldescriptionheader}>Explanation:</p>
+          <p className = {styles.qpaneldescriptiontxt}> 
+            In a private enterprise system, an unequal distribution of income exists because 
+            workers with high levels of education, training, skills, and efficiency generally receive higher salaries than 
+            less qualified workers. Some people own a great deal of property while others own little or none because 
+            they do not have the money to buy it. Skilled workers may also pay higher taxes, belong to a union, or 
+            work longer hours, but those factors do not affect the distribution of property and income
+          </p>
+          <p className = {styles.qpaneldescriptionsource}>Source: BL:002, Miller, R.L., & Jentz, G.A. (2005). Fundamentals of business law (6th ed.) [pp. 152-153].</p>
         </div>
       </div>
+      
     </div>
   );
 }
-function QuestionChoices({qnum,altr,selected,answerChoice}) {
-  if (selected) {
+function QuestionChoices({qnum,altr,status, selected,answerChoice}) {
+  if (status === 'correct') {
     return (
-    <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
-      <div className = {styles.questionchoiceltractive}>{altr}</div>
-      <p className = {styles.answerchoicetxt}>{answerChoice}</p>
-    </div>
-  );
+      <div className = {styles.questionchoicediv}>
+        <div className = {styles.questionshadergreen}></div>
+        <Check className = {styles.questioncheckmark} strokeWidth={3} />
+        <div className = {styles.questionchoiceltractive}>{altr}</div>
+        <p className = {styles.answerchoicetxt}>{answerChoice}</p>
+      </div>
+    );
+  } 
+  if (status === 'incorrect') {
+    return (
+      <div className = {styles.questionchoicediv}>
+        <div className = {styles.questionshaderred}></div>
+        <X className = {styles.questionxmark} strokeWidth={3} />
+        <div className = {styles.questionchoiceltractive}>{altr}</div>
+        <p className = {styles.answerchoicetxt}>{answerChoice}</p>
+      </div>
+    );
   } 
   return (
-    <div onClick = {() => handleSelected(altr)} className = {styles.questionchoicediv}>
+    <div className = {styles.questionchoicediv}>
       <div className = {styles.questionchoiceltr}>{altr}</div>
       <p className = {styles.answerchoicetxt}>{answerChoice}</p>
     </div>

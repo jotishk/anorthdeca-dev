@@ -140,6 +140,7 @@
   font-family: var(--txtfont);
   font-size: 1.3rem;
   font-weight: 600;  
+  width: 13rem;
 }
 .cardheaderdiv {
   padding-left: 1.5rem;
@@ -197,6 +198,7 @@
   margin-bottom: 0px;
 }
 .questionchoicediv {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -253,19 +255,68 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   flex: 1;
 }
 .questionpanel {
+  
   display: flex;
   flex-direction: column;
   width: 30rem;
-  height: 35rem;
+  height: 33rem;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;  
   border-radius: 0.5rem;
   align-items: center;
+}
+.questionshadergreen {
+  position: absolute;
+  background-color: rgba(43, 255, 0, 0.455);
+  border-radius: 0.5rem;
+  width: 30rem;
+  height: 3rem;
+}
+.questionshaderred {
+  position: absolute;
+  background-color: rgba(253, 76, 0, 0.455);
+  border-radius: 0.5rem;
+  width: 30rem;
+  height: 3rem;
+}
+.questioncheckmark {
+  position: absolute;
+  right: 1rem;
+  color: rgb(26, 156, 0);
+}
+.questionxmark {
+  position: absolute;
+  right: 1rem;
+  color: rgba(236, 0, 0, 1);
+}
+.questionbreakdowncontent {
+  display:flex;
+  flex-direction: row;
+  /* height: 32rem; */
+  align-items: center;
+}
+.questionpaneldescription {
+  width: 30rem;
   
+}
+.qpaneldescriptionheader {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--txtfont);
+}
+.qpaneldescriptiontxt {
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--txtfont);
+}
+.qpaneldescriptionsource {
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--txtfont);
 }

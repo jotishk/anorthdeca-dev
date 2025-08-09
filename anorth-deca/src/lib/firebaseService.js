@@ -154,12 +154,13 @@ async function createTest(text) {
     });
 
     window.testData = { questions, choices, answers, explanations, sourceCodes, sourceRefs };
-    console.log("✅ Parsed 100 questions and answers into window.testData");
+    // console.log("✅ Parsed 100 questions and answers into window.testData");
     // const test = {
     //   label: "2013 ICDC Finance Exam",
     //   category: "finance",
     //   questions: questions,
     //   choices: choices,
+    //   explanations: explanations,
     //   anskey: answers,
     //   scode: sourceCodes,
     //   source: sourceRefs
