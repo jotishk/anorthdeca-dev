@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 async function checkUsernameExists() {
 
 }
+
 async function submitTest(UID,SID,TID,selectedAnswers) {
   const answers = await getDoc(doc(db,'tests',TID));
   const answerData = answers.data();
@@ -36,6 +37,7 @@ async function fetchAttempts(UID,TID) {
     if (sessionData.status !== 'active') {
       data.push({
         num:sessionData["attempt"],
+        answers: sessionData["answers"],
         score: sessionData["score"]
       });
     }

@@ -2,11 +2,33 @@
 import styles from '../css/analyticspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
 import { X, Check, Square } from 'lucide-react';
+import { fetchAttempts, fetchQuestions } from '@/lib/firebaseService';
 
-export function AnalyticsPage({user}) {
+const tidToLabel = {
+  100: "2013 ICDC Finance Exam"
+}
+
+export function AnalyticsPage({user,tidAnalytic}) {
+  const [sessionData,setSessionData] = useState(null);
+  const [testData, setTestData] = useState(null);
+  const [selectedAttempt,setSelectedAttempt] = useState(1);
+
+  useEffect(() => {
+    async function retrieveData() {
+      if (tidAnalytic) {
+        const retrievedTestData = await fetchQuestions(tidAnalytic);
+        const retrievedSessionData = await fetchAttempts(user.uid,tidAnalytic);
+        setTestData(retrievedTestData);
+        setSessionData(retrievedSessionData);
+      }
+    }
+    retrieveData();
+  },[tidAnalytic])
+
+  
   return (
     <div className = {styles.analyticspagediv}>
-      <SelectAnalytic />
+      <SelectAnalytic tidAnalytic={tidAnalytic}/>
       <div className = {styles.firstrowanalytics}>
         <ScoreSummary />
         <CategoriesSummary/>
@@ -57,10 +79,10 @@ function CategoriesSummary() {
     </div>
   );
 }
-function SelectAnalytic() {
+function SelectAnalytic({tidAnalytic}) {
   return(
     <div className = {styles.selectattemptdiv}> 
-      <p className = {styles.selectattemptheader}>2013 ICDC Finance Exam</p>
+      <p className = {styles.selectattemptheader}>{tidToLabel[tidAnalytic]}</p>
       <SelectAttemptDropdown/>
     </div>
   );

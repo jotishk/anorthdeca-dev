@@ -10,16 +10,25 @@ export default function Main() {
   const [page,setPage] = useState('tests');
   const {user, loading} = useAuth();
   const [active, setActive] = useState(false);
+  const [tid, setTid] = useState('100');
+  const [tidAnalytic, setTidAnalytic] = useState('100');
 
   const handlePageChange = (page) => {
     setPage(page);
+  }
+  const handleTestChange = (tid) => {
+    setTid(tid);
+    setActive(false);
+  }
+  const handleAnalyticTestChange = (tid) => {
+    setTidAnalytic(tid);
   }
   if (page === 'tests') {
     return (
       <div className = {styles.main}>
         <Header handlePageChange = {handlePageChange}/>
-        <TestSidebar key = {page} page = {page}/>
-        <TestPage  active = {active} setActive = {setActive} user = {user}/>
+        <TestSidebar handleTestChange = {handleTestChange} key = {page} page = {page}/>
+        <TestPage  tid = {tid} active = {active} setActive = {setActive} user = {user}/>
       </div>
       
     );
@@ -28,8 +37,8 @@ export default function Main() {
     return (
       <div className = {styles.main}>
         <Header handlePageChange = {handlePageChange}/>
-        <TestSidebar key = {page} page = {page}/>
-        <AnalyticsPage user = {user}/>
+        <TestSidebar handleTestChange = {handleAnalyticTestChange} key = {page} page = {page}/>
+        <AnalyticsPage tidAnalytic = {tidAnalytic} user = {user}/>
       </div>
     );
   }
