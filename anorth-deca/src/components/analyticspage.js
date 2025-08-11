@@ -18,6 +18,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
       if (tidAnalytic) {
         const retrievedTestData = await fetchQuestions(tidAnalytic);
         const retrievedSessionData = await fetchAttempts(user.uid,tidAnalytic);
+        
         setTestData(retrievedTestData);
         setSessionData(retrievedSessionData);
       }
@@ -25,19 +26,68 @@ export function AnalyticsPage({user,tidAnalytic}) {
     retrieveData();
   },[tidAnalytic])
 
-  
+  if (tidAnalytic) {
+    return (
+      <div className = {styles.analyticspagediv}>
+        <SelectAnalytic tidAnalytic={tidAnalytic}/>
+        <div className = {styles.firstrowanalytics}>
+          <ScoreSummary testData = {testData} sessionData={sessionData} selectedAttempt={selectedAttempt}/>
+          <CategoriesSummary/>
+        </div>
+        <QuestionBreakdown/>
+      </div>
+    );
+  }
   return (
     <div className = {styles.analyticspagediv}>
       <SelectAnalytic tidAnalytic={tidAnalytic}/>
-      <div className = {styles.firstrowanalytics}>
-        <ScoreSummary />
-        <CategoriesSummary/>
-      </div>
-      <QuestionBreakdown/>
     </div>
   );
 }
-function ScoreSummary() {
+function ScoreSummary({sessionData,selectedAttempt,testData}) {
+  function getSession() {
+    for (const data of sessionData) {
+      if (data['num'] == selectedAttempt) {
+        return data;
+      }
+    }
+    return null;
+  }
+  function getScoreSummary() {
+    if (sessionData) {
+      let correct = 0;
+      let incorrect = 0;
+      let unanswered = 0;
+
+      const data = getSession();
+       console.log(data);
+        
+      for (let i =1; i<101; i++) {
+        
+        let selectedAnswer = data[`q${i}}`];
+        let trueAnswer = testData[`q${i}}`];
+       
+        console.log(selectedAnswer + " " + trueAnswer);
+        if (selectedAnswer == trueAnswer) {
+          correct++;
+        } else if (selectedAnswer == "") {
+          unanswered++;
+        } else {
+          incorrect++;
+        }
+      }
+      return {
+        correct:correct,
+        incorrect: incorrect,
+        unanswered: unanswered
+      }
+    }
+    return {
+      correct:0,
+      incorrect: 0,
+      unanswered: 0
+    }
+  }
   return (
     <div className={styles.scoresummarydiv}>
       <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
@@ -46,20 +96,20 @@ function ScoreSummary() {
         </p>
       </div>
       <div className={styles.semidonut}>
-        72
+        {getScoreSummary()['correct']}
       </div>
       <div className={styles.scoresummarybtm}>
         <div className={styles.scoresummaryinfo}>
           <Square strokeWidth={20} color="#04cb2c" />
-          <p className={styles.scoresummaryinfotxt}>72 correct</p>
+          <p className={styles.scoresummaryinfotxt}>{getScoreSummary()['correct']} correct</p>
         </div>
         <div className={styles.scoresummaryinfo}>
           <Square strokeWidth={20} color="rgb(224, 37, 37)" />
-          <p className={styles.scoresummaryinfotxt}>27 incorrect</p>
+          <p className={styles.scoresummaryinfotxt}>{getScoreSummary()['incorrect']} incorrect</p>
         </div>
         <div className={styles.scoresummaryinfo}>
           <Square strokeWidth={20} color="#333333" />
-          <p className={styles.scoresummaryinfotxt}>1 unanswered</p>
+          <p className={styles.scoresummaryinfotxt}>{getScoreSummary()['unanswered']} unanswered</p>
         </div>
       </div>
     </div>
