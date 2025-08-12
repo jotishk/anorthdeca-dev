@@ -60,15 +60,14 @@ function ScoreSummary({sessionData,selectedAttempt,testData}) {
       let unanswered = 0;
 
       const data = getSession();
-       console.log(data);
+      
         
       for (let i =1; i<101; i++) {
-        
-        let selectedAnswer = data[`q${i}}`];
-        let trueAnswer = testData[`q${i}}`];
+        console.log(testData);
+        let selectedAnswer = data["answers"][`q${i}`];
+        let trueAnswer = testData["anskey"][`q${i}`];
        
-        console.log(selectedAnswer + " " + trueAnswer);
-        if (selectedAnswer == trueAnswer) {
+          if (selectedAnswer == trueAnswer) {
           correct++;
         } else if (selectedAnswer == "") {
           unanswered++;
