@@ -32,7 +32,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
         <SelectAnalytic tidAnalytic={tidAnalytic}/>
         <div className = {styles.firstrowanalytics}>
           <ScoreSummary testData = {testData} sessionData={sessionData} selectedAttempt={selectedAttempt}/>
-          <CategoriesSummary/>
+          <CategoriesSummary selectedAttempt = {selectedAttempt} testData={testData} sessionData={sessionData}/>
         </div>
         <QuestionBreakdown/>
       </div>
@@ -63,11 +63,11 @@ function ScoreSummary({sessionData,selectedAttempt,testData}) {
       
         
       for (let i =1; i<101; i++) {
-        console.log(testData);
+        
         let selectedAnswer = data["answers"][`q${i}`];
         let trueAnswer = testData["anskey"][`q${i}`];
        
-          if (selectedAnswer == trueAnswer) {
+        if (selectedAnswer == trueAnswer) {
           correct++;
         } else if (selectedAnswer == "") {
           unanswered++;
@@ -114,7 +114,40 @@ function ScoreSummary({sessionData,selectedAttempt,testData}) {
     </div>
   );
 }
-function CategoriesSummary() {
+function CategoriesSummary({testData, sessionData,selectedAttempt}) {
+  function getSession() {
+    if (sessionData) {
+      for (const data of sessionData) {
+        if (data['num'] == selectedAttempt) {
+          return data;
+        }
+      } 
+    }
+    return null;
+  }
+  function generateCategoryData() {
+    const currSession = getSession();
+    let categoryData = {};
+    if (currSession) {
+      for (let i = 1; i<101; i++) {
+        let skey = testData["scode"][`q${i}`].substring(0,2);
+        
+        if (!(skey in categoryData)) {
+          categoryData[skey] = {
+            correct:0,
+            total:0
+          }
+        }
+        categoryData[skey]['total'] = categoryData[skey]['total'] + 1;
+        let selectedAnswer = currSession["answers"][`q${i}`];
+        let trueAnswer = testData["anskey"][`q${i}`];
+        if (selectedAnswer == trueAnswer) {
+          categoryData[skey]['correct'] = categoryData[skey]['correct'] + 1;
+        }
+      }
+    }
+    
+  }
   return (
     <div className = {styles.categoriesdiv}>
       <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
@@ -122,6 +155,7 @@ function CategoriesSummary() {
           Categories Summary
         </p>
       </div>
+      <button onClick={() => generateCategoryData()}></button>
       <CategoriesGraph numCorrect = {22} numTotal={22} label = {'Financial-Information Management'}/>
       <CategoriesGraph numCorrect = {15} numTotal={18} label = {'Marketing'}/>
 
