@@ -34,7 +34,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
           <ScoreSummary testData = {testData} sessionData={sessionData} selectedAttempt={selectedAttempt}/>
           <CategoriesSummary selectedAttempt = {selectedAttempt} testData={testData} sessionData={sessionData}/>
         </div>
-        <QuestionBreakdown/>
+        <QuestionBreakdown selectedAttempt = {selectedAttempt} testData = {testData} sessionData={sessionData}/>
       </div>
     );
   }
@@ -155,7 +155,6 @@ function CategoriesSummary({testData, sessionData,selectedAttempt}) {
           Categories Summary
         </p>
       </div>
-      <button onClick={() => generateCategoryData()}></button>
       <CategoriesGraph numCorrect = {22} numTotal={22} label = {'Financial-Information Management'}/>
       <CategoriesGraph numCorrect = {15} numTotal={18} label = {'Marketing'}/>
 
@@ -187,8 +186,64 @@ function CategoriesGraph({label, numCorrect, numTotal}) {
     </div>
   );
 }
-function QuestionBreakdown() {
+function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
   const [qnum,setQnum] = useState(1);
+  const [questionContent,setQuestionContent] = useState('');
+  const [answerChoiceText, setAnswerChoiceText] = useState({});
+  const [selected, setSelected] = useState({});
+  const [status,setStatus] = useState({});
+  const [categoryText, setCategoryText] = useState('');
+
+  function getSession() {
+    for (const data of sessionData) {
+      if (data['num'] == selectedAttempt) {
+        return data;
+      }
+    }
+    return null;
+  }
+
+  useEffect(() => {
+    if (sessionData) {
+      let choices = {};
+      let statusObject = {
+        'A': 'ns',
+        'B': 'ns',
+        'C': 'ns',
+        'D': 'ns'
+      };
+      let selectedObject = {
+        'A':false,
+        'B':false,
+        'C':false,
+        'D':false
+      };
+      const data = getSession();
+      choices['A'] = testData['choices'][`q${qnum}`]['A'];
+      choices['B'] = testData['choices'][`q${qnum}`]['B'];
+      choices['C'] = testData['choices'][`q${qnum}`]['C'];
+      choices['D'] = testData['choices'][`q${qnum}`]['D'];
+
+      const currSelected = data["answers"][`q${qnum}`];
+      if (currSelected) {
+        selectedObject[currSelected] = true;
+      }
+
+      if (currSelected == testData['anskey'][`q${qnum}`]) {
+        statusObject[currSelected] = 'correct';
+      } else if (selected == '') {
+        statusObject[testData['anskey'][`q${qnum}`]] = 'correct';
+      } else {
+        statusObject[currSelected] = 'incorrect';
+        statusObject[testData['anskey'][`q${qnum}`]] = 'correct';
+      }
+      console.log(testData['anskey'][`q${qnum}`]);
+      setQuestionContent(testData['questions'][`q${qnum}`]);
+      setAnswerChoiceText(choices);
+      setSelected(selectedObject);
+      setStatus(statusObject);
+    }
+  }, [qnum,sessionData])
   return(
     <div className = {styles.questionbreakdowndiv}>
       <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
@@ -200,18 +255,17 @@ function QuestionBreakdown() {
         <div className = {styles.questionpanel}>
           <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
           <p className = {styles.questioncontent}>
-            {/* {questionData["questions"][`q${qnum}`]} */}
-            Lucy authorized her accountant, attorney, and life-insurance agent to care for her assets and make decisions regarding her money and property. Her accountant, attorney, and life-insurance agent are her
+            {questionContent}
           </p>
           <div className = {styles.questionchoicesdiv}>
-            <QuestionChoices qnum={qnum} altr = {'A'} selected={true} status = {'correct'} answerChoice={'This is an answer choice'}/>
-            <QuestionChoices qnum={qnum} altr = {'B'} selected={true} status = {'incorrect'} answerChoice={'This is an answer choice'}/>
-            <QuestionChoices qnum={qnum} altr = {'C'} selected={true} answerChoice={'This is an answer choice'}/>
-            <QuestionChoices qnum={qnum} altr = {'D'} selected={true} answerChoice={'This is an answer choice'}/>
+            <QuestionChoices qnum={qnum} altr = {'A'} selected={selected['A']} status = {status['A']} answerChoice={answerChoiceText['A']}/>
+            <QuestionChoices qnum={qnum} altr = {'B'} selected={selected['B']} status = {status['B']} answerChoice={answerChoiceText['B']}/>
+            <QuestionChoices qnum={qnum} altr = {'C'} selected={selected['C']} status = {status['C']} answerChoice={answerChoiceText['C']}/>
+            <QuestionChoices qnum={qnum} altr = {'D'} selected={selected['D']} status = {status['D']} answerChoice={answerChoiceText['D']}/>
           </div>
           
         </div>
-        <div className = {styles.questionpaneldescription}>
+        {/* <div className = {styles.questionpaneldescription}>
           <p className = {styles.qpaneldescriptionheader}>Explanation:</p>
           <p className = {styles.qpaneldescriptiontxt}> 
             In a private enterprise system, an unequal distribution of income exists because 
@@ -220,8 +274,8 @@ function QuestionBreakdown() {
             they do not have the money to buy it. Skilled workers may also pay higher taxes, belong to a union, or 
             work longer hours, but those factors do not affect the distribution of property and income
           </p>
-          <p className = {styles.qpaneldescriptionsource}>Source: BL:002, Miller, R.L., & Jentz, G.A. (2005). Fundamentals of business law (6th ed.) [pp. 152-153].</p>
-        </div>
+          <p className = {styles.qpaneldescriptionsource}>Category: {categoryText}</p>
+        </div> */}
       </div>
       
     </div>
@@ -233,7 +287,8 @@ function QuestionChoices({qnum,altr,status, selected,answerChoice}) {
       <div className = {styles.questionchoicediv}>
         <div className = {styles.questionshadergreen}></div>
         <Check className = {styles.questioncheckmark} strokeWidth={3} />
-        <div className = {styles.questionchoiceltractive}>{altr}</div>
+        {selected && <div className = {styles.questionchoiceltractive}>{altr}</div>}
+        {!selected && <div className = {styles.questionchoiceltr}>{altr}</div>}
         <p className = {styles.answerchoicetxt}>{answerChoice}</p>
       </div>
     );
@@ -243,8 +298,8 @@ function QuestionChoices({qnum,altr,status, selected,answerChoice}) {
       <div className = {styles.questionchoicediv}>
         <div className = {styles.questionshaderred}></div>
         <X className = {styles.questionxmark} strokeWidth={3} />
-        <div className = {styles.questionchoiceltractive}>{altr}</div>
-        <p className = {styles.answerchoicetxt}>{answerChoice}</p>
+        {selected && <div className = {styles.questionchoiceltractive}>{altr}</div>}
+        {!selected && <div className = {styles.questionchoiceltr}>{altr}</div>}        <p className = {styles.answerchoicetxt}>{answerChoice}</p>
       </div>
     );
   } 
