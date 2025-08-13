@@ -1,7 +1,7 @@
 'use client'
 import styles from '../css/analyticspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
-import { X, Check, Square } from 'lucide-react';
+import { ChevronUp, X, Check, Square } from 'lucide-react';
 import { fetchAttempts, fetchQuestions } from '@/lib/firebaseService';
 
 const tidToLabel = {
@@ -193,7 +193,16 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
   const [selected, setSelected] = useState({});
   const [status,setStatus] = useState({});
   const [categoryText, setCategoryText] = useState('');
+  const [questionMap,setQuestionMap] = useState(false);
+  const [answerStates, setAnswerStates] = useState({});
 
+  const handleQuestionMap = () => {
+    setQuestionMap(!questionMap)
+  }
+  const handleQuestion = (curr,direction)=> {
+    const newNum = curr + direction;
+    setQnum(newNum);
+  }
   function getSession() {
     for (const data of sessionData) {
       if (data['num'] == selectedAttempt) {
@@ -203,6 +212,25 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
     return null;
   }
 
+  useEffect(() => {
+    if (sessionData) {
+      const data = getSession();
+      let answerStatesObject = {};
+      for (let i = 1; i<101; i++) {
+        const currSelected = data["answers"][`q${i}`];
+
+        if (currSelected == testData['anskey'][`q${i}`]) {
+          answerStatesObject[`q${i}`] = 'correct';
+        } else if (currSelected == '') {
+          answerStatesObject[`q${i}`] = 'unanswered';
+        } else {
+          answerStatesObject[`q${i}`] = 'incorrect';
+        }
+      }
+      console.log(answerStatesObject);
+      setAnswerStates(answerStatesObject);
+    }
+  },[sessionData])
   useEffect(() => {
     if (sessionData) {
       let choices = {};
@@ -263,6 +291,8 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
             <QuestionChoices qnum={qnum} altr = {'C'} selected={selected['C']} status = {status['C']} answerChoice={answerChoiceText['C']}/>
             <QuestionChoices qnum={qnum} altr = {'D'} selected={selected['D']} status = {status['D']} answerChoice={answerChoiceText['D']}/>
           </div>
+          <QuestionPanelBtm handleQuestionMap = {handleQuestionMap} qnum = {qnum} handleQuestion = {handleQuestion}/>
+          {questionMap ? <QuestionMap answerStates = {answerStates} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap}/> : null }
           
         </div>
         {/* <div className = {styles.questionpaneldescription}>
@@ -308,5 +338,93 @@ function QuestionChoices({qnum,altr,status, selected,answerChoice}) {
       <div className = {styles.questionchoiceltr}>{altr}</div>
       <p className = {styles.answerchoicetxt}>{answerChoice}</p>
     </div>
+  );
+}
+function QuestionPanelBtm({qnum,handleQuestion, handleQuestionMap}) {
+  if (qnum === 1) {
+    return (
+      <div className = {styles.questionpanelbtmdiv}>
+        <BlackDropBox onClick = {handleQuestionMap} txt = {`Question ${qnum} of 100`}/>
+        <BlueBtn txt = {'Next'} onClick = {() => handleQuestion(qnum,1)}/>
+      </div>
+    );
+  }
+  if (qnum === 100) {
+    return (
+      <div className = {styles.questionpanelbtmdiv}>
+        <BlueBtn txt = {'Back'} onClick = {() => handleQuestion(qnum,-1)}/>
+        <BlackDropBox onClick = {handleQuestionMap} txt = {`Question ${qnum} of 100`}/>
+      </div>
+    );
+  }
+  return (
+    <div className = {styles.questionpanelbtmdiv}>
+      <BlueBtn txt = {'Back'} onClick = {() => handleQuestion(qnum,-1)}/>
+      <BlackDropBox onClick = {handleQuestionMap} txt = {`Question ${qnum} of 100`}/>
+      <BlueBtn txt = {'Next'} onClick = {() => handleQuestion(qnum,1)}/>
+    </div>
+  );
+}
+function BlackDropBox({txt,children, onClick}) {
+  return (
+    <button className = {styles.blackdropbox} onClick={onClick}>
+      {txt}
+      <ChevronUp className = {styles.blackdropboxchevron} size={'20px'}/>
+    </button>
+  );
+}
+function BlueBtn({txt,onClick}) {
+  return (
+    <button onClick = {onClick} className = {styles.bluebtn}>
+      {txt}
+    </button>
+  )
+}
+function QuestionMap({handleQuestionMap,setQnum,answerStates}) {
+  const [mapPage, setMapPage] = useState(1);
+  const handleMapPage = () => {
+    if (mapPage == 1) {
+      setMapPage(2);
+    } else {
+      setMapPage(1);
+    }
+  }
+  
+  return(
+    <div className = {styles.questionmapdiv}>
+      <p className = {styles.questionmapheader}>
+        Question Map
+        <X onClick = {handleQuestionMap} className = {styles.questionmapexit}/>
+      </p>
+      <div className = {styles.questionmapgrid}>
+        {Object.entries(answerStates).map((answer, qnum) =>
+          (mapPage && 50 * (mapPage-1) <= qnum  && qnum < 50 * mapPage) ? (
+            <QuestionBox handleQuestionMap = {handleQuestionMap} setQnum = {setQnum} key={qnum} qnum={qnum + 1} answerState={answerStates[`q${qnum+1}`]}/>
+          ) : null
+        )}
+      </div>
+      <div className = {styles.questionmapbtm}>
+        <BlackDropBox onClick = {() => handleMapPage()} txt = {(mapPage == 1) ? 'Questions 1 - 50' : 'Questions 50 - 100'}/>
+      </div>
+    </div>
+  );
+}
+function QuestionBox({qnum,answerState,setQnum, handleQuestionMap}) {
+  const switchQuestion = () => {
+    handleQuestionMap();
+    setQnum(qnum);
+  }
+  if (answerState == "correct") {
+    return(
+      <div onClick = {switchQuestion} className = {styles.questionboxdivcorrect}>{qnum}</div>
+    );
+  } 
+  if (answerState == "incorrect") {
+    return(
+      <div onClick = {switchQuestion}className = {styles.questionboxdivincorrect}>{qnum}</div>
+    );
+  }
+  return(
+    <div onClick = {switchQuestion}className = {styles.questionboxdivunanswered}>{qnum}</div>
   );
 }
