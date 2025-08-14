@@ -151,7 +151,7 @@
   margin-top: 1rem;
   /* background-color: pink; */
   /* height: 2rem; */
-  width: 33.5rem;
+  width: 32rem;
   margin-left: 1.5rem;
   display: flex;
   flex-direction: row;
@@ -168,6 +168,17 @@
   height: 1.5rem;
   width: 5rem;
   background-color: black;
+}
+.categoriesgraphoutline {
+  width: 18rem;
+  height: 1.5rem;
+  border: 2px solid black;
+}
+.categoriesdivcontent {
+  width: 33.5rem;
+  height:24rem;
+  overflow-y: auto;
+  margin-top: 1.5rem;
 }
 .questionbreakdowndiv {
   display: flex;

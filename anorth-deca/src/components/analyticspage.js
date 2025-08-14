@@ -7,6 +7,21 @@ import { fetchAttempts, fetchQuestions } from '@/lib/firebaseService';
 const tidToLabel = {
   100: "2013 ICDC Finance Exam"
 }
+const cidToLabel = {
+  'FM': 'Financial-Info Management',
+  'FI': 'Financial Analysis',
+  'PD': 'Professional Development',
+  'RM': 'Risk Management',
+  'CR': 'Customer Relations',
+  'EI': 'Emotional Intelligence',
+  'CO': 'Communications',
+  'EC': 'Economics',
+  'OP': 'Operations',
+  'BL': 'Business Law',
+  'NF': 'Information Management', 
+  'HR': 'Human Resources Management',
+  'MK': 'Marketing'
+}
 
 export function AnalyticsPage({user,tidAnalytic}) {
   const [sessionData,setSessionData] = useState(null);
@@ -115,6 +130,8 @@ function ScoreSummary({sessionData,selectedAttempt,testData}) {
   );
 }
 function CategoriesSummary({testData, sessionData,selectedAttempt}) {
+  const [categoryData, setCategoryData] = useState([]);
+
   function getSession() {
     if (sessionData) {
       for (const data of sessionData) {
@@ -125,7 +142,7 @@ function CategoriesSummary({testData, sessionData,selectedAttempt}) {
     }
     return null;
   }
-  function generateCategoryData() {
+  useEffect(() => {
     const currSession = getSession();
     let categoryData = {};
     if (currSession) {
@@ -145,9 +162,15 @@ function CategoriesSummary({testData, sessionData,selectedAttempt}) {
           categoryData[skey]['correct'] = categoryData[skey]['correct'] + 1;
         }
       }
+      const sorted = Object.entries(categoryData)
+        .sort((a, b) => b[1].total - a[1].total);
+      setCategoryData(sorted);
     }
     
-  }
+  },[sessionData])
+    
+    
+  
   return (
     <div className = {styles.categoriesdiv}>
       <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
@@ -155,9 +178,13 @@ function CategoriesSummary({testData, sessionData,selectedAttempt}) {
           Categories Summary
         </p>
       </div>
-      <CategoriesGraph numCorrect = {22} numTotal={22} label = {'Financial-Information Management'}/>
-      <CategoriesGraph numCorrect = {15} numTotal={18} label = {'Marketing'}/>
-
+      <div className = {styles.categoriesdivcontent}>
+        {categoryData.map((category,idx) =>
+          <CategoriesGraph key = {idx} numCorrect = {category[1].correct} numTotal={category[1].total} label = {cidToLabel[category[0]]}/>
+        )}
+      </div>
+      
+      
     </div>
   );
 }
@@ -182,7 +209,9 @@ function CategoriesGraph({label, numCorrect, numTotal}) {
   return (
     <div className={styles.categoriesgraphrow}>
       <p className={styles.categoriesgraphlabel}>{label + ' (' + numCorrect + '/' + numTotal + ')'}</p>
-      <div style={{ width: `${numCorrect*20/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
+      <div className = {styles.categoriesgraphoutline}>
+        <div style={{ width: `${numCorrect*20/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
+      </div>
     </div>
   );
 }
