@@ -28,6 +28,9 @@ export function AnalyticsPage({user,tidAnalytic}) {
   const [testData, setTestData] = useState(null);
   const [selectedAttempt,setSelectedAttempt] = useState(1);
 
+  const changeAttempt = (num) => {
+    setSelectedAttempt(num);
+  }
   useEffect(() => {
     async function retrieveData() {
       if (tidAnalytic) {
@@ -39,12 +42,12 @@ export function AnalyticsPage({user,tidAnalytic}) {
       }
     }
     retrieveData();
-  },[tidAnalytic])
+  },[tidAnalytic,selectedAttempt])
 
   if (tidAnalytic) {
     return (
       <div className = {styles.analyticspagediv}>
-        <SelectAnalytic tidAnalytic={tidAnalytic}/>
+        <SelectAnalytic sessionData = {sessionData} changeAttempt = {changeAttempt} selectedAttempt = {selectedAttempt} tidAnalytic={tidAnalytic}/>
         <div className = {styles.firstrowanalytics}>
           <ScoreSummary testData = {testData} sessionData={sessionData} selectedAttempt={selectedAttempt}/>
           <CategoriesSummary selectedAttempt = {selectedAttempt} testData={testData} sessionData={sessionData}/>
@@ -55,7 +58,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
   }
   return (
     <div className = {styles.analyticspagediv}>
-      <SelectAnalytic tidAnalytic={tidAnalytic}/>
+      <SelectAnalytic  tidAnalytic={tidAnalytic} />
     </div>
   );
 }
@@ -188,20 +191,29 @@ function CategoriesSummary({testData, sessionData,selectedAttempt}) {
     </div>
   );
 }
-function SelectAnalytic({tidAnalytic}) {
+function SelectAnalytic({changeAttempt, tidAnalytic,selectedAttempt,sessionData}) {
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const handleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  }
   return(
     <div className = {styles.selectattemptdiv}> 
       <p className = {styles.selectattemptheader}>{tidToLabel[tidAnalytic]}</p>
-      <SelectAttemptDropdown/>
+      <div className = {styles.totalDropdown}>
+        <SelectAttemptDropdown selectedAttempt = {selectedAttempt} onClick={handleDropdown} />
+        <DropDown handleChange = {changeAttempt} sessionData = {sessionData} visible = {dropdownVisible} />
+      </div>
+      
     </div>
   );
 } 
 
-function SelectAttemptDropdown() {
+function SelectAttemptDropdown({ onClick, selectedAttempt }) {
+  
   return(
-    <div className = {styles.selectattemptdropdown}>
-      <p className = {styles.selectattempttxt}>Attempt 1</p>
-      <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
+    <div className={styles.selectattemptdropdown} onClick={onClick}>
+      <p className={styles.selectattempttxt}>{'Attempt ' + selectedAttempt}</p>
+      <img className={styles.dropdownicon} src="/sidebar/dropdownicon.png" />
     </div>
   );
 }
@@ -456,4 +468,27 @@ function QuestionBox({qnum,answerState,setQnum, handleQuestionMap}) {
   return(
     <div onClick = {switchQuestion}className = {styles.questionboxdivunanswered}>{qnum}</div>
   );
+}
+function DropDown({visible, handleChange, sessionData}) {
+  const [attempts,setAttempts] = useState([]);
+
+  useEffect(() => {
+    if (sessionData) {
+      let attemptsList = [];
+      for (let i = 0; i<sessionData.length; i++) {
+        attemptsList.push(`Attempt ${i+1}`);
+      }
+      setAttempts(attemptsList);
+    }
+  },[sessionData])
+  if (visible) {
+    return (
+      <div className = {styles.dropdownoptions}>
+        {attempts.map((txt,idx) => 
+          <div key = {idx+1} onClick = {() => handleChange(idx+1)} className = {styles.catOption}>{txt}</div>
+        )}
+      </div>
+    );
+  }
+  return null;
 }

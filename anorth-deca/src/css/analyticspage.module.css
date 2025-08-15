@@ -11,7 +11,7 @@
 }
 
 .selectattemptdiv {
-  
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -36,7 +36,6 @@
   background-color: #f3f3f4;
   width: 10rem;
   height: 2.25rem;
-  margin-left: 1.5rem;
   cursor: pointer;
   border-radius: 0.5rem;
 }
@@ -467,4 +466,36 @@
   justify-content: center;
   height:4.25rem;
   gap: 1rem;
+}
+.dropdownoptions {
+  position: absolute;
+  top: 2.5rem;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border-radius: 0.5rem;
+  background-color: var(--bglight);
+  padding: 1rem 1rem 1rem 1rem;
+}
+.catOption:hover {
+  cursor: pointer;
+  background-color: var(--bg);
+}
+.catOption {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: var(--txtfont);
+  background-color: transparent;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: 0.3rem;
+}
+.totalDropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 1.5rem;
+
 }
