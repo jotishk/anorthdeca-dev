@@ -26,7 +26,7 @@ const cidToLabel = {
 export function AnalyticsPage({user,tidAnalytic}) {
   const [sessionData,setSessionData] = useState(null);
   const [testData, setTestData] = useState(null);
-  const [selectedAttempt,setSelectedAttempt] = useState(1);
+  const [selectedAttempt,setSelectedAttempt] = useState(0);
 
   const changeAttempt = (num) => {
     setSelectedAttempt(num);
@@ -37,7 +37,8 @@ export function AnalyticsPage({user,tidAnalytic}) {
       if (tidAnalytic) {
         const retrievedSessionData = await fetchAttempts(user.uid,tidAnalytic);
         const retrievedTestData = await fetchQuestions(tidAnalytic);
-
+        
+        setSelectedAttempt(0);
         setTestData(retrievedTestData);
         setSessionData(retrievedSessionData);
       }
@@ -45,7 +46,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
     retrieveData();
   },[tidAnalytic])
 
-  if (tidAnalytic) {
+  if (tidAnalytic && selectedAttempt>0) {
     return (
       <div className = {styles.analyticspagediv}>
         <SelectAnalytic sessionData = {sessionData} changeAttempt = {changeAttempt} selectedAttempt = {selectedAttempt} tidAnalytic={tidAnalytic}/>
@@ -59,7 +60,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
   }
   return (
     <div className = {styles.analyticspagediv}>
-      <SelectAnalytic  tidAnalytic={tidAnalytic} />
+      <SelectAnalytic  sessionData = {sessionData} changeAttempt = {changeAttempt} selectedAttempt = {selectedAttempt} tidAnalytic={tidAnalytic}/>
     </div>
   );
 }
@@ -221,7 +222,15 @@ function SelectAnalytic({changeAttempt, tidAnalytic,selectedAttempt,sessionData}
 } 
 
 function SelectAttemptDropdown({ onClick, selectedAttempt }) {
-  
+  if (selectedAttempt ==0) {
+    return(
+      <div className={styles.selectattemptdropdown} onClick={onClick}>
+        <p className={styles.selectattempttxt}>{'Select'}</p>
+        <img className={styles.dropdownicon} src="/sidebar/dropdownicon.png" />
+      </div>
+    )
+
+  }
   return(
     <div className={styles.selectattemptdropdown} onClick={onClick}>
       <p className={styles.selectattempttxt}>{'Attempt ' + selectedAttempt}</p>
