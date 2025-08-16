@@ -23,25 +23,39 @@ export default function Main() {
   const handleAnalyticTestChange = (tid) => {
     setTidAnalytic(tid);
   }
-  if (page === 'tests') {
-    return (
-      <div className = {styles.main}>
-        <Header handlePageChange = {handlePageChange}/>
-        <TestSidebar handleTestChange = {handleTestChange} key = {page} page = {page}/>
-        <TestPage  tid = {tid} active = {active} setActive = {setActive} user = {user}/>
-      </div>
+  // if (page === 'tests') {
+  //   return (
+  //     <div className = {styles.main}>
+  //       <Header handlePageChange = {handlePageChange}/>
+  //       <TestSidebar handleTestChange = {handleTestChange} key = {page} page = {page}/>
+  //       <TestPage  tid = {tid} active = {active} setActive = {setActive} user = {user}/>
+  //     </div>
       
-    );
-  }
-  if (page === 'analytics') {
-    return (
-      <div className = {styles.main}>
-        <Header handlePageChange = {handlePageChange}/>
-        <TestSidebar handleTestChange = {handleAnalyticTestChange} key = {page} page = {page}/>
-        <AnalyticsPage tidAnalytic = {tidAnalytic} user = {user}/>
+  //   );
+  // }
+  // if (page === 'analytics') {
+  //   return (
+  //     <div className = {styles.main}>
+  //       <Header handlePageChange = {handlePageChange}/>
+  //       <TestSidebar handleTestChange = {handleAnalyticTestChange} key = {page} page = {page}/>
+  //       <AnalyticsPage tidAnalytic = {tidAnalytic} user = {user}/>
+  //     </div>
+  //   );
+  // }
+  return (
+    <div className = {styles.main}>
+      <Header handlePageChange = {handlePageChange}/>
+      <TestSidebar handleTestChange = {handleTestChange}  key = {page} page = {page}/>
+      <div className = {styles.pageblock} style={{ display: page === 'tests' ? 'flex' : 'none' }}>
+        <TestPage tid={tid} active={active} setActive={setActive} user={user} />
       </div>
-    );
-  }
+
+      <div style={{ display: page === 'analytics' ? 'block' : 'none' }}>
+        <AnalyticsPage tidAnalytic={tidAnalytic} user={user} />
+      </div>
+    </div>
+    
+  );
 }
 
 function Header({handlePageChange}) {

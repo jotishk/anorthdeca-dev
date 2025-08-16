@@ -8,12 +8,16 @@ async function checkUsernameExists() {
 }
 
 async function submitTest(UID,SID,TID,selectedAnswers) {
+  const sessionRef = doc(db,"users",UID,"sessions",SID);
+  await updateDoc(sessionRef, {
+    answers:selectedAnswers 
+  })
+
   const answers = await getDoc(doc(db,'tests',TID));
   const answerData = answers.data();
   let correct = 0;
   
-  console.log('Answer key ' + answerData.anskey);
-  console.log('Actual answers ' + selectedAnswers);
+  
   for (let i = 1; i<= 100; i++) {
     if (answerData['anskey'][`q${i}`] == selectedAnswers[`q${i}`]) {
       correct++;

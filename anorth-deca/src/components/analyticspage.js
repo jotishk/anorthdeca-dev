@@ -32,17 +32,18 @@ export function AnalyticsPage({user,tidAnalytic}) {
     setSelectedAttempt(num);
   }
   useEffect(() => {
+    
     async function retrieveData() {
       if (tidAnalytic) {
-        const retrievedTestData = await fetchQuestions(tidAnalytic);
         const retrievedSessionData = await fetchAttempts(user.uid,tidAnalytic);
-        
+        const retrievedTestData = await fetchQuestions(tidAnalytic);
+
         setTestData(retrievedTestData);
         setSessionData(retrievedSessionData);
       }
     }
     retrieveData();
-  },[tidAnalytic,selectedAttempt])
+  },[tidAnalytic])
 
   if (tidAnalytic) {
     return (
@@ -63,6 +64,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
   );
 }
 function ScoreSummary({sessionData,selectedAttempt,testData}) {
+  const halfCircle = useRef(null);
   function getSession() {
     for (const data of sessionData) {
       if (data['num'] == selectedAttempt) {
@@ -72,6 +74,7 @@ function ScoreSummary({sessionData,selectedAttempt,testData}) {
     return null;
   }
   function getScoreSummary() {
+    
     if (sessionData) {
       let correct = 0;
       let incorrect = 0;
@@ -79,25 +82,30 @@ function ScoreSummary({sessionData,selectedAttempt,testData}) {
 
       const data = getSession();
       
+      if (data) {
+        for (let i =1; i<101; i++) {
         
-      for (let i =1; i<101; i++) {
+          let selectedAnswer = data["answers"][`q${i}`];
+          let trueAnswer = testData["anskey"][`q${i}`];
         
-        let selectedAnswer = data["answers"][`q${i}`];
-        let trueAnswer = testData["anskey"][`q${i}`];
-       
-        if (selectedAnswer == trueAnswer) {
-          correct++;
-        } else if (selectedAnswer == "") {
-          unanswered++;
-        } else {
-          incorrect++;
+          if (selectedAnswer == trueAnswer) {
+            correct++;
+          } else if (selectedAnswer == "") {
+            unanswered++;
+          } else {
+            incorrect++;
+          }
+        }
+        if (halfCircle.current) {
+          halfCircle.current.style.setProperty("--percentage",correct);
+        }
+        return {
+          correct:correct,
+          incorrect: incorrect,
+          unanswered: unanswered
         }
       }
-      return {
-        correct:correct,
-        incorrect: incorrect,
-        unanswered: unanswered
-      }
+      
     }
     return {
       correct:0,
@@ -112,7 +120,7 @@ function ScoreSummary({sessionData,selectedAttempt,testData}) {
           Score Summary
         </p>
       </div>
-      <div className={styles.semidonut}>
+      <div ref = {halfCircle} className={styles.semidonut}>
         {getScoreSummary()['correct']}
       </div>
       <div className={styles.scoresummarybtm}>
@@ -196,14 +204,18 @@ function SelectAnalytic({changeAttempt, tidAnalytic,selectedAttempt,sessionData}
   const handleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   }
+  const handleChangeAndDropdown = (num) => {
+    changeAttempt(num);
+    handleDropdown();
+  };
+
   return(
     <div className = {styles.selectattemptdiv}> 
       <p className = {styles.selectattemptheader}>{tidToLabel[tidAnalytic]}</p>
       <div className = {styles.totalDropdown}>
         <SelectAttemptDropdown selectedAttempt = {selectedAttempt} onClick={handleDropdown} />
-        <DropDown handleChange = {changeAttempt} sessionData = {sessionData} visible = {dropdownVisible} />
+        <DropDown handleChange = {handleChangeAndDropdown} sessionData = {sessionData} visible = {dropdownVisible} />
       </div>
-      
     </div>
   );
 } 
@@ -256,20 +268,22 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
   useEffect(() => {
     if (sessionData) {
       const data = getSession();
-      let answerStatesObject = {};
-      for (let i = 1; i<101; i++) {
-        const currSelected = data["answers"][`q${i}`];
+      if (data) {
+        let answerStatesObject = {};
+        for (let i = 1; i<101; i++) {
+          const currSelected = data["answers"][`q${i}`];
 
-        if (currSelected == testData['anskey'][`q${i}`]) {
-          answerStatesObject[`q${i}`] = 'correct';
-        } else if (currSelected == '') {
-          answerStatesObject[`q${i}`] = 'unanswered';
-        } else {
-          answerStatesObject[`q${i}`] = 'incorrect';
+          if (currSelected == testData['anskey'][`q${i}`]) {
+            answerStatesObject[`q${i}`] = 'correct';
+          } else if (currSelected == '') {
+            answerStatesObject[`q${i}`] = 'unanswered';
+          } else {
+            answerStatesObject[`q${i}`] = 'incorrect';
+          }
         }
+        setAnswerStates(answerStatesObject);
       }
-      console.log(answerStatesObject);
-      setAnswerStates(answerStatesObject);
+      
     }
   },[sessionData])
   useEffect(() => {
@@ -288,29 +302,31 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
         'D':false
       };
       const data = getSession();
-      choices['A'] = testData['choices'][`q${qnum}`]['A'];
-      choices['B'] = testData['choices'][`q${qnum}`]['B'];
-      choices['C'] = testData['choices'][`q${qnum}`]['C'];
-      choices['D'] = testData['choices'][`q${qnum}`]['D'];
+      if (data) {
+        choices['A'] = testData['choices'][`q${qnum}`]['A'];
+        choices['B'] = testData['choices'][`q${qnum}`]['B'];
+        choices['C'] = testData['choices'][`q${qnum}`]['C'];
+        choices['D'] = testData['choices'][`q${qnum}`]['D'];
 
-      const currSelected = data["answers"][`q${qnum}`];
-      if (currSelected) {
-        selectedObject[currSelected] = true;
-      }
+        const currSelected = data["answers"][`q${qnum}`];
+        if (currSelected) {
+          selectedObject[currSelected] = true;
+        }
 
-      if (currSelected == testData['anskey'][`q${qnum}`]) {
-        statusObject[currSelected] = 'correct';
-      } else if (selected == '') {
-        statusObject[testData['anskey'][`q${qnum}`]] = 'correct';
-      } else {
-        statusObject[currSelected] = 'incorrect';
-        statusObject[testData['anskey'][`q${qnum}`]] = 'correct';
+        if (currSelected == testData['anskey'][`q${qnum}`]) {
+          statusObject[currSelected] = 'correct';
+        } else if (selected == '') {
+          statusObject[testData['anskey'][`q${qnum}`]] = 'correct';
+        } else {
+          statusObject[currSelected] = 'incorrect';
+          statusObject[testData['anskey'][`q${qnum}`]] = 'correct';
+        }
+        setQuestionContent(testData['questions'][`q${qnum}`]);
+        setAnswerChoiceText(choices);
+        setSelected(selectedObject);
+        setStatus(statusObject);
       }
-      console.log(testData['anskey'][`q${qnum}`]);
-      setQuestionContent(testData['questions'][`q${qnum}`]);
-      setAnswerChoiceText(choices);
-      setSelected(selectedObject);
-      setStatus(statusObject);
+      
     }
   }, [qnum,sessionData])
   return(

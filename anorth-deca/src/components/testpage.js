@@ -71,6 +71,7 @@ export function TestPage({tid,user,active, setActive}) {
 
   const submitSession = async () => {
     await submitTest(user.uid, session.id, tid, selectedAnswers);
+    setActive(false);
   }
 
   
@@ -102,7 +103,7 @@ export function TestPage({tid,user,active, setActive}) {
   }
   return (
     <div className = {styles.testpagediv}>
-      <p className = {styles.testpageinfo}>{questionData["category"] + " > " + tidToLabel[tid]}</p>
+      {/* <p className = {styles.testpageinfo}>{questionData["category"] + " > " + tidToLabel[tid]}</p> */}
       <QuestionPanel qnum = {qnum} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap} questionData = {questionData} setSelectedAnswers = {setSelectedAnswers} selectedAnswers = {selectedAnswers}/>
       {questionMap ? <QuestionMap submitSession = {submitSession} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap} selectedAnswers = {selectedAnswers}/> : null }
       {questionMap ? <div className = {styles.coverup}></div>: null }
@@ -240,7 +241,7 @@ function AttemptsAccordion({uid,tid}) {
         <Plus onClick = {() => handleActive()} className = {styles.attemptsaccordionplus} color="#ffffff" />
         </div>
       {attemptData.map(data => (
-        <AttemptsCell key = {data} info = {data}/>
+        <AttemptsCell key = {data.num} info = {data}/>
       ))}
     </div>
   );
