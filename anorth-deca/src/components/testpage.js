@@ -3,10 +3,8 @@ import { useRef, useContext, useEffect, useState } from 'react';
 import styles from '@/app/main/page.module.css';
 import { submitTest, fetchAttempts, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
 import { X,ChevronUp,Clock,Plus, MoveLeft, MoveRight } from 'lucide-react';
+import { tidToLabel, cidToLabel } from '@/constants/constants';
 
-const tidToLabel = {
-  100: "2013 ICDC Finance Exam"
-}
 
 export function TestPage({tid,user,active, setActive}) {
   
@@ -20,7 +18,6 @@ export function TestPage({tid,user,active, setActive}) {
   useEffect(()=> {
     if (user === null) return;
     async function fetchSession() {
-      
       const sessionData = await retrieveSession(user.uid,tid);
       if (sessionData) {
         setStatus('Continue');
@@ -49,7 +46,7 @@ export function TestPage({tid,user,active, setActive}) {
   },[active,user,tid,session,selectedAnswers])
 
   const handleActive = async () => {
-    if (status === 'Start') {
+    if (user && status === 'Start') {
       const newSession = await createSession(user.uid,tid);
       setSession(newSession);
       let emptyAnswers = {};
@@ -91,7 +88,7 @@ export function TestPage({tid,user,active, setActive}) {
             {` administration of the exam from the 
             ${tidToLabel[tid].split(" ")[2]} cluster.`}
           </p>
-          <AttemptsAccordion uid = {user.uid} tid = {tid}/>
+          <AttemptsAccordion user = {user} tid = {tid}/>
           <button onClick = {handleActive} className = {styles.testbuttonNA}>{status}</button>
         </div>
         <div className = {styles.testpagetimediv}>
@@ -113,7 +110,7 @@ export function TestPage({tid,user,active, setActive}) {
 export function QuestionPanel({qnum, setQnum, handleQuestionMap, selectedAnswers, setSelectedAnswers, questionData}) {
   const [selected,setSelected] = useState([false,false,false,false]);
   
-
+                        
   useEffect(() => {
     if (selectedAnswers[`q${qnum}`] === 'A') {
       setSelected([true,false,false,false]);
@@ -209,7 +206,7 @@ export function QuestionChoices({qnum,altr,selected,handleSelected,answerChoice}
     </div>
   );
 }
-function AttemptsAccordion({uid,tid}) {
+function AttemptsAccordion({user,tid}) {
   const [active, setActive] = useState(false);
   const [attemptData, setAttemptData] = useState({});
   const handleActive = () => {
@@ -217,12 +214,14 @@ function AttemptsAccordion({uid,tid}) {
   }
   useEffect(() => {
     async function fetchData() {
-      let data = await fetchAttempts(uid,tid);
+      console.log(user);
+      let data = await fetchAttempts(user.uid,tid);
       setAttemptData(data);
     }
-    fetchData();
-   
-  },[uid,tid])
+    if (user) {
+      fetchData();
+    }
+  },[user,tid])
 
   if (!active) {
     return (

@@ -59,6 +59,10 @@ export default function Main() {
 }
 
 function Header({handlePageChange}) {
+  const [logoutDropdown,setLogoutDropdown] = useState(false);
+  const handleLogoutDropdown = () => {
+    setLogoutDropdown(!logoutDropdown);
+  }
   return (
     <div className = {[styles.header]}>
       <img className = {styles.headerlogo} src="/header/HeaderLogo.png" />
@@ -67,15 +71,21 @@ function Header({handlePageChange}) {
         <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Tests'}/>
         <HeaderNav onClick = {() => {handlePageChange('analytics')}} className = {styles.headernav} txt = {'Analytics'}/>
         <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Quick Practice'}/>
-        <HeaderNav onClick = {() => {handlePageChange('tests')}}className = {styles.headernav} txt = {'Chapters'}/>
-        <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Settings'}/>
+        <HeaderNav onClick = {() => {handlePageChange('contests')}}className = {styles.headernav} txt = {'Contests'}/>
+        <HeaderNav onClick = {() => {handleLogoutDropdown()}} className = {styles.headernav} txt = {'Settings'}/>
       </div>
+      {logoutDropdown &&
+        <div className = {styles.logoutdropdown}>
+          <p className = {styles.logoutdropdowntxt}>Log out</p>
+        </div>
+      }
+      
     </div>
   );
 }
 function HeaderNav({txt, onClick, className}) {
   if (txt === 'Settings') {
-    return <Settings className = {styles.settingsicon} size={30} onClick={onClick}/>;
+    return <Settings className = {styles.settingsicon}  onClick={onClick}/>;
   }
   if (txt === 'Analytics') {
     return (
@@ -101,7 +111,7 @@ function HeaderNav({txt, onClick, className}) {
       </div>
     );
   }
-  if (txt === 'Chapters') {
+  if (txt === 'Contests') {
     return (
       <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
         <School />

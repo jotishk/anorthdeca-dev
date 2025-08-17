@@ -3,25 +3,9 @@ import styles from '../css/analyticspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
 import { ChevronUp, X, Check, Square } from 'lucide-react';
 import { fetchAttempts, fetchQuestions } from '@/lib/firebaseService';
+import { tidToLabel, cidToLabel } from '@/constants/constants';
 
-const tidToLabel = {
-  100: "2013 ICDC Finance Exam"
-}
-const cidToLabel = {
-  'FM': 'Financial-Info Management',
-  'FI': 'Financial Analysis',
-  'PD': 'Professional Development',
-  'RM': 'Risk Management',
-  'CR': 'Customer Relations',
-  'EI': 'Emotional Intelligence',
-  'CO': 'Communications',
-  'EC': 'Economics',
-  'OP': 'Operations',
-  'BL': 'Business Law',
-  'NF': 'Information Management', 
-  'HR': 'Human Resources Management',
-  'MK': 'Marketing'
-}
+
 
 export function AnalyticsPage({user,tidAnalytic}) {
   const [sessionData,setSessionData] = useState(null);
@@ -34,7 +18,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
   useEffect(() => {
     
     async function retrieveData() {
-      if (tidAnalytic) {
+      if (user && tidAnalytic) {
         const retrievedSessionData = await fetchAttempts(user.uid,tidAnalytic);
         const retrievedTestData = await fetchQuestions(tidAnalytic);
         
