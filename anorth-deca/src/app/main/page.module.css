@@ -619,10 +619,35 @@ body {
 .logoutdropdown {
   position: absolute;
   display: flex;
-  align-items: ce;
-  width: 6rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
   height: 3rem;
   background-color: var(--bglight);
   top: 4rem;
   right: 0rem;
+  cursor: pointer;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  
+}
+.logoutdropdown:hover {
+  opacity: 0.9;
+
+}
+.logoutdropdowntxt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--txtfont);
+  width: 80%;
+  height: 70%;
+  margin: 0px;
+  border-radius: 0.2rem;
 }

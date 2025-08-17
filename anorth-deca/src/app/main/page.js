@@ -5,6 +5,9 @@ import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRig
 import { useAuth } from '@/context/AuthContext';
 import { TestPage, QuestionPanel, QuestionPanelBtm,QuestionChoices} from '@/components/testpage';
 import { AnalyticsPage } from '@/components/analyticspage';
+import { getAuth,signOut } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
+
 
 export default function Main() {
   const [page,setPage] = useState('tests');
@@ -60,8 +63,17 @@ export default function Main() {
 
 function Header({handlePageChange}) {
   const [logoutDropdown,setLogoutDropdown] = useState(false);
+  const router = useRouter();
+  
   const handleLogoutDropdown = () => {
     setLogoutDropdown(!logoutDropdown);
+  }
+  const handleLogout = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        router.push('/login')
+      })
   }
   return (
     <div className = {[styles.header]}>
@@ -75,8 +87,8 @@ function Header({handlePageChange}) {
         <HeaderNav onClick = {() => {handleLogoutDropdown()}} className = {styles.headernav} txt = {'Settings'}/>
       </div>
       {logoutDropdown &&
-        <div className = {styles.logoutdropdown}>
-          <p className = {styles.logoutdropdowntxt}>Log out</p>
+        <div onClick = {() => {handleLogout()}} className = {styles.logoutdropdown}>
+          <p className = {styles.logoutdropdowntxt}>Logout</p>
         </div>
       }
       
