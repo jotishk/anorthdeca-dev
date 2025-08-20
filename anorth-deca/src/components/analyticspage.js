@@ -5,8 +5,6 @@ import { ChevronUp, X, Check, Square } from 'lucide-react';
 import { fetchAttempts, fetchQuestions } from '@/lib/firebaseService';
 import { tidToLabel, cidToLabel } from '@/constants/constants';
 
-
-
 export function AnalyticsPage({user,tidAnalytic}) {
   const [sessionData,setSessionData] = useState(null);
   const [testData, setTestData] = useState(null);

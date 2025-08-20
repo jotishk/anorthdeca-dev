@@ -1,0 +1,71 @@
+.contestpageblock {
+  height: 100%;
+  padding-top: 4rem;
+}
+.contestpagediv { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+.contestpagescrollable {
+  min-height: 100%;
+  background-color: var(--bglight);
+  width: 60%; 
+}
+.contestpageheaderdiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10rem;
+  background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 50%, #3730a3 100%);
+  
+}
+.contestpageheadertxt {
+  margin: 0;
+  font-family: var(--txtfont);
+  font-size: 4rem;
+  font-weight: 700;  
+  color: #ac90cb;
+  color:var(--bglight);
+}
+.contestpagefilterdiv {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color: pink; */
+  width: 10rem;
+  height: 3rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  /* border-bottom: 1px solid #e0e0e0; */
+
+
+}
+.contestpagefilterupcoming {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: blue; */
+  width: 6rem;
+  height: 3rem;
+  cursor: pointer;
+}
+.contestpagefilterpast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: green; */
+  width: 4rem;
+  height: 3rem;
+  cursor: pointer;
+
+}
+.contestpagefiltertxt {
+  font-family: var(--txtfont);
+  font-size: 1rem;
+  font-weight: 600; 
+}
+

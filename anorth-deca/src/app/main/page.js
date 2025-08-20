@@ -1,10 +1,13 @@
 'use client'
 import { useContext, useEffect, useState } from 'react';
 import styles from './page.module.css';
+import conteststyles from '../../css/contestspage.module.css';
+
 import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { TestPage, QuestionPanel, QuestionPanelBtm,QuestionChoices} from '@/components/testpage';
 import { AnalyticsPage } from '@/components/analyticspage';
+import { ContestsPage } from '@/components/contestspage';
 import { getAuth,signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
@@ -48,13 +51,19 @@ export default function Main() {
   return (
     <div className = {styles.main}>
       <Header handlePageChange = {handlePageChange}/>
-      <TestSidebar handleTestChange = {handleTestChange}  key = {page} page = {page}/>
       <div className = {styles.pageblock} style={{ display: page === 'tests' ? 'flex' : 'none' }}>
+        <TestSidebar handleTestChange = {handleTestChange}  key = {page} page = {page}/>
+
         <TestPage tid={tid} active={active} setActive={setActive} user={user} />
       </div>
 
       <div style={{ display: page === 'analytics' ? 'block' : 'none' }}>
+        <TestSidebar handleTestChange = {handleTestChange}  key = {page} page = {page}/>
+
         <AnalyticsPage tidAnalytic={tidAnalytic} user={user} />
+      </div>
+      <div className = {conteststyles.contestpageblock} style={{ display: page === 'contests' ? 'block' : 'none' }}>
+        <ContestsPage user={user} />
       </div>
     </div>
     
