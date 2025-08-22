@@ -28,6 +28,18 @@ export function ContestsPage({user}) {
         {/* {filter === 'upcoming' && 
 
         } */}
+        <div className = {styles.contestlistdiv}>
+          <div className = {styles.contestdisplaydiv}>
+            <div className = {styles.contestdisplaydivleft}>
+              <p className = {styles.contestdisplaytitle}>February Contest (Monthly)</p>
+            </div>
+            <div className = {styles.contestdisplaydivright}>
+              <button className = {styles.contestdisplaybtn}>View</button>
+              <button className = {styles.contestdisplaybtn}>Start</button>
+              <p className = {styles.contestdisplaytimetxt}>Saturday 8/21/2025 6am-12pm</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
