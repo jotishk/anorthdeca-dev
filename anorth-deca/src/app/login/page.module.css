@@ -35,8 +35,9 @@ body {
 }
 .signupformdiv {
   border: 1px solid hsl(0, 0%, 85%);
-  width: 24rem;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+
+  width: 24rem;
   height: 34.7rem;
   background-color: var(--bglight);
   padding: 0.3rem 3rem 0 3rem; 

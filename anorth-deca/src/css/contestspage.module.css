@@ -15,6 +15,14 @@
   background-color: var(--bglight);
   width: 60%; 
 }
+.contestpagecontentheader {
+  position: relative;
+  display:flex;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
+}
 .contestpageheaderdiv {
   display: flex;
   align-items: center;
@@ -39,8 +47,7 @@
   /* background-color: pink; */
   width: 10rem;
   height: 3rem;
-  margin-left: 2rem;
-  margin-top: 2rem;
+  
   /* border-bottom: 1px solid #e0e0e0; */
 }
 .contestpagefilterupcoming {
@@ -48,53 +55,255 @@
   align-items: center;
   justify-content: center;
   /* background-color: blue; */
-  width: 6rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 1rem;
   cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  border: 2px solid #2563eb;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 .contestpagefilterpast {
   display: flex;
   align-items: center;
   justify-content: center;
   /* background-color: green; */
-  width: 4rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 1rem;
   cursor: pointer;
-
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  border: 2px solid #2563eb;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 .contestpagefiltertxt {
   font-family: var(--txtfont);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600; 
+  
 }
 
 .contestlistdiv {
   padding-left: 2rem;
   padding-right: 2rem;
   width: calc(100% - 4rem);
-  height: 100%;
+  
   margin-top: 2rem;
 }
 .contestdisplaydiv {
   display: flex;
   align-items: center;
   flex-direction: row;
-  background-color: pink;
   width: 100%;
   height: 10rem;
-
+  border: 1px solid black;
+  border-radius: 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 .contestdisplaydivleft {
-  background-color: blue;
-  width: 80%;
+  position: relative;
+  flex: 0 0 80%;
   height: 10rem;
 }
 .contestdisplaydivright {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: red;
+  justify-content: center;
+  flex: 0 0 20%;
   height: 10rem;
 }
+.contestdisplaytitle {
+  position: relative;
+  color: white;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: var(--txtfont);
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  z-index: 5;
+  text-shadow: 2px 2px 4px rgba(0,0,0,1);
+}
+.contestdisplaybtn {
+  background-color: blue;
+}
+.contestdisplaytimetxt {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+/* .contestdisplayoverlay {  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+} */
+.contestdisplayoverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+
+}
+
+.contestdisplayoverlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+}
+.bluebtn {
+  border: none;
+  background-color: var(--decablue);
+  height: 2.25rem;
+  font-family: var(--txtfont);
+  font-size: 0.9rem;
+  font-weight:550; 
+  border-radius: 1.125rem;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
+  transition: transform 0.1s cubic-bezier(0.4,0,0.2,1);
+}
+.contestdisplaydatetxt {
+  
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--txtfont);
+  margin: 0;
+  margin-top: 1rem;
+}
+.contestdisplaytimetxt {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--txtfont);
+}
+.contestdisplaydivrightcontent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height:fit-content;
+  width: 10rem;
+  
+}
+.contestdisplaydivrightbtnrow {
+  display: flex;
+  gap: 1rem;
+}
+.addcontestbtn {
+  position: absolute;
+  right: 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--decablue);
+  border: none;
+  border-radius: 1.25rem;
+  cursor: pointer;
+}
+.createcontestpaneldiv {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 30rem;
+  height: 19rem;
+  padding-left: 1rem;
+  z-index: 10;
+  border: 1px solid hsl(0, 0%, 85%);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+
+}
+.createcontestpanelheader {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: var(--txtfont);
+}
+.createcontestpaneltitle {
+  display: block;
+  width: 50%;
+  height:2rem;
+  margin-top: 1.5rem;
+  box-sizing: border-box; 
+  outline: none;
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 5px;
+  padding-left: 0.75rem;
+  color: var(--txt);
+  font-family: var(--txtfont);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.createcontestpaneldate {
+  display: block;
+  width: 50%;
+  height:2rem;
+  margin-top: 1.5rem;
+  box-sizing: border-box; 
+  outline: none;
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 5px;
+  padding-left: 0.75rem;
+  color: var(--txt);
+  font-family: var(--txtfont);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.createcontestpaneltimerow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.createcontestpanelstart {
+  width: 30%;
+  height:2rem;
+  margin-top: 1.5rem;
+  box-sizing: border-box; 
+  outline: none;
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 5px;
+  padding-left: 0.75rem;
+  color: var(--txt);
+  font-family: var(--txtfont);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.createcontestpanelend {
+  width: 30%;
+  height:2rem;
+  margin-top: 1.5rem;
+  box-sizing: border-box; 
+  outline: none;
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 5px;
+  padding-left: 0.75rem;
+  color: var(--txt);
+  font-family: var(--txtfont);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.createcontestpanelsubmit {
+  position: absolute;
+  bottom: 2rem;
+}
+.createcontestexit {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+  cursor: pointer;
+}
+
+
 
 
