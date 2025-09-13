@@ -79,24 +79,48 @@ export function ContestsPage({user}) {
   )
 }
 function ActiveContest({cid}) {
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  
   return (
-    <QuestionPanel qnum = {1} 
-    selectedAnswers={{
-      q1: 'A'
-    }}
-    questionData={{
-      choices: {
-        q1: {
-          'A': 'A',
-          'B': 'A',
-          'C': 'A',
-          'D': 'A',
+    <div className ={styles.activecontestpagediv}>
+      {/* <QuestionPanel setSelectedAnswers = {setSelectedAnswers} qnum = {1} 
+      selectedAnswers={{
+        q1: 'A'
+      }}
+      questionData={{
+        choices: {
+          q1: {
+            'A': 'A',
+            'B': 'A',
+            'C': 'A',
+            'D': 'A',
+          }
+        },
+        questions: {
+          q1:'This is a question'
         }
-      },
-      questions: {
-        q1:'This is a question'
-      }
-    }}/>
+      }}/> */}
+
+      <RoleplayPanel />
+    </div>
+    
+  )
+}
+function RoleplayPanel({}) {
+  return(
+    <div className = {styles.roleplaypaneldiv}>
+      <div className = {styles.roleplaypaneldivleft}>
+        <p className = {styles.casestudytitle}>Case Study</p>
+        <div className = {styles.casestudyparagraph}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
+      <div className = {styles.roleplaypaneldivleft}>
+        <div className = {styles.roleplaypaneldivanswersection}>
+          <p className = {styles.roleplayanswerheader}>Read the case study carefully and consider how you will answer the performance indicators. Type your answers in the box below.</p>
+        </div>
+      </div>
+    </div>
   )
 }
 function QuestionPanel({qnum, setQnum, handleQuestionMap, selectedAnswers, setSelectedAnswers, questionData}) {

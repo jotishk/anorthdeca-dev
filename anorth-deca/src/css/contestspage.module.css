@@ -303,6 +303,124 @@
   top: 0.8rem;
   cursor: pointer;
 }
+.questionpanel {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  height: 35rem;
+  background-color: var(--bglight);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); 
+  border-radius: 0.5rem;
+}
+.questiontitle {
+  margin-top: 0px;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: var(--txtfont);
+}
+.questioncontent {
+  min-height: 6rem;
+  max-height: 6rem;
+  overflow-y: auto;
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-family: var(--txtfont);
+  /* height: fit-content; */
+}
+.questionchoicesdiv {
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  flex: 1;
+}
+.questionchoicediv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  width: 30rem;
+  height: 3rem;
+}
+.questionchoiceltractive {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.7rem;
+  border: 2px solid black;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  border-radius: 0.75rem;
+  margin-right: 1rem;
+  background-color: var(--decablue);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--txtfont);
+}
+.questionchoiceltr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.7rem;
+  border: 2px solid black;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  border-radius: 0.75rem;
+  margin-right: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--txtfont);
+}
+.answerchoicetxt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow:scroll;
+  
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--txtfont);
+  color: black;
+}
+.questionchoicediv:hover {
+  cursor: pointer;
+  background-color: #f3f6fa;
+  /* border-color: var(--decablue); */
+}
+.activecontestpagediv {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+.roleplaypaneldiv {
+  display: flex;
+  flex-direction: column;
+  width: 80rem;
+  height: 35rem;
+  background-color: var(--bglight);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); 
+  border-radius: 0.5rem;
+}
 
 
 
