@@ -2,6 +2,8 @@
 import styles from '../css/contestspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
 import { X, Plus } from 'lucide-react';
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 
 export function ContestsPage({user}) {
   const [filter,setFilter] = useState('upcoming');
@@ -107,17 +109,21 @@ function ActiveContest({cid}) {
   )
 }
 function RoleplayPanel({}) {
+  const [value,setValue] = useState('');
   return(
     <div className = {styles.roleplaypaneldiv}>
       <div className = {styles.roleplaypaneldivleft}>
         <p className = {styles.casestudytitle}>Case Study</p>
-        <div className = {styles.casestudyparagraph}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div className = {styles.casestudyparagraphdiv}>
+          <p className = {styles.casestudyparagraph}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
       </div>
-      <div className = {styles.roleplaypaneldivleft}>
+      <div className = {styles.roleplaypaneldivright}>
         <div className = {styles.roleplaypaneldivanswersection}>
           <p className = {styles.roleplayanswerheader}>Read the case study carefully and consider how you will answer the performance indicators. Type your answers in the box below.</p>
+          <ReactQuill theme="snow" value={value} onChange={setValue} />
         </div>
       </div>
     </div>

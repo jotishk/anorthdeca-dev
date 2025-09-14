@@ -409,18 +409,60 @@
 }
 .roleplaypaneldiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   width: 80rem;
   height: 35rem;
   background-color: var(--bglight);
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   border: 1px solid #e0e0e0;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); 
   border-radius: 0.5rem;
 }
+.roleplaypaneldivleft {
+  display: flex;
+  flex-direction: column;
+  width: 37rem;
+  height: 34.5rem;
+  background-color: var(--bglight);
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+
+  padding-left: 1.5rem;
+  padding-top: 0.5rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid #e0e0e0;
+  
+  /* padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem; */
+}
+.roleplaypaneldivright {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  height: 35rem;
+  background-color: var(--bglight);
+  border-radius: 0.5rem;
+}
+.casestudytitle {
+  font-family: var(--txtfont);
+  font-size: 1.3rem;
+  font-weight: 600;  
+}
+.casestudyparagraphdiv {
+  width: 37rem;
+  min-height: 29rem;
+  overflow-y: auto;
+}
+.casestudyparagraph {
+  min-height: 29rem;
+  margin: 0;
+  font-family: var(--txtfont);
+  font-size: 1rem;
+  font-weight: 400; 
+}
+
 
 
 
