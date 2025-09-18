@@ -431,19 +431,22 @@
   padding-top: 0.5rem;
   padding-right: 1.5rem;
   border-right: 1px solid #e0e0e0;
-  
-  /* padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem; */
 }
 .roleplaypaneldivright {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 40rem;
+  align-items: center;
+  justify-content: center;
+  width: 37rem;
   height: 35rem;
   background-color: var(--bglight);
-  border-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+
+  padding-left: 1.5rem;
+  /* padding-top: 0.5rem; */
+  padding-right: 1.5rem;
 }
 .casestudytitle {
   font-family: var(--txtfont);
@@ -462,7 +465,45 @@
   font-size: 1rem;
   font-weight: 400; 
 }
-
+.roleplaypaneldivanswersection {
+  height: 21.5rem;
+}
+.roleplayanswerheader {
+  font-family: var(--txtfont);
+  font-size: 1rem;
+  font-weight: 400;   
+  height: 4rem;
+  margin: 0;
+}
+.roleplayanswerbox {
+  height: 15rem
+}
+.blackdropbox {
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.4rem;
+  background-color: black;
+  color: white;
+  border: none;
+  font-family: var(--txtfont);
+  font-size: 0.9rem;
+  font-weight:550; 
+  border-radius: 4px;
+  cursor: pointer;
+}
+.blackdropboxchevron {
+  margin-left: 0.2rem;
+}
+.roleplayanswermapselectiondiv {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 3rem;
+  width: 100%;
+}
 
 
 

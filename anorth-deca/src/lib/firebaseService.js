@@ -1,11 +1,41 @@
 import { db } from '@/lib/firebase';
-import { doc, setDoc, collection, query, where, getDocs, getDoc, updateDoc } from "firebase/firestore"; 
+import { Timestamp, doc, setDoc, collection, query, where, getDocs, getDoc, updateDoc } from "firebase/firestore"; 
 import { v4 as uuidv4 } from 'uuid';
 
 
 async function checkUsernameExists() {
 
 }
+async function updateQuestions(TID) {
+  const testRef = await getDoc(doc(db,"tests",TID));
+  
+  const testData = testRef.data();
+  for (let i = 1; i<101; i++) {
+    let currQuestion = {
+      questionText: testData["questions"][`q${i}`],
+      choices: testData["choices"][`q${i}`],
+      category: testData["category"],
+      answer: testData["anskey"][`q${i}`],
+      scode: testData["scode"][`q${i}`],
+      source: testData["source"][`q${i}`],
+    }
+    await setDoc(doc(db,"questions",`${TID}-${i}`),currQuestion);
+  }
+  
+}
+async function createContest(contestName, date, startTime, endTime, numQuestions) {
+  const jsDate = new Date(date);
+  const CID = new uuidv4();
+  let contestData = {
+    name: contestName,
+    date: Timestamp.fromDate(jsDate),
+    start: startTime,
+    end: endTime
+  }
+  await setDoc(doc(db,"contests",CID),contestData);
+
+} 
+
 
 async function submitTest(UID,SID,TID,selectedAnswers) {
   const sessionRef = doc(db,"users",UID,"sessions",SID);
@@ -180,4 +210,4 @@ async function createTest(text) {
 
 
 
-export { submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
+export { createContest, updateQuestions, submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};

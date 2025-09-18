@@ -1,9 +1,11 @@
 'use client'
 import styles from '../css/contestspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
-import { X, Plus } from 'lucide-react';
-import ReactQuill from 'react-quill-new';
+import { ChevronUp, X, Plus } from 'lucide-react';
+import { updateQuestions } from '@/lib/firebaseService';
+// import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
+import dynamic from "next/dynamic";
 
 export function ContestsPage({user}) {
   const [filter,setFilter] = useState('upcoming');
@@ -31,6 +33,13 @@ export function ContestsPage({user}) {
       </div>
     )
   }
+  useEffect(() => {
+    console.log('updating questions');
+    async function test() {
+      await updateQuestions('100');
+    }
+    test();
+  },[])
   return(
     <div className = {styles.contestpagediv}>
       <div className = {styles.contestpagescrollable}>
@@ -123,7 +132,10 @@ function RoleplayPanel({}) {
       <div className = {styles.roleplaypaneldivright}>
         <div className = {styles.roleplaypaneldivanswersection}>
           <p className = {styles.roleplayanswerheader}>Read the case study carefully and consider how you will answer the performance indicators. Type your answers in the box below.</p>
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
+          <QuillEditor  theme="snow" value={value} onChange={setValue} />
+        </div>
+        <div className = {styles.roleplayanswermapselectiondiv}>
+          <BlackDropBox txt = "Question 1 of 1"/>
         </div>
       </div>
     </div>
@@ -232,4 +244,24 @@ function BlueBtn({txt,onClick,style}) {
       {txt}
     </button>
   )
+}
+function BlackDropBox({txt,children, onClick}) {
+  return (
+    <button className = {styles.blackdropbox} onClick={onClick}>
+      {txt}
+      <ChevronUp className = {styles.blackdropboxchevron} size={'20px'}/>
+    </button>
+  );
+}
+
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
+
+export default function QuillEditor() {
+  const [value, setValue] = useState("");
+
+  return (
+    <div>
+      <ReactQuill className = {styles.roleplayanswerbox} theme="snow" value={value} onChange={setValue} />
+    </div>
+  );
 }
