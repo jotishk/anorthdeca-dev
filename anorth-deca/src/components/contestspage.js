@@ -2,7 +2,7 @@
 import styles from '../css/contestspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
 import { ChevronUp, X, Plus } from 'lucide-react';
-import { updateQuestions } from '@/lib/firebaseService';
+import { createContest, updateQuestions } from '@/lib/firebaseService';
 // import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 import dynamic from "next/dynamic";
@@ -12,6 +12,8 @@ export function ContestsPage({user}) {
   const [createContestPanel,setCreateContestPanel] = useState(false);
   const [status, setStatus] = useState('Start');
   const [session, setSession] = useState(null);
+
+  useEffect()
   const handleCreateContest = () => {
     setCreateContestPanel(!createContestPanel);
   }
@@ -33,13 +35,7 @@ export function ContestsPage({user}) {
       </div>
     )
   }
-  useEffect(() => {
-    console.log('updating questions');
-    async function test() {
-      await updateQuestions('100');
-    }
-    test();
-  },[])
+
   return(
     <div className = {styles.contestpagediv}>
       <div className = {styles.contestpagescrollable}>
@@ -64,26 +60,31 @@ export function ContestsPage({user}) {
 
         } */}
         <div className = {styles.contestlistdiv}>
-          <div className = {styles.contestdisplaydiv}>
-            <div className = {styles.contestdisplaydivleft}>
-              <img className = {styles.contestdisplayoverlay} src="/images/deca2026NEW.jpg"/>
-              <p className = {styles.contestdisplaytitle}>February Contest (Monthly)</p>
-            </div>
-            <div className = {styles.contestdisplaydivright}>
-              <div className = {styles.contestdisplaydivrightcontent}>
-                <div className = {styles.contestdisplaydivrightbtnrow}>
-                  <BlueBtn className = {styles.contestdisplaybtn} txt = {'View'}/>
-                  <BlueBtn onClick = {() => handleContestStatus('500')} className = {styles.contestdisplaybtn} txt = {'Start'}/>
-                </div>
-                
-                <p className = {styles.contestdisplaydatetxt}>Saturday 8/21/2025</p>
-                <p className = {styles.contestdisplaytimetxt}>6am-12pm</p>
-              </div>
-
-            </div>
-          </div>
+          
         </div>
         <CreateContest handleCreateContest = {handleCreateContest} active = {createContestPanel}/>
+
+      </div>
+    </div>
+  )
+}
+function ContestListPanel({eventInfo}) {
+  return (
+    <div className = {styles.contestdisplaydiv}>
+      <div className = {styles.contestdisplaydivleft}>
+        <img className = {styles.contestdisplayoverlay} src="/images/deca2026NEW.jpg"/>
+        <p className = {styles.contestdisplaytitle}>February Contest (Monthly)</p>
+      </div>
+      <div className = {styles.contestdisplaydivright}>
+        <div className = {styles.contestdisplaydivrightcontent}>
+          <div className = {styles.contestdisplaydivrightbtnrow}>
+            <BlueBtn className = {styles.contestdisplaybtn} txt = {'View'}/>
+            <BlueBtn onClick = {() => handleContestStatus('500')} className = {styles.contestdisplaybtn} txt = {'Start'}/>
+          </div>
+          
+          <p className = {styles.contestdisplaydatetxt}>Saturday 8/21/2025</p>
+          <p className = {styles.contestdisplaytimetxt}>6am-12pm</p>
+        </div>
 
       </div>
     </div>
@@ -218,21 +219,35 @@ function QuestionChoices({qnum,altr,selected,handleSelected,answerChoice}) {
   );
 }
 function CreateContest({active,handleCreateContest}) {
+  const [eventName, setEventName] = useState("");
+  const [date, setDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const handleContestCreation = () => {
+    async function contestCreate() {
+      await createContest(eventName,date,startTime,endTime,50);
+    }
+    contestCreate();
+  }
   if (active) {
     return (
       <div className = {styles.createcontestpaneldiv}>
         <X className = {styles.createcontestexit} onClick={() => handleCreateContest()}/>
         <p className = {styles.createcontestpanelheader}>Create Contest</p>
-        <input className = {styles.createcontestpaneltitle} placeholder="Event Name" type="text"/>
-        <input className = {styles.createcontestpaneldate} type ="date"/>
+        <input className = {styles.createcontestpaneltitle} placeholder="Event Name" type="text" value={eventName}
+        onChange={(e) => setEventName(e.target.value)}/>
+        <input className = {styles.createcontestpaneldate} type ="date" value={date}
+        onChange={(e) => setDate(e.target.value)}/>
         <div className = {styles.createcontestpaneltimerow}>
-          <input className = {styles.createcontestpanelstart} type ="time"/>
-          <input className = {styles.createcontestpanelend} type ="time"/>
+          <input className = {styles.createcontestpanelstart} type ="time" value={startTime}
+          onChange={(e) => setStartTime(e.target.value)}/>
+          <input className = {styles.createcontestpanelend} type ="time" value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}/>
         </div>
         <BlueBtn style = {{
           position: "absolute",
           bottom: "1rem"}} 
-        className = {styles.createcontestpanelsubmit} txt={'Submit'}/>
+        className = {styles.createcontestpanelsubmit} onClick = {handleContestCreation} txt={'Submit'}/>
       </div>
     )
   }

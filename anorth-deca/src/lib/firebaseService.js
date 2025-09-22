@@ -23,14 +23,37 @@ async function updateQuestions(TID) {
   }
   
 }
+async function generateRandomQuestions(numQuestions) {
+  const snapshot = await getDocs(collection(db,"questions"));
+  const ids = snapshot.docs.map((doc) => doc.id);
+  
+  let shuffled = [...ids];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  shuffled = shuffled.slice(0, numQuestions);
+  return shuffled;
+}
 async function createContest(contestName, date, startTime, endTime, numQuestions) {
   const jsDate = new Date(date);
-  const CID = new uuidv4();
+  const CID = uuidv4();
+
+  let shuffled = await generateRandomQuestions(numQuestions);
+  let chosenQuestions = {};
+  for (let i = 0; i<numQuestions; i++) {
+    chosenQuestions[`q${i+1}`] = shuffled[i];
+  }
+
   let contestData = {
     name: contestName,
     date: Timestamp.fromDate(jsDate),
     start: startTime,
-    end: endTime
+    end: endTime,
+    numQuestions: numQuestions,
+    chosenQuestions: chosenQuestions
   }
   await setDoc(doc(db,"contests",CID),contestData);
 
@@ -207,7 +230,14 @@ async function createTest(text) {
     console.log(err.message);
   }
 }
-
+// Use this to update questions - put in contestspage component
+  // useEffect(() => {
+  //   console.log('updating questions');
+  //   async function test() {
+  //     await updateQuestions('100');
+  //   }
+  //   test();
+  // },[])
 
 
 export { createContest, updateQuestions, submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
