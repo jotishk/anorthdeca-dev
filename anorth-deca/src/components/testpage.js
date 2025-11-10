@@ -88,8 +88,12 @@ export function TestPage({tid,user,active, setActive}) {
             {` administration of the exam from the 
             ${tidToLabel[tid].split(" ")[2]} cluster.`}
           </p>
-          <AttemptsAccordion user = {user} tid = {tid}/>
-          <button onClick = {handleActive} className = {styles.testbuttonNA}>{status}</button>
+
+          <div className = {styles.teststartpagebtm}>
+            <AttemptsAccordion user = {user} tid = {tid}/>
+            <button onClick = {handleActive} className = {styles.testbuttonNA}>{status}</button>
+          </div>
+ 
         </div>
         <div className = {styles.testpagetimediv}>
           <Clock size="30px"/>
@@ -101,16 +105,15 @@ export function TestPage({tid,user,active, setActive}) {
   return (
     <div className = {styles.testpagediv}>
       {/* <p className = {styles.testpageinfo}>{questionData["category"] + " > " + tidToLabel[tid]}</p> */}
-      <QuestionPanel qnum = {qnum} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap} questionData = {questionData} setSelectedAnswers = {setSelectedAnswers} selectedAnswers = {selectedAnswers}/>
+      <QuestionPanel setActive = {setActive} qnum = {qnum} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap} questionData = {questionData} setSelectedAnswers = {setSelectedAnswers} selectedAnswers = {selectedAnswers}/>
       {questionMap ? <QuestionMap submitSession = {submitSession} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap} selectedAnswers = {selectedAnswers}/> : null }
       {questionMap ? <div className = {styles.coverup}></div>: null }
     </div>
   )
 }
-export function QuestionPanel({qnum, setQnum, handleQuestionMap, selectedAnswers, setSelectedAnswers, questionData}) {
+export function QuestionPanel({setActive, qnum, setQnum, handleQuestionMap, selectedAnswers, setSelectedAnswers, questionData}) {
   const [selected,setSelected] = useState([false,false,false,false]);
-  
-                        
+  const [confirmExit, setConfirmExit] = useState(true);                      
   useEffect(() => {
     if (selectedAnswers[`q${qnum}`] === 'A') {
       setSelected([true,false,false,false]);
@@ -151,9 +154,30 @@ export function QuestionPanel({qnum, setQnum, handleQuestionMap, selectedAnswers
     setSelected(update);
     setSelectedAnswers({ ...selectedAnswers, [`q${qnum}`]: ltr })
   }
+  const handleTestExit = () => {
+    setConfirmExit(true);
+  }
+  const handlePopupCancel = () => {
+    setConfirmExit(false);
+  }
+  const handlePopupAction = () => {
+    async function saveAnswers() {
+      if (active && user && tid) {
+        await saveSelectedAnswers(user.uid,session.id,selectedAnswers);
+      }
+    }
+    saveAnswers();
+    setActive(false);
+  }
   return (
     <div className = {styles.questionpanel}>
-      <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
+      {confirmExit ? <SimplePopup title={'Confirm Exit'}txt= {'Your changes will be saved.'} canceltxt = {'Cancel'} actiontxt = {'Confirm'} cancel = {handlePopupCancel} action = {handlePopupAction}/> : null }
+      {confirmExit ? <div className = {styles.coverup}></div>: null }
+      {/* <p className = {styles.testpageexitbtn}>Exit</p> */}
+      <p className = {styles.questiontitle}>
+        {'Question ' + qnum}
+        <X onClick = {handleTestExit} size={30}className = {styles.testpageexit}/>
+      </p>
       <p className = {styles.questioncontent}>{questionData["questions"][`q${qnum}`]}</p>
       <div className = {styles.questionchoicesdiv}>
         <QuestionChoices answerChoice = {questionData["choices"][`q${qnum}`]["A"]} handleSelected = {handleSelected} selected = {selected[0]} qnum = {qnum} altr = {'A'}/>
@@ -312,5 +336,18 @@ function BlueBtn({txt,onClick}) {
     <button onClick = {onClick} className = {styles.bluebtn}>
       {txt}
     </button>
+  )
+}
+function SimplePopup({title,txt,canceltxt,actiontxt,cancel,action}) {
+  return (
+    <div className = {styles.simplepopup}>
+      <p className = {styles.simplepopuptitle}>{title}</p>
+      <p className = {styles.simplepopuptxt}>{txt}</p>
+      <div className = {styles.simplepopupbtmright}>
+        <button className = {styles.simplepopupcancel} onClick={cancel}>{canceltxt}</button>
+        <button className = {styles.simplepopupaction}onClick={action}>{actiontxt}</button>
+      </div>
+      
+    </div>
   )
 }

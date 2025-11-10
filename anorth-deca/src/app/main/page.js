@@ -1,7 +1,7 @@
 'use client'
 import { useContext, useEffect, useState } from 'react';
 import styles from './page.module.css';
-import { Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
+import {LogOut, Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, MoveRight } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { TestPage, QuestionPanel, QuestionPanelBtm,QuestionChoices} from '@/components/testpage';
 import { AnalyticsPage } from '@/components/analyticspage';
@@ -82,13 +82,12 @@ function Header({handlePageChange}) {
       <div className = {[styles.headerrightsection]}>
         <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Tests'}/>
         <HeaderNav onClick = {() => {handlePageChange('analytics')}} className = {styles.headernav} txt = {'Analytics'}/>
-        <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Quick Practice'}/>
-        <HeaderNav onClick = {() => {handlePageChange('contests')}}className = {styles.headernav} txt = {'Contests'}/>
         <HeaderNav onClick = {() => {handleLogoutDropdown()}} className = {styles.headernav} txt = {'Settings'}/>
       </div>
       {logoutDropdown &&
         <div onClick = {() => {handleLogout()}} className = {styles.logoutdropdown}>
-          <p className = {styles.logoutdropdowntxt}>Logout</p>
+          <LogOut strokeWidth={1.5} width={20}/>
+          <p className = {styles.logoutdropdowntxt}>Sign Out</p>
         </div>
       }
       
@@ -97,12 +96,12 @@ function Header({handlePageChange}) {
 }
 function HeaderNav({txt, onClick, className}) {
   if (txt === 'Settings') {
-    return <Settings className = {styles.settingsicon}  onClick={onClick}/>;
+    return <Settings strokeWidth={1.5} color='rgb(62, 62, 62)'className = {styles.settingsicon}  onClick={onClick}/>;
   }
   if (txt === 'Analytics') {
     return (
       <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
-        <ChartGantt />
+        <ChartGantt strokeWidth={1.5} color='rgb(62, 62, 62)'/>
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
     );
@@ -110,7 +109,7 @@ function HeaderNav({txt, onClick, className}) {
   if (txt === 'Quick Practice') {
     return (
       <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
-        <Zap /> 
+        <Zap color='rgb(62, 62, 62)'/> 
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
     );
@@ -118,7 +117,7 @@ function HeaderNav({txt, onClick, className}) {
   if (txt === 'Tests') {
     return (
       <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
-        <ClipboardPen />
+        <ClipboardPen strokeWidth={1.5} color='rgb(62, 62, 62)'/>
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
     );
@@ -126,7 +125,7 @@ function HeaderNav({txt, onClick, className}) {
   if (txt === 'Contests') {
     return (
       <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
-        <School />
+        <School color='rgb(62, 62, 62)'/>
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
     );

@@ -1,7 +1,8 @@
 :root {
   --bgdark: hsl(0, 0%, 90%);
   /* --bg: hsl(0, 0%, 97%); */
-  --bg: hsl(232, 45%, 94%);
+  /* --bg: hsl(232, 45%, 94%); purpely color*/ 
+  --bg: hsl(0, 0%, 100%); 
 
   --bglight: hsl(0, 0%, 100%);
 
