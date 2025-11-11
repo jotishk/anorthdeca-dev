@@ -21,8 +21,7 @@ export function AnalyticsPage({user,tidAnalytic}) {
       if (user && tidAnalytic) {
         const retrievedSessionData = await fetchAttempts(user.uid,tidAnalytic);
         const retrievedTestData = await fetchQuestions(tidAnalytic);
-        console.log(retrievedSessionData);
-        console.log(retrievedTestData);
+        
         
         setSelectedAttempt(0);
         setTestData(retrievedTestData);
@@ -52,6 +51,34 @@ export function AnalyticsPage({user,tidAnalytic}) {
 }
 function ScoreSummary({sessionData,selectedAttempt,testData}) {
   const halfCircle = useRef(null);
+  useEffect(()=>{
+    if (sessionData) {
+      let correct = 0;
+      let incorrect = 0;
+      let unanswered = 0;
+
+      const data = getSession();
+      
+      if (data) {
+        for (let i =1; i<101; i++) {
+        
+          let selectedAnswer = data["answers"][`q${i}`];
+          let trueAnswer = testData["anskey"][`q${i}`];
+        
+          if (selectedAnswer == trueAnswer) {
+            correct++;
+          } else if (selectedAnswer == "") {
+            unanswered++;
+          } else {
+            incorrect++;
+          }
+        }
+        if (halfCircle.current) {
+          halfCircle.current.style.setProperty("--percentage",correct);
+        }
+      }
+    }
+  },[selectedAttempt])
   function getSession() {
     for (const data of sessionData) {
       if (data['num'] == selectedAttempt) {
@@ -160,12 +187,13 @@ function CategoriesSummary({testData, sessionData,selectedAttempt}) {
           categoryData[skey]['correct'] = categoryData[skey]['correct'] + 1;
         }
       }
+      
       const sorted = Object.entries(categoryData)
         .sort((a, b) => b[1].total - a[1].total);
       setCategoryData(sorted);
     }
     
-  },[sessionData])
+  },[sessionData,selectedAttempt])
     
     
   
@@ -280,7 +308,7 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
       }
       
     }
-  },[sessionData])
+  },[sessionData,selectedAttempt])
   useEffect(() => {
     if (sessionData) {
       let choices = {};
@@ -323,7 +351,7 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
       }
       
     }
-  }, [qnum,sessionData])
+  }, [qnum,sessionData,selectedAttempt])
   return(
     <div className = {styles.questionbreakdowndiv}>
       <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
@@ -347,7 +375,7 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
           {questionMap ? <QuestionMap answerStates = {answerStates} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap}/> : null }
           
         </div>
-        <div className = {styles.questionpaneldescription}>
+        {/* <div className = {styles.questionpaneldescription}>
           <p className = {styles.qpaneldescriptionheader}>Explanation:</p>
           <p className = {styles.qpaneldescriptiontxt}> 
             In a private enterprise system, an unequal distribution of income exists because 
@@ -357,7 +385,7 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
             work longer hours, but those factors do not affect the distribution of property and income
           </p>
           <p className = {styles.qpaneldescriptionsource}>Category: {categoryText}</p>
-        </div>
+        </div> */}
       </div>
       
     </div>

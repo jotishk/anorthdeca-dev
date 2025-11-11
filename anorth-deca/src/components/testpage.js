@@ -111,9 +111,9 @@ export function TestPage({tid,user,active, setActive}) {
     </div>
   )
 }
-export function QuestionPanel({setActive, qnum, setQnum, handleQuestionMap, selectedAnswers, setSelectedAnswers, questionData}) {
+export function QuestionPanel({active,setActive, qnum, setQnum, handleQuestionMap, selectedAnswers, setSelectedAnswers, questionData}) {
   const [selected,setSelected] = useState([false,false,false,false]);
-  const [confirmExit, setConfirmExit] = useState(true);                      
+  const [confirmExit, setConfirmExit] = useState(false);                      
   useEffect(() => {
     if (selectedAnswers[`q${qnum}`] === 'A') {
       setSelected([true,false,false,false]);
@@ -168,6 +168,7 @@ export function QuestionPanel({setActive, qnum, setQnum, handleQuestionMap, sele
     }
     saveAnswers();
     setActive(false);
+    setConfirmExit(false);
   }
   return (
     <div className = {styles.questionpanel}>

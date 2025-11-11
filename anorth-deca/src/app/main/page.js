@@ -14,18 +14,24 @@ export default function Main() {
   const {user, loading} = useAuth();
   const [active, setActive] = useState(false);
   const [tid, setTid] = useState('100');
-  const [tidAnalytic, setTidAnalytic] = useState('100');
+  const [tidAnalytic, setTidAnalytic] = useState('0');
 
   const handlePageChange = (page) => {
     setPage(page);
   }
   const handleTestChange = (tid) => {
-    setTid(tid);
-    setActive(false);
+    if (page == 'tests') {
+      setTid(tid);
+      setActive(false);
+    } 
+    if (page == 'analytics') {
+      setTidAnalytic(tid);
+    }
+    
   }
-  const handleAnalyticTestChange = (tid) => {
-    setTidAnalytic(tid);
-  }
+  // const handleAnalyticTestChange = (tid) => {
+  //   setTidAnalytic(tid);
+  // }
   // if (page === 'tests') {
   //   return (
   //     <div className = {styles.main}>
