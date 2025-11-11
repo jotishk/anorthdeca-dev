@@ -96,7 +96,7 @@ export function TestPage({tid,user,active, setActive}) {
  
         </div>
         <div className = {styles.testpagetimediv}>
-          <Clock size="30px"/>
+          <Clock className = {styles.testpagetimeimg} size="30px"/>
           <p className = {styles.testpagetimetxt}>Recommended time limit is 60 min</p>
         </div>
       </div>

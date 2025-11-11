@@ -53,7 +53,7 @@ export default function Main() {
         <TestPage tid={tid} active={active} setActive={setActive} user={user} />
       </div>
 
-      <div style={{ display: page === 'analytics' ? 'block' : 'none' }}>
+      <div className = {styles.pageblock} style={{ display: page === 'analytics' ? 'block' : 'none' }}>
         <AnalyticsPage tidAnalytic={tidAnalytic} user={user} />
       </div>
     </div>

@@ -1,13 +1,14 @@
 @import '../app/globals.css';
 
 .analyticspagediv { 
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   display: flex;
   flex-direction: column;
   position: relative;
   padding-top: 1.5rem;
-  padding-left: 22rem;
+  padding-left: 1.5rem;
   gap: 2rem;
+  
 }
 
 .selectattemptdiv {

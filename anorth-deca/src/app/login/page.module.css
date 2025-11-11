@@ -3,6 +3,10 @@
 body {
   margin: 0px;
   background-color: var(--bg);
+  background-image: url('/images/coolbackgrounds-fractalize-clear_lagoon.png');
+  background-size: cover;        /* scales image to cover entire div */
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .header {
   display:flex;
@@ -31,7 +35,8 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
+  
+  
 }
 .signupformdiv {
   border: 1px solid hsl(0, 0%, 85%);

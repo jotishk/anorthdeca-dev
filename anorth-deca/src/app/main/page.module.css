@@ -1,9 +1,9 @@
 @import '../globals.css';
 
+
 body {
   margin: 0px;
   background-color: var(--bg);
-  
 }
 
 .main {
@@ -246,6 +246,10 @@ body {
   flex: 1;
   padding-left: 20rem;
   padding-top: 4rem;
+  background-image: url('/images/coolbackgrounds-fractalize-clear_lagoon.png');
+  background-size: cover;        /* scales image to cover entire div */
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .testpagediv {
   display: flex;
@@ -255,7 +259,10 @@ body {
   align-items: center;
   flex: 1;
   width: 100%;
-  
+  /* background-image: url('/images/coolbackgrounds-fractalize-clear_lagoon.png');
+  background-size: cover;        
+  background-position: center;
+  background-repeat: no-repeat; */
 }
 .testpageinfo {
   position: absolute;
@@ -277,7 +284,7 @@ body {
   font-weight: 700;
   font-family: var(--txtfont);
   margin: 0px;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 .testbuttonNA {
   position: relative;
@@ -299,16 +306,20 @@ body {
   display: flex;
   position: relative;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
   background-color: var(--bglight);
   /* box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05); */
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   /* padding-top:1rem;
   padding-bottom: 3rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem; */
-  height: 100%;
+  height: 80%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 1rem;
+  
 }
 .questionpanel {
   display: flex;
@@ -496,13 +507,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 1rem;
 }
 .testdescription {
   font-family: var(--txtfont);
   font-size: 1.3rem;
   width: 40rem;
-  /* text-align: center; */
+  text-align: center;
   font-weight: 400;
 }
 .testdescriptionhighlight {
@@ -512,17 +523,28 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .testpagetimediv {
+  color: white;
   position: absolute;
   bottom: 0.1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+  
+}
+.testpagetimeimg {
+  /* box-shadow: 2px 2px 4px rgba(0,0,0,1); */
+  /* border-radius: 15px; */
 }
 .testpagetimetxt {
+  color: white;
+
   margin-left: 0.8rem;
   font-family: var(--txtfont);
   font-size: 1.2rem;
-  color: hsl(0, 0%, 30%);
+  font-weight: 550;
+  /* color: hsl(0, 0%, 30%); */
+  /* text-shadow: 2px 2px 4px rgba(0,0,0,0.2); */
+
 }
 .questionmapdiv {
   position: absolute;
@@ -678,11 +700,15 @@ body {
 }
 .simplepopup {
   position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--bglight);
   z-index: 100;
   width: 30rem;
   height: 10rem;
   padding: 1rem 1rem 1rem 1rem;
+  border-radius: 5px;
 }
 .simplepopuptitle {
   font-family: var(--txtfont);

@@ -21,6 +21,8 @@ export function AnalyticsPage({user,tidAnalytic}) {
       if (user && tidAnalytic) {
         const retrievedSessionData = await fetchAttempts(user.uid,tidAnalytic);
         const retrievedTestData = await fetchQuestions(tidAnalytic);
+        console.log(retrievedSessionData);
+        console.log(retrievedTestData);
         
         setSelectedAttempt(0);
         setTestData(retrievedTestData);
