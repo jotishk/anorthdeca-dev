@@ -347,7 +347,7 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
           {questionMap ? <QuestionMap answerStates = {answerStates} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap}/> : null }
           
         </div>
-        {/* <div className = {styles.questionpaneldescription}>
+        <div className = {styles.questionpaneldescription}>
           <p className = {styles.qpaneldescriptionheader}>Explanation:</p>
           <p className = {styles.qpaneldescriptiontxt}> 
             In a private enterprise system, an unequal distribution of income exists because 
@@ -357,7 +357,7 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
             work longer hours, but those factors do not affect the distribution of property and income
           </p>
           <p className = {styles.qpaneldescriptionsource}>Category: {categoryText}</p>
-        </div> */}
+        </div>
       </div>
       
     </div>

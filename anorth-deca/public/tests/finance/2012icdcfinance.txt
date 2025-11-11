@@ -1,7 +1,5 @@
-2012 HS ICDC                                            FINANCE CLUSTER EXAM                                                          1 
  
-Copyright © 2012 by MBA Research and Curriculum Center®, Columbus, Ohio 
- 1. A contract is unenforceable if it 
+1. A contract is unenforceable if it 
 A. violates a statute.  C. requires collateral.  
 B. is unilateral.  D. contains stipulations.  
  
@@ -59,8 +57,8 @@ D. A reflective question that required the speaker to carefully word his/her res
 A. Geographical map  C. Flowchart  
 B. Organizational chart  D. Venn diagram  
  
-2012 HS ICDC                                            
-FINANCE CLUSTER EXAM                                                          
+                                            
+                                                          
 2 
 12. Luke is writing a complex report that will be submitted to the company's board of directors. He has 
 collected relevant information that he would like to provide to the audience—information that is not 
@@ -126,8 +124,8 @@ B. DigiTech moves its production facility from Los Angeles, California to Jaipur
 C. Canadian-based Randall Enterprises purchases an existing firm that is located in Venezuela.  
 D. A German-based company operates offices in several countries including Japan, South Africa, 
 and Australia.  
-2012 HS ICDC                                            
-FINANCE CLUSTER EXAM                                                          
+                                            
+                                                          
 3 
 22. When the government requires businesses to pay their employees a minimum hourly wage for the tasks 
 they perform, it is 
@@ -190,8 +188,8 @@ A. The lender's interest rate increases.
 B. The lender defaults on the loan.  
 C. The borrower's interest rate increases.  
 D. The borrower defaults on the loan.  
-2012 HS ICDC                                            
-FINANCE CLUSTER EXAM                                                          
+                                            
+                                                          
 4 
 32. Brandon is developing a financial plan, and one of his goals is to save enough money to buy a new car in 
 two years. Has Brandon set a SMART goal? 
@@ -254,8 +252,8 @@ A. stock market in decline
 B. dollar increasing in value  
 C. growth of the money supply declining  
 D. yield curve leveling out   
-2012 HS ICDC                                            
-FINANCE CLUSTER EXAM                                                          
+                                            
+                                                          
 5 
 43. Which of the following securities is commonly used to help reduce the impact of significant fluctuations in 
 exchange rates and commodities: 
@@ -321,8 +319,8 @@ A. access
 B. definition  
 C. environmental  
 D. geospatial  
-2012 HS ICDC                                            
-FINANCE CLUSTER EXAM                                                          
+                                            
+                                                          
 6 
 54. Which of the following can be used to trace a financial transaction from beginning to end to ensure that 
 the data are accurate and have not been altered: 
@@ -385,7 +383,7 @@ A. measure the firm's competitiveness and performance.
 B. identify new products that the firm plans to introduce next year.  
 C. determine the size and makeup of the firm's workforce.  
 D. assess the effectiveness of the firm's risk-management system.  
-2012 HS ICDC                                            FINANCE CLUSTER EXAM                                                          7 
+                                                                                                      7 
  
  64. Which of the following individuals is an internal user of a business's financial data: 
 A. Tax collector  C. Creditor  
@@ -440,7 +438,7 @@ B. Break-even  D. Cash-flow
 A. consistent  C. hedged  
 B. flexible  D. callable  
  
-2012 HS ICDC                                            FINANCE CLUSTER EXAM                                                          8 
+                                                                                                      8 
  
  74. A human-resources manager is working with the company's payroll-processing service to have a new 
 employee's paycheck directly deposited into the employee's checking account. What human-resources 
@@ -500,9 +498,9 @@ problem-solving process?
 A. Detecting issues  C. Brainstorming ideas  
 B. Collecting relevant data  D. Checking assumptions  
  
-2012 HS ICDC                                            
-FINANCE CLUSTER EXAM                                                          
-9 
+                                            
+                                                          
+
 86. Margaret Holden is a wealthy woman who has financially supported other individuals' business ideas and 
 ventures. Now, Margaret is very interested in providing Marcus Williams with the financial support that he 
 needs to start his new business. Margaret is a(n) ____________ , and Marcus is a(n) ____________. 
@@ -563,9 +561,8 @@ A. Risk transference
 B. Cost-benefit analysis  
 C. Risk modeling  
 D. Fundamental analysis  
-2012 HS ICDC                                            
-FINANCE CLUSTER EXAM                                                          
-10 
+                                            
+                                                        
 96. What type of risk-management technology can track individual traders' risk limits and notify management 
 immediately if any trader exceeds her/his pre-set limit? 
 A. Data aggregation  
@@ -596,9 +593,8 @@ A. Process
 B. Management  
 C. Strategic  
 D. Variable  
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-11 
+                                      
+/////                                                 
 1. A 
 Violates a statute. If the contract involves carrying out illegal activities, the contract is unenforceable 
 because it requires one or both parties to break laws. Unilateral contracts are contracts that involve 
@@ -647,9 +643,9 @@ SOURCE: BL:134
 SOURCE: Roos, D. (1999-2012). Lowering your capital gains tax. Retrieved February 28, 2012, from 
 http://money.howstuffworks.com/personal-finance/personal-income-taxes/capital-gains
 tax3.htm 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-12 
+                                      
+                                                    
+
 5. B 
 Investigating possible conflicts of interest within the company. The chief compliance officer is responsible 
 for developing policies and procedures that ensure that her/his company is adhering to all rules and 
@@ -696,9 +692,9 @@ SOURCE: CC:004
 SOURCE: Oversight Systems. (n.d.). A Sarbanes-Oxley compliance program that saves cash: Link 
 Sarbanes-Oxley requirements to business improvement. Retrieved February 29, 2012, from 
 http://www.oversightsystems.com/pdf/whitepapers/Compliance_to_Cash_060725.pdf 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-13 
+                                      
+                                                    
+
 8. D 
 At its source. To prevent an intermediary from tampering with transactional data, continuous-inspection 
 compliance technology such as a virtual auditor must have access to the information at its source. 
@@ -751,9 +747,9 @@ their page numbers.
 SOURCE: CO:088 
 SOURCE: Bovée, C.L., & Thill, J.V. (2008). Business communication today (9th ed.) [pp. 475-477]. 
 Upper Saddle River, NJ: Pearson Prentice Hall. 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-14 
+                                      
+                                                    
+
 13. D 
 She interrupted the speaker. Because it is rude to interrupt another person while s/he is speaking, 
 Lindsay should have waited until Tom was finished speaking before asking a question. In many 
@@ -798,9 +794,9 @@ services to clients.
 SOURCE: CR:012 
 SOURCE: Auburn Mountain. (2006-2011). Ethics in financial services. Retrieved February 29, 2012, 
 from http://www.auburnmountain.com/Financial-Practice/Ethics-in-Financial-Services.aspx 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-15 
+                                      
+                                                    
+
 17. B 
 Lack of communication. Although a poor investment return, high commission fees, or the geographic 
 location of the financial advisor's office may influence a client's decision to leave the advisor, the most 
@@ -854,9 +850,9 @@ company creates a wholly owned subsidiary. A company that operates offices in se
 multinational firm. 
 SOURCE: EC:104 
 SOURCE: EC LAP 22—Stretch Your Boundaries (Global Environment's Impact on Business) 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-16 
+                                      
+                                                    
+
 22. A 
 Regulating workplace conditions. Governments pass and enforce laws to protect consumers, businesses, 
 and other resources. Many of these laws address business practices. When the government requires 
@@ -907,9 +903,9 @@ solutions are required. There is not enough information provided to determine if
 productive, or resourceful person. 
 SOURCE: EI:004 
 SOURCE: EI LAP 4—Work Right (Ethical Work Habits) 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-17 
+                                      
+                                                    
+
 27. A 
 Deadline driven. There are several negotiating strategies, and some are more effective than others in 
 certain situations. The deadline-driven strategy involves one party giving the other party a time limit to 
@@ -960,9 +956,9 @@ rates do not affect a co-signer's legal responsibility for paying the balance ow
 SOURCE: FI:063 
 SOURCE: Kapoor, J.R., Dlabay, L.R., & Hughes, R.J. (2009). Personal finance (9th ed.) [pp. 181-182]. 
 New York: McGraw-Hill Irwin. 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-18 
+                                      
+                                                    
+
 32. D 
 No, his goal is not specific or measurable. A financial goal is a short- or long-term objective that is 
 measured in terms of money. Effective financial goals are SMART goals—specific, measurable, 
@@ -1009,9 +1005,9 @@ SOURCE: FI:072
 SOURCE: Nolo. (2012). Your credit report can make or break your application. Retrieved February 27, 
 2012, from http://www.nolo.com/legal-encyclopedia/free-books/renters-rights-book/chapter1
 3.html 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-19 
+                                      
+                                                    
+
 36. B 
 Transferring money from those who have it to those who need it. Financial institutions play an integral 
 role in our economic system. They act as financial intermediaries (middlemen) by transferring money 
@@ -1062,9 +1058,9 @@ Therefore, they are not referred to as commodities.
 SOURCE: FI:337 
 SOURCE: Kowalski, C. (2012). Commodities types and profiles. Retrieved February 27, 2012, from 
 http://commodities.about.com/od/researchcommodities/u/commodities-types-path.htm 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
-20 
+                                      
+                                                    
+
 40. A 
 Financial companies often enjoy higher earnings as a result of convergence and consolidation. 
 Convergence within the finance industry typically involves financial providers from different financial 
@@ -1112,8 +1108,8 @@ investment in which individuals purchase property in buildings and land.
 SOURCE: FI:575 
 SOURCE: MBA Research and Curriculum Center. (2009). Introduction to finance course guide  
 (p. 5-157). Columbus, OH: Author. 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 21 
 44. D 
 Reduce their exposure to business cycle risks. As a result of financial globalization, investors have 
@@ -1165,8 +1161,8 @@ were traded that day. “Yield” signifies the rate of return on the security, 
 dividend by the actual closing price. 
 SOURCE: FI:275 
 SOURCE: QS LAP 37—Table Talk (Reading Stock Tables) 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 22 
 48. A 
 Money market accounts, certificates of deposit, and bonds. Investments in which individuals allow 
@@ -1218,8 +1214,8 @@ participative decision-making, dominant buying motives, or recent third-party ag
 SOURCE: FM:002 
 SOURCE: Dlabay, L.R., & Burrow, J.L. (2008). Business finance (p. 342). South-Western Cengage 
 Learning. 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 23 
 53. A 
 Access. Stewardship of a company's financial information is an aspect of financial-information 
@@ -1267,8 +1263,8 @@ SOURCE: FM:012
 SOURCE: Sharma, A. & Panigrahi, P.K. (2012, February). A review of financial accounting fraud 
 detection based on data mining techniques. Retrieved March 5, 2012, from 
 http://research.ijcaonline.org/volume39/number1/pxc3877016.pdf 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 24 
 57. A 
 Create a set of if-then permutations that can be used to predict future behavior. Rule-induction data 
@@ -1317,8 +1313,8 @@ company that specifies the terms of the business arrangement.
 SOURCE: FM:014 
 SOURCE: iDashboards. (2004-2012). Scorecards. Retrieved March 6, 2012, from 
 http://www.idashboards.com/Solutions/For-Your-Function/Scorecards.aspx 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 25 
 61. D 
 Cascading upward. Ginny created a cascading upward relationship between the two tables so that when 
@@ -1374,8 +1370,8 @@ successful in the future.
 SOURCE: FM:005 
 SOURCE: Dlabay, L.R., & Burrow, J.L. (2008). Business finance (pp. 102-103). South-Western 
 Cengage Learning. 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 26 
 66. D 
 Decision making. While the emphases in accounting are on recording and reporting financial data in the 
@@ -1420,8 +1416,8 @@ preparing tax strategies and completing tax forms.
 SOURCE: FM:006 
 SOURCE: Alvis, J.M. (2012). Cost accounting. Retrieved March 7, 2012, from 
 http://www.referenceforbusiness.com/management/Comp-De/Cost-Accounting.html 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 27 
 69. A 
 Financial ratios. A ratio is a comparison created when one number is divided into another. A financial 
@@ -1466,8 +1462,8 @@ information prior to approving or denying credit for the customer.
 SOURCE: FM:009 
 SOURCE: Dennis, M.C. (2011). Evaluating financial health. Retrieved March 7, 2012, from 
 http://www.encyclopediaofcredit.com/Evaluating-Financial-Health 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 28 
 72. A 
 Variance. A variance is the difference between a budgeted amount and an actual amount. Business 
@@ -1519,8 +1515,8 @@ situation.
 SOURCE: MK:014 
 SOURCE: Perreault, W.D., Cannon, J.P., & McCarthy, E.J. (2008). Basic marketing: A marketing 
 strategy planning approach (16th ed.) [pp. 152-154]. Boston: McGraw-Hill/Irwin. 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 29 
 76. A 
 Visit the bank's web site. Because many businesses post and update product information on their web 
@@ -1571,8 +1567,8 @@ goals.
 SOURCE: NF:013 
 SOURCE: Lee, R. (2012). How to keep up with emerging business trends. Retrieved March 5, 2012, 
 from http://smallbusiness.chron.com/keep-up-emerging-business-trends-24711.html 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 30 
 80. A 
 Holding. The money it takes to keep inventory in stock is called holding cost. Holding costs include 
@@ -1628,8 +1624,8 @@ determining the optimal level of supplies that the business should keep on hand.
 SOURCE: OP:031 
 SOURCE: Eastridge, H. (n.d.). How to maintain office supplies. Retrieved February 23, 2012, from 
 http://www.ehow.com/how_5108622_maintain-office-supplies.html 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 31 
 85. C 
 Brainstorming ideas Brainstorming is a common way to generate ideas and solve problems. During a 
@@ -1685,8 +1681,8 @@ Actuaries typically work for insurance companies and are responsible for assessi
 analysis and for helping to design policies to minimize the cost of that risk. 
 SOURCE: PD:152 
 SOURCE: QS LAP 51—Careers in the Money (Careers in Financial Services) 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 32 
 90. C 
 Martha Winters, Certified Public Accountant. Many professions require businesspeople to complete 
@@ -1741,8 +1737,8 @@ relationship is not necessarily easily maintained.
 SOURCE: PD:153 
 SOURCE: Hoban, S. (2011). Building business relationships. Retrieved March 5, 2012, from 
 http://www.ciremagazine.com/article.php?article_id=30 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 33 
 94. C 
 Understanding loss experience and exposure to an insurance underwriter. Ethical behavior and risk 
@@ -1795,8 +1791,8 @@ liabilities, nor does it eliminate the corporation's state tax liabilities.
 SOURCE: RM:043 
 SOURCE: Unger, A.M. (2007, Winter/Spring). Captive insurance can help manage risk. Retrieved 
 March 6, 2012, from http://folio.crowehorwath.com/files/PDF/PCS6189_CaptiveInsurance.pdf 
-2012 HS ICDC                                      
-FINANCE CLUSTER EXAM—KEY                                                    
+                                      
+                                                    
 34 
 98. C 
 Product. One aspect of risk management involves limiting a company's liability exposures as much as 

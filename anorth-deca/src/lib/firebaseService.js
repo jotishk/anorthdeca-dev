@@ -113,6 +113,8 @@ async function createTest(text) {
   // Delete any of the headers in the pdf in questions and answer key (FINANCE CLUSTER EXAM)
   // Find questions with multiple answers and move them
   // Add 5 slashes to the end of questions and before answer key on a new line.
+  // Update constants.js
+  // at the end of this function chnage id number of test
   try {
     
     const [questionBlock, answerKeyBlock] = text.split('/////');
@@ -160,19 +162,19 @@ async function createTest(text) {
     });
 
     window.testData = { questions, choices, answers, explanations, sourceCodes, sourceRefs };
-    // console.log("✅ Parsed 100 questions and answers into window.testData");
-    // const test = {
-    //   label: "2013 ICDC Finance Exam",
-    //   category: "finance",
-    //   questions: questions,
-    //   choices: choices,
-    //   explanations: explanations,
-    //   anskey: answers,
-    //   scode: sourceCodes,
-    //   source: sourceRefs
-    // };
-    // await setDoc(doc(db, "tests", "100"), test);
-    // console.log("uploaded successfully");
+    console.log("✅ Parsed 100 questions and answers into window.testData");
+    const test = {
+      label: "2013 ICDC Finance Exam",
+      category: "finance",
+      questions: questions,
+      choices: choices,
+      explanations: explanations,
+      anskey: answers,
+      scode: sourceCodes,
+      source: sourceRefs
+    };
+    await setDoc(doc(db, "tests", "102"), test);
+    console.log("uploaded successfully");
   } catch (err) {
     console.log(err.message);
   }

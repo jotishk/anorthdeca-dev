@@ -1,5 +1,7 @@
 const tidToLabel = {
-  100: "2013 ICDC Finance Exam"
+  100: "2013 ICDC Finance Exam",
+  101: "2012 ICDC Finance Exam",
+  102: "2020 ICDC Finance Exam"
 }
 const cidToLabel = {
   'FM': 'Financial-Info Management',
