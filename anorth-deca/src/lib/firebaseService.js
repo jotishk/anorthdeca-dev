@@ -173,7 +173,7 @@ async function createTest(text) {
       scode: sourceCodes,
       source: sourceRefs
     };
-    await setDoc(doc(db, "tests", "102"), test);
+    await setDoc(doc(db, "tests", "108"), test);
     console.log("uploaded successfully");
   } catch (err) {
     console.log(err.message);

@@ -3,16 +3,18 @@
 import styles from './page.module.css'
 
 import { useState } from 'react';
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { sendPasswordResetEmail,signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider, translateErr } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
+  const [loading, setLoading] = useState(false);
   return (
     <>
+      {loading && <div className = {styles.loadingoverlay}></div>}
       <Header/>
       <div className = {styles.signupcontainer}>
-        <LoginDiv/>
+        <LoginDiv setLoading = {setLoading}/>
       </div>
       
     </>
@@ -29,39 +31,63 @@ function Header() {
   );
 }
 
-function LoginDiv() {
+function LoginDiv({setLoading}) {
   return (
     <div className = {styles.signupformdiv}>
       <p className = {styles.signupformtitle}>Login to your account</p>
       <p className = {styles.signupformsubtitle}>Please enter your details</p>
-      <LoginForm/>
+      <LoginForm setLoading = {setLoading} />
       
     </div>
   );
 }
 
-function LoginForm() {
+function LoginForm({setLoading}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
   
   const router = useRouter();
-  async function handleLogin() {
 
+  async function handleForgotPassword() {
+      console.log(err);
+
+    if (!email) {
+      setErr("Please enter your email first.");
+      console.log(err);
+
+      return;
+    }
     setErr('');
-    console.log('trying login')
+    setLoading(true);
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setErr("Password reset email sent! Check your inbox.");
+    } catch (err) {
+      console.log(err);
+      setErr(translateErr(err.code));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleLogin() {
+    
+    setErr('');
+    
     if (email === '' || password === '') {
       setErr('Email or Password is invalid.')
       return;
     }
+    setLoading(true);
     try {
       const credential = await signInWithEmailAndPassword(auth,email,password);
-      console.log('successful login');
-      
+      router.push('/main');
     } catch (err) {
-      console.log(err)
       setErr(err.code);
-    } 
+    }  finally {
+      setLoading(false);
+    }
   }
   return (
     <>
@@ -69,12 +95,12 @@ function LoginForm() {
       <form onSubmit = {(e) => {e.preventDefault(); handleLogin()}}>
         <input value = {email} type = "email" className = {`${styles.signupforminput} ${styles.signupforminputtop}`} placeholder='Email address' onChange={e=>setEmail(e.target.value)}></input>
         <input value = {password} type = "password" className = {styles.signupforminput} placeholder='Password' onChange={e=>setPassword(e.target.value)}></input>
-        <a className = {styles.signupformforgot} href ="">Forgot password</a>
+        {/* <button onClick = {handleForgotPassword} className = {styles.signupformforgot} href ="">Forgot password</button> */}
         <input className = {styles.signupformsubmit} value = "Log in" type = "submit"></input>
-        <LoginGoogle/>
+        <LoginGoogle setLoading = {setLoading}/>
         <p className = {styles.signupformswitch}>
-          Have an account?
-          <a href = "/signup" className = {styles.signupformloginlnk}>Sign up</a>
+          Don't have an account?
+          <a  href = "/signup" className = {styles.signupformloginlnk}>Sign up</a>
         </p>
       </form>
     </>
@@ -82,16 +108,15 @@ function LoginForm() {
   );
 }
 
-function LoginGoogle() {
+function LoginGoogle({setLoading}) {
   const [err, setErr] = useState('');
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
   async function handleSigninGoogle() {
     setLoading(true);
     setErr('');
     try {
       await signInWithPopup(auth,provider);
-      router.push('/main')
+      router.push('/main');
     } catch (err) {
       setErr(err.code);
     } finally {

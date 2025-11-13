@@ -188,15 +188,24 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {'102'} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
+            <SideBarTestCell id = {'104'} handleTestChange={handleTestChange} txt = {'2017 Sample Finance'}/>
+            <SideBarTestCell id = {'105'} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
+            <SideBarTestCell id = {'106'} handleTestChange={handleTestChange} txt = {'2019 Sample Finance'}/>
+            <SideBarTestCell id = {'107'} handleTestChange={handleTestChange} txt = {'2020 Sample Finance'}/>
+            <SideBarTestCell id = {'108'} handleTestChange={handleTestChange} txt = {'2021 Sample Finance'}/>
+
+
           </SideBarAccordion>
           <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
             <SideBarTestCell id = {'101'} handleTestChange={handleTestChange} txt = {'2018 State Finance'}/>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
-            <SideBarTestCell id = {'101'} handleTestChange={handleTestChange} txt = {'2012 ICDC Finance'}/>
             <SideBarTestCell id = {'100'} handleTestChange={handleTestChange} txt = {'2013 ICDC Finance'}/>
-            <SideBarTestCell id = {'102'} handleTestChange={handleTestChange} txt = {'2020 ICDC Finance'}/>
+            <SideBarTestCell id = {'101'} handleTestChange={handleTestChange} txt = {'2020 ICDC Finance'}/>
+            <SideBarTestCell id = {'102'} handleTestChange={handleTestChange} txt = {'2023 ICDC Finance'}/>
+            <SideBarTestCell id = {'103'} handleTestChange={handleTestChange} txt = {'2024 ICDC Finance'}/>
+
+
           </SideBarAccordion>
         </div>
       );

@@ -53,9 +53,9 @@ function SignupForm() {
     // Add check for username ''
     try {
       const credential = await createUserWithEmailAndPassword(auth,email,password);
-      console.log('created');
+      
       await createUser(credential.user.uid,email,username,'','member');
-      console.log('Success');
+      
       router.push('/main');
     } catch (err) {
       setErr(err.code);
