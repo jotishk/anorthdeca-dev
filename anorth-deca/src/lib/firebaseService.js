@@ -164,8 +164,8 @@ async function createTest(text) {
     window.testData = { questions, choices, answers, explanations, sourceCodes, sourceRefs };
     console.log("✅ Parsed 100 questions and answers into window.testData");
     const test = {
-      label: "2013 ICDC Finance Exam",
-      category: "finance",
+      label: "2024 Sample Entrepreneurship Exam",
+      category: "entrepreneurship",
       questions: questions,
       choices: choices,
       explanations: explanations,
@@ -173,7 +173,7 @@ async function createTest(text) {
       scode: sourceCodes,
       source: sourceRefs
     };
-    await setDoc(doc(db, "tests", "114"), test);
+    await setDoc(doc(db, "tests", "307"), test);
     console.log("uploaded successfully");
   } catch (err) {
     console.log(err.message);

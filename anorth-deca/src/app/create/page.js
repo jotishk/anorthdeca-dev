@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { createTest } from '@/lib/firebaseService';
+import { createTest } from '../../lib/firebaseService';
 
 
 export default function Create() {

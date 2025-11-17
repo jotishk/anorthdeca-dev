@@ -2,7 +2,7 @@
 import styles from '../css/analyticspage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
 import { ChevronUp, X, Check, Square } from 'lucide-react';
-import { fetchAttempts, fetchQuestions } from '@/lib/firebaseService';
+import { fetchAttempts, fetchQuestions } from '../lib/firebaseService';
 import { tidToLabel, cidToLabel } from '@/constants/constants';
 
 

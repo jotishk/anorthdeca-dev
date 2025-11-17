@@ -33,7 +33,40 @@ const tidToLabel = {
   214: "2024 ICDC Principles",
 
 
+  301: "2018 Sample Entrepreneurship",
+  302: "2019 Sample Entrepreneurship",
+  303: "2020 Sample Entrepreneurship",
+  304: "2021 Sample Entrepreneurship",
+  305: "2022 Sample Entrepreneurship",
+  306: "2023 Sample Entrepreneurship",
+  307: "2024 Sample Entrepreneurship",
 
+  400: "2017 Sample HospitalityTourism",
+  401: "2018 Sample HospitalityTourism",
+  402: "2019 Sample HospitalityTourism",
+  403: "2020 Sample HospitalityTourism",
+  404: "2021 Sample HospitalityTourism",
+  405: "2022 Sample HospitalityTourism",
+  406: "2023 Sample HospitalityTourism",
+  407: "2024 Sample HospitalityTourism",
+
+  500: "2017 Sample Marketing",
+  501: "2018 Sample Marketing",
+  502: "2019 Sample Marketing",
+  503: "2020 Sample Marketing",
+  504: "2021 Sample Marketing",
+  505: "2022 Sample Marketing",
+  506: "2023 Sample Marketing",
+  507: "2024 Sample Marketing",
+  
+  600: "2017 Sample BMA",
+  601: "2018 Sample BMA",
+  602: "2019 Sample BMA",
+  603: "2020 Sample BMA",
+  604: "2021 Sample BMA",
+  605: "2022 Sample BMA",
+  606: "2023 Sample BMA",
+  607: "2024 Sample BMA",
   
 
 

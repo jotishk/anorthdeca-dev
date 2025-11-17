@@ -1,7 +1,7 @@
 'use client'
 import { useRef, useContext, useEffect, useState } from 'react';
 import styles from '@/app/main/page.module.css';
-import { submitTest, fetchAttempts, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '@/lib/firebaseService';
+import { submitTest, fetchAttempts, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers } from '../lib/firebaseService';
 import { X,ChevronUp,Clock,Plus, MoveLeft, MoveRight } from 'lucide-react';
 import { tidToLabel, cidToLabel } from '@/constants/constants';
 

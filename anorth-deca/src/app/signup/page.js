@@ -5,7 +5,7 @@ import styles from './page.module.css';
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider, translateErr} from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
-import { createUser } from '@/lib/firebaseService';
+import { createUser } from '../../lib/firebaseService';
 
 export default function Signup() {
   return (
