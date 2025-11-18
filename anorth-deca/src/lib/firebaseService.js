@@ -164,8 +164,8 @@ async function createTest(text) {
     window.testData = { questions, choices, answers, explanations, sourceCodes, sourceRefs };
     console.log("✅ Parsed 100 questions and answers into window.testData");
     const test = {
-      label: "2024 Sample Entrepreneurship Exam",
-      category: "entrepreneurship",
+      label: "2022 Sample Marketing Exam",
+      category: "marketing",
       questions: questions,
       choices: choices,
       explanations: explanations,
@@ -173,7 +173,7 @@ async function createTest(text) {
       scode: sourceCodes,
       source: sourceRefs
     };
-    await setDoc(doc(db, "tests", "307"), test);
+    await setDoc(doc(db, "tests", "505"), test);
     console.log("uploaded successfully");
   } catch (err) {
     console.log(err.message);
