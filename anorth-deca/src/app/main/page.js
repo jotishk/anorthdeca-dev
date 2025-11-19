@@ -146,8 +146,8 @@ function DropDown({visible, handleChange}) {
         <div onClick = {() => handleChange('Principles')} className = {styles.catOption}>Principles</div>
         <div onClick = {() => handleChange('Finance')} className = {styles.catOption}>Finance</div>
         <div onClick = {() => handleChange('Marketing')} className = {styles.catOption}>Marketing</div>
-        <div onClick = {() => handleChange('Business Administration')} className = {styles.catOption}>Business Administration</div>
-        <div onClick = {() => handleChange('Hospitality and Tourism')} className = {styles.catOption}>Hospitality and Tourism</div>
+        <div onClick = {() => handleChange('BMA')} className = {styles.catOption}>Business Administration</div>
+        <div onClick = {() => handleChange('HospitalityTourism')} className = {styles.catOption}>Hospitality and Tourism</div>
         <div onClick = {() => handleChange('Entrepreneurship')} className = {styles.catOption}>Entrepreneurship</div>
       </div>
     );
@@ -251,6 +251,117 @@ function TestSidebar({page,handleTestChange}) {
             <SideBarTestCell id = {'213'} handleTestChange={handleTestChange} txt = {'2023 ICDC Principles'}/>
             <SideBarTestCell id = {'214'} handleTestChange={handleTestChange} txt = {'2024 ICDC Principles'}/>
 
+
+          </SideBarAccordion>
+        </div>
+      );
+      
+    } else if (category === 'Entrepreneurship') {
+      return (
+        <div className = {styles.testsidebardiv}>
+          <div className = {styles.testselectcatdiv}>
+            <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
+              {category}
+              <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
+            </button>
+            <DropDown visible = {dropVisible} handleChange = {handleChange}/>
+          </div>
+          <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
+            <SideBarTestCell id = {'301'} handleTestChange={handleTestChange} txt = {'2018 Sample Entrepreneurship'}/>
+            <SideBarTestCell id = {'302'} handleTestChange={handleTestChange} txt = {'2019 Sample Entrepreneurship'}/>
+            <SideBarTestCell id = {'303'} handleTestChange={handleTestChange} txt = {'2020 Sample Entrepreneurship'}/>
+            <SideBarTestCell id = {'304'} handleTestChange={handleTestChange} txt = {'2021 Sample Entrepreneurship'}/>
+            <SideBarTestCell id = {'305'} handleTestChange={handleTestChange} txt = {'2022 Sample Entrepreneurship'}/>
+            <SideBarTestCell id = {'306'} handleTestChange={handleTestChange} txt = {'2023 Sample Entrepreneurship'}/>
+            <SideBarTestCell id = {'307'} handleTestChange={handleTestChange} txt = {'2024 Sample Entrepreneurship'}/>
+          </SideBarAccordion>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          </SideBarAccordion>
+          <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
+
+          </SideBarAccordion>
+        </div>
+      );
+      
+    } else if (category === 'HospitalityTourism') {
+      return (
+        <div className = {styles.testsidebardiv}>
+          <div className = {styles.testselectcatdiv}>
+            <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
+              {category}
+              <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
+            </button>
+            <DropDown visible = {dropVisible} handleChange = {handleChange}/>
+          </div>
+          <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
+            <SideBarTestCell id = {'400'} handleTestChange={handleTestChange} txt = {'2017 Sample HospitalityTourism'}/>
+            <SideBarTestCell id = {'401'} handleTestChange={handleTestChange} txt = {'2018 Sample HospitalityTourism'}/>
+            <SideBarTestCell id = {'402'} handleTestChange={handleTestChange} txt = {'2019 Sample HospitalityTourism'}/>
+            <SideBarTestCell id = {'403'} handleTestChange={handleTestChange} txt = {'2020 Sample HospitalityTourism'}/>
+            <SideBarTestCell id = {'404'} handleTestChange={handleTestChange} txt = {'2021 Sample HospitalityTourism'}/>
+            <SideBarTestCell id = {'405'} handleTestChange={handleTestChange} txt = {'2022 Sample HospitalityTourism'}/>
+            <SideBarTestCell id = {'406'} handleTestChange={handleTestChange} txt = {'2023 Sample HospitalityTourism'}/>
+            <SideBarTestCell id = {'407'} handleTestChange={handleTestChange} txt = {'2024 Sample HospitalityTourism'}/>
+          </SideBarAccordion>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          </SideBarAccordion>
+          <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
+
+          </SideBarAccordion>
+        </div>
+      );
+      
+    } else if (category === 'Marketing') {
+      return (
+        <div className = {styles.testsidebardiv}>
+          <div className = {styles.testselectcatdiv}>
+            <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
+              {category}
+              <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
+            </button>
+            <DropDown visible = {dropVisible} handleChange = {handleChange}/>
+          </div>
+          <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
+            <SideBarTestCell id = {'500'} handleTestChange={handleTestChange} txt = {'2017 Sample Marketing'}/>
+            <SideBarTestCell id = {'501'} handleTestChange={handleTestChange} txt = {'2018 Sample Marketing'}/>
+            <SideBarTestCell id = {'502'} handleTestChange={handleTestChange} txt = {'2019 Sample Marketing'}/>
+            <SideBarTestCell id = {'503'} handleTestChange={handleTestChange} txt = {'2020 Sample Marketing'}/>
+            <SideBarTestCell id = {'504'} handleTestChange={handleTestChange} txt = {'2021 Sample Marketing'}/>
+            <SideBarTestCell id = {'505'} handleTestChange={handleTestChange} txt = {'2022 Sample Marketing'}/>
+            <SideBarTestCell id = {'506'} handleTestChange={handleTestChange} txt = {'2023 Sample Marketing'}/>
+            <SideBarTestCell id = {'507'} handleTestChange={handleTestChange} txt = {'2024 Sample Marketing'}/>
+          </SideBarAccordion>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          </SideBarAccordion>
+          <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
+
+          </SideBarAccordion>
+        </div>
+      );
+      
+    } else if (category === 'Marketing') {
+      return (
+        <div className = {styles.testsidebardiv}>
+          <div className = {styles.testselectcatdiv}>
+            <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
+              {category}
+              <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
+            </button>
+            <DropDown visible = {dropVisible} handleChange = {handleChange}/>
+          </div>
+          <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
+            <SideBarTestCell id = {'600'} handleTestChange={handleTestChange} txt = {'2017 Sample BMA'}/>
+            <SideBarTestCell id = {'601'} handleTestChange={handleTestChange} txt = {'2018 Sample BMA'}/>
+            <SideBarTestCell id = {'602'} handleTestChange={handleTestChange} txt = {'2019 Sample BMA'}/>
+            <SideBarTestCell id = {'603'} handleTestChange={handleTestChange} txt = {'2020 Sample BMA'}/>
+            <SideBarTestCell id = {'604'} handleTestChange={handleTestChange} txt = {'2021 Sample BMA'}/>
+            <SideBarTestCell id = {'605'} handleTestChange={handleTestChange} txt = {'2022 Sample BMA'}/>
+            <SideBarTestCell id = {'606'} handleTestChange={handleTestChange} txt = {'2023 Sample BMA'}/>
+            <SideBarTestCell id = {'607'} handleTestChange={handleTestChange} txt = {'2024 Sample BMA'}/>
+          </SideBarAccordion>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          </SideBarAccordion>
+          <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
 
           </SideBarAccordion>
         </div>
