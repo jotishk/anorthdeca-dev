@@ -182,7 +182,7 @@ function TestSidebar({page,handleTestChange}) {
         <div className = {styles.testsidebardiv}>
           <div className = {styles.testselectcatdiv}>
             <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
-              {category}
+              {'Finance'}
               <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
             </button>
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
@@ -221,7 +221,7 @@ function TestSidebar({page,handleTestChange}) {
         <div className = {styles.testsidebardiv}>
           <div className = {styles.testselectcatdiv}>
             <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
-              {category}
+              {'Principles'}
               <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
             </button>
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
@@ -261,7 +261,7 @@ function TestSidebar({page,handleTestChange}) {
         <div className = {styles.testsidebardiv}>
           <div className = {styles.testselectcatdiv}>
             <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
-              {category}
+              {"Entrepreneurship"}
               <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
             </button>
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
@@ -275,11 +275,11 @@ function TestSidebar({page,handleTestChange}) {
             <SideBarTestCell id = {'306'} handleTestChange={handleTestChange} txt = {'2023 Sample Entrepreneurship'}/>
             <SideBarTestCell id = {'307'} handleTestChange={handleTestChange} txt = {'2024 Sample Entrepreneurship'}/>
           </SideBarAccordion>
-          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
 
-          </SideBarAccordion>
+          </SideBarAccordion> */}
         </div>
       );
       
@@ -288,7 +288,7 @@ function TestSidebar({page,handleTestChange}) {
         <div className = {styles.testsidebardiv}>
           <div className = {styles.testselectcatdiv}>
             <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
-              {category}
+              {'Hospitality and Tourism'}
               <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
             </button>
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
@@ -303,11 +303,11 @@ function TestSidebar({page,handleTestChange}) {
             <SideBarTestCell id = {'406'} handleTestChange={handleTestChange} txt = {'2023 Sample HospitalityTourism'}/>
             <SideBarTestCell id = {'407'} handleTestChange={handleTestChange} txt = {'2024 Sample HospitalityTourism'}/>
           </SideBarAccordion>
-          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
 
-          </SideBarAccordion>
+          </SideBarAccordion> */}
         </div>
       );
       
@@ -316,7 +316,7 @@ function TestSidebar({page,handleTestChange}) {
         <div className = {styles.testsidebardiv}>
           <div className = {styles.testselectcatdiv}>
             <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
-              {category}
+              {'Marketing'}
               <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
             </button>
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
@@ -331,20 +331,20 @@ function TestSidebar({page,handleTestChange}) {
             <SideBarTestCell id = {'506'} handleTestChange={handleTestChange} txt = {'2023 Sample Marketing'}/>
             <SideBarTestCell id = {'507'} handleTestChange={handleTestChange} txt = {'2024 Sample Marketing'}/>
           </SideBarAccordion>
-          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
 
-          </SideBarAccordion>
+          </SideBarAccordion> */}
         </div>
       );
       
-    } else if (category === 'Marketing') {
+    } else if (category === 'BMA') {
       return (
         <div className = {styles.testsidebardiv}>
           <div className = {styles.testselectcatdiv}>
             <button onClick = {handleDrop} className = {styles.selectcatdropdown}>
-              {category}
+              {'Business Administration'}
               <img className = {styles.dropdownicon} src = "/sidebar/dropdownicon.png"></img>
             </button>
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
@@ -359,11 +359,11 @@ function TestSidebar({page,handleTestChange}) {
             <SideBarTestCell id = {'606'} handleTestChange={handleTestChange} txt = {'2023 Sample BMA'}/>
             <SideBarTestCell id = {'607'} handleTestChange={handleTestChange} txt = {'2024 Sample BMA'}/>
           </SideBarAccordion>
-          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
 
-          </SideBarAccordion>
+          </SideBarAccordion> */}
         </div>
       );
       
