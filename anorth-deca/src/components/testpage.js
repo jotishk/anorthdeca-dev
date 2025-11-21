@@ -239,7 +239,7 @@ function AttemptsAccordion({user,tid}) {
   }
   useEffect(() => {
     async function fetchData() {
-    console.log(user);
+    
       let data = await fetchAttempts(user.uid,tid);
       setAttemptData(data);
     }

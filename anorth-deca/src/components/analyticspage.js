@@ -156,7 +156,22 @@ function ScoreSummary({sessionData,selectedAttempt,testData}) {
 }
 function CategoriesSummary({testData, sessionData,selectedAttempt}) {
   const [categoryData, setCategoryData] = useState([]);
+  const [categoriesWidth, setCategoriesWidth] = useState(0);
+  const categoryDivRef = useRef(null);
+  useEffect(() => {
+    const handleResize = () => {
+      if (categoryDivRef.current) {
+        const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize); 
+        const widthRem = categoryDivRef.current.offsetWidth / rootFontSize;
+        setCategoriesWidth(widthRem);
+      }
+    };
 
+    handleResize(); 
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  },[])
   function getSession() {
     if (sessionData) {
       for (const data of sessionData) {
@@ -198,7 +213,7 @@ function CategoriesSummary({testData, sessionData,selectedAttempt}) {
     
   
   return (
-    <div className = {styles.categoriesdiv}>
+    <div ref = {categoryDivRef} className = {styles.categoriesdiv}>
       <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
         <p className={styles.analyticscardheader} style={{ textAlign: 'left', margin: 0 }}>
           Categories Summary
@@ -206,7 +221,7 @@ function CategoriesSummary({testData, sessionData,selectedAttempt}) {
       </div>
       <div className = {styles.categoriesdivcontent}>
         {categoryData.map((category,idx) =>
-          <CategoriesGraph key = {idx} numCorrect = {category[1].correct} numTotal={category[1].total} label = {cidToLabel[category[0]]}/>
+          <CategoriesGraph categoriesWidth = {categoriesWidth} key = {idx} numCorrect = {category[1].correct} numTotal={category[1].total} label = {cidToLabel[category[0]]}/>
         )}
       </div>
       
@@ -252,12 +267,14 @@ function SelectAttemptDropdown({ onClick, selectedAttempt }) {
     </div>
   );
 }
-function CategoriesGraph({label, numCorrect, numTotal}) {
+function CategoriesGraph({categoriesWidth,label, numCorrect, numTotal}) {
+  
+  
   return (
     <div className={styles.categoriesgraphrow}>
       <p className={styles.categoriesgraphlabel}>{label + ' (' + numCorrect + '/' + numTotal + ')'}</p>
       <div className = {styles.categoriesgraphoutline}>
-        <div style={{ width: `${numCorrect*20/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
+        <div style={{ width: `${numCorrect*(categoriesWidth-12.5)/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
       </div>
     </div>
   );
