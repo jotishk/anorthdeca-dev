@@ -7,15 +7,16 @@ import { TestPage, QuestionPanel, QuestionPanelBtm,QuestionChoices} from '@/comp
 import { AnalyticsPage } from '@/components/analyticspage';
 import { getAuth,signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
+import { retrieveSession,retrieveAllSessions } from '@/lib/firebaseService';
 
 
 export default function Main() {
   const [page,setPage] = useState('tests');
   const {user, loading} = useAuth();
   const [active, setActive] = useState(false);
-  const [tid, setTid] = useState('100');
+  const [tid, setTid] = useState('102');
   const [tidAnalytic, setTidAnalytic] = useState('0');
-
+  const [statuses, setStatuses] = useState({});
   const handlePageChange = (page) => {
     setPage(page);
   }
@@ -29,6 +30,16 @@ export default function Main() {
     }
     
   }
+  useEffect(() => {
+    if (user) {
+      let sessionStatuses = {}
+      async function retrieveStatuses() {
+        sessionStatuses = await retrieveAllSessions(user.uid);
+        setStatuses(sessionStatuses);
+      }
+      retrieveStatuses();
+    }
+  }, [user]);
   // const handleAnalyticTestChange = (tid) => {
   //   setTidAnalytic(tid);
   // }
@@ -54,7 +65,7 @@ export default function Main() {
   return (
     <div className = {styles.main}>
       <Header handlePageChange = {handlePageChange}/>
-      <TestSidebar handleTestChange = {handleTestChange}  key = {page} page = {page}/>
+      <TestSidebar statuses = {statuses} user = {user} handleTestChange = {handleTestChange}  key = {page} page = {page}/>
       <div className = {styles.pageblock} style={{ display: page === 'tests' ? 'flex' : 'none' }}>
         <TestPage tid={tid} active={active} setActive={setActive} user={user} />
       </div>
@@ -155,7 +166,7 @@ function DropDown({visible, handleChange}) {
   return null;
 }
 
-function TestSidebar({page,handleTestChange}) {
+function TestSidebar({statuses,user,page,handleTestChange}) {
   const [category,setCategory] = useState('Finance');
   const [dropVisible, setDrop] = useState(false);
   const [accordion, setAccordion] = useState([false,false,false]);
@@ -188,28 +199,28 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {'104'} handleTestChange={handleTestChange} txt = {'2017 Sample Finance'}/>
-            <SideBarTestCell id = {'105'} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
-            <SideBarTestCell id = {'106'} handleTestChange={handleTestChange} txt = {'2019 Sample Finance'}/>
-            <SideBarTestCell id = {'107'} handleTestChange={handleTestChange} txt = {'2020 Sample Finance'}/>
-            <SideBarTestCell id = {'108'} handleTestChange={handleTestChange} txt = {'2021 Sample Finance'}/>
-            <SideBarTestCell id = {'109'} handleTestChange={handleTestChange} txt = {'2022 Sample Finance'}/>
-            <SideBarTestCell id = {'110'} handleTestChange={handleTestChange} txt = {'2023 Sample Finance'}/>
-            <SideBarTestCell id = {'111'} handleTestChange={handleTestChange} txt = {'2024 Sample Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'104'} handleTestChange={handleTestChange} txt = {'2017 Sample Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'105'} handleTestChange={handleTestChange} txt = {'2018 Sample Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'106'} handleTestChange={handleTestChange} txt = {'2019 Sample Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'107'} handleTestChange={handleTestChange} txt = {'2020 Sample Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'108'} handleTestChange={handleTestChange} txt = {'2021 Sample Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'109'} handleTestChange={handleTestChange} txt = {'2022 Sample Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'110'} handleTestChange={handleTestChange} txt = {'2023 Sample Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'111'} handleTestChange={handleTestChange} txt = {'2024 Sample Finance'}/>
 
 
           </SideBarAccordion>
           <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
-            <SideBarTestCell id = {'112'} handleTestChange={handleTestChange} txt = {'2021 State Finance'}/>
-            <SideBarTestCell id = {'113'} handleTestChange={handleTestChange} txt = {'2022 State Finance'}/>
-            <SideBarTestCell id = {'114'} handleTestChange={handleTestChange} txt = {'2023 State Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'112'} handleTestChange={handleTestChange} txt = {'2021 State Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'113'} handleTestChange={handleTestChange} txt = {'2022 State Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'114'} handleTestChange={handleTestChange} txt = {'2023 State Finance'}/>
 
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
-            <SideBarTestCell id = {'100'} handleTestChange={handleTestChange} txt = {'2013 ICDC Finance'}/>
-            <SideBarTestCell id = {'101'} handleTestChange={handleTestChange} txt = {'2020 ICDC Finance'}/>
-            <SideBarTestCell id = {'102'} handleTestChange={handleTestChange} txt = {'2023 ICDC Finance'}/>
-            <SideBarTestCell id = {'103'} handleTestChange={handleTestChange} txt = {'2024 ICDC Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'100'} handleTestChange={handleTestChange} txt = {'2013 ICDC Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'101'} handleTestChange={handleTestChange} txt = {'2020 ICDC Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'102'} handleTestChange={handleTestChange} txt = {'2023 ICDC Finance'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'103'} handleTestChange={handleTestChange} txt = {'2024 ICDC Finance'}/>
 
 
           </SideBarAccordion>
@@ -227,29 +238,29 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {'200'} handleTestChange={handleTestChange} txt = {'2017 District Principles'}/>
-            <SideBarTestCell id = {'201'} handleTestChange={handleTestChange} txt = {'2018 District Principles'}/>
-            <SideBarTestCell id = {'202'} handleTestChange={handleTestChange} txt = {'2019 Sample Principles'}/>
-            <SideBarTestCell id = {'203'} handleTestChange={handleTestChange} txt = {'2020 Sample Principles'}/>
-            <SideBarTestCell id = {'204'} handleTestChange={handleTestChange} txt = {'2021 Sample Principles'}/>
-            <SideBarTestCell id = {'205'} handleTestChange={handleTestChange} txt = {'2022 Sample Principles'}/>
-            <SideBarTestCell id = {'206'} handleTestChange={handleTestChange} txt = {'2023 Sample Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'200'} handleTestChange={handleTestChange} txt = {'2017 District Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'201'} handleTestChange={handleTestChange} txt = {'2018 District Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'202'} handleTestChange={handleTestChange} txt = {'2019 Sample Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'203'} handleTestChange={handleTestChange} txt = {'2020 Sample Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'204'} handleTestChange={handleTestChange} txt = {'2021 Sample Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'205'} handleTestChange={handleTestChange} txt = {'2022 Sample Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'206'} handleTestChange={handleTestChange} txt = {'2023 Sample Principles'}/>
 
 
           </SideBarAccordion>
           <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
-            <SideBarTestCell id = {'207'} handleTestChange={handleTestChange} txt = {'2021 State Principles'}/>
-            <SideBarTestCell id = {'208'} handleTestChange={handleTestChange} txt = {'2022 State Principles'}/>
-            <SideBarTestCell id = {'209'} handleTestChange={handleTestChange} txt = {'2023 State Principles'}/>
-            <SideBarTestCell id = {'210'} handleTestChange={handleTestChange} txt = {'2024 State Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'207'} handleTestChange={handleTestChange} txt = {'2021 State Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'208'} handleTestChange={handleTestChange} txt = {'2022 State Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'209'} handleTestChange={handleTestChange} txt = {'2023 State Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'210'} handleTestChange={handleTestChange} txt = {'2024 State Principles'}/>
 
 
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
-            <SideBarTestCell id = {'211'} handleTestChange={handleTestChange} txt = {'2020 ICDC Principles'}/>
-            <SideBarTestCell id = {'212'} handleTestChange={handleTestChange} txt = {'2022 ICDC Principles'}/>
-            <SideBarTestCell id = {'213'} handleTestChange={handleTestChange} txt = {'2023 ICDC Principles'}/>
-            <SideBarTestCell id = {'214'} handleTestChange={handleTestChange} txt = {'2024 ICDC Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'211'} handleTestChange={handleTestChange} txt = {'2020 ICDC Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'212'} handleTestChange={handleTestChange} txt = {'2022 ICDC Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'213'} handleTestChange={handleTestChange} txt = {'2023 ICDC Principles'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'214'} handleTestChange={handleTestChange} txt = {'2024 ICDC Principles'}/>
 
 
           </SideBarAccordion>
@@ -267,13 +278,13 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {'301'} handleTestChange={handleTestChange} txt = {'2018 Sample Entrepreneurship'}/>
-            <SideBarTestCell id = {'302'} handleTestChange={handleTestChange} txt = {'2019 Sample Entrepreneurship'}/>
-            <SideBarTestCell id = {'303'} handleTestChange={handleTestChange} txt = {'2020 Sample Entrepreneurship'}/>
-            <SideBarTestCell id = {'304'} handleTestChange={handleTestChange} txt = {'2021 Sample Entrepreneurship'}/>
-            <SideBarTestCell id = {'305'} handleTestChange={handleTestChange} txt = {'2022 Sample Entrepreneurship'}/>
-            <SideBarTestCell id = {'306'} handleTestChange={handleTestChange} txt = {'2023 Sample Entrepreneurship'}/>
-            <SideBarTestCell id = {'307'} handleTestChange={handleTestChange} txt = {'2024 Sample Entrepreneurship'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'301'} handleTestChange={handleTestChange} txt = {'2018 Sample Entrepreneurship'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'302'} handleTestChange={handleTestChange} txt = {'2019 Sample Entrepreneurship'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'303'} handleTestChange={handleTestChange} txt = {'2020 Sample Entrepreneurship'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'304'} handleTestChange={handleTestChange} txt = {'2021 Sample Entrepreneurship'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'305'} handleTestChange={handleTestChange} txt = {'2022 Sample Entrepreneurship'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'306'} handleTestChange={handleTestChange} txt = {'2023 Sample Entrepreneurship'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'307'} handleTestChange={handleTestChange} txt = {'2024 Sample Entrepreneurship'}/>
           </SideBarAccordion>
           {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
           </SideBarAccordion>
@@ -294,14 +305,14 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {'400'} handleTestChange={handleTestChange} txt = {'2017 Sample HospitalityTourism'}/>
-            <SideBarTestCell id = {'401'} handleTestChange={handleTestChange} txt = {'2018 Sample HospitalityTourism'}/>
-            <SideBarTestCell id = {'402'} handleTestChange={handleTestChange} txt = {'2019 Sample HospitalityTourism'}/>
-            <SideBarTestCell id = {'403'} handleTestChange={handleTestChange} txt = {'2020 Sample HospitalityTourism'}/>
-            <SideBarTestCell id = {'404'} handleTestChange={handleTestChange} txt = {'2021 Sample HospitalityTourism'}/>
-            <SideBarTestCell id = {'405'} handleTestChange={handleTestChange} txt = {'2022 Sample HospitalityTourism'}/>
-            <SideBarTestCell id = {'406'} handleTestChange={handleTestChange} txt = {'2023 Sample HospitalityTourism'}/>
-            <SideBarTestCell id = {'407'} handleTestChange={handleTestChange} txt = {'2024 Sample HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'400'} handleTestChange={handleTestChange} txt = {'2017 Sample HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'401'} handleTestChange={handleTestChange} txt = {'2018 Sample HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'402'} handleTestChange={handleTestChange} txt = {'2019 Sample HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'403'} handleTestChange={handleTestChange} txt = {'2020 Sample HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'404'} handleTestChange={handleTestChange} txt = {'2021 Sample HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'405'} handleTestChange={handleTestChange} txt = {'2022 Sample HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'406'} handleTestChange={handleTestChange} txt = {'2023 Sample HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'407'} handleTestChange={handleTestChange} txt = {'2024 Sample HospitalityTourism'}/>
           </SideBarAccordion>
           {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
           </SideBarAccordion>
@@ -322,14 +333,14 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {'500'} handleTestChange={handleTestChange} txt = {'2017 Sample Marketing'}/>
-            <SideBarTestCell id = {'501'} handleTestChange={handleTestChange} txt = {'2018 Sample Marketing'}/>
-            <SideBarTestCell id = {'502'} handleTestChange={handleTestChange} txt = {'2019 Sample Marketing'}/>
-            <SideBarTestCell id = {'503'} handleTestChange={handleTestChange} txt = {'2020 Sample Marketing'}/>
-            <SideBarTestCell id = {'504'} handleTestChange={handleTestChange} txt = {'2021 Sample Marketing'}/>
-            <SideBarTestCell id = {'505'} handleTestChange={handleTestChange} txt = {'2022 Sample Marketing'}/>
-            <SideBarTestCell id = {'506'} handleTestChange={handleTestChange} txt = {'2023 Sample Marketing'}/>
-            <SideBarTestCell id = {'507'} handleTestChange={handleTestChange} txt = {'2024 Sample Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'500'} handleTestChange={handleTestChange} txt = {'2017 Sample Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'501'} handleTestChange={handleTestChange} txt = {'2018 Sample Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'502'} handleTestChange={handleTestChange} txt = {'2019 Sample Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'503'} handleTestChange={handleTestChange} txt = {'2020 Sample Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'504'} handleTestChange={handleTestChange} txt = {'2021 Sample Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'505'} handleTestChange={handleTestChange} txt = {'2022 Sample Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'506'} handleTestChange={handleTestChange} txt = {'2023 Sample Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'507'} handleTestChange={handleTestChange} txt = {'2024 Sample Marketing'}/>
           </SideBarAccordion>
           {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
           </SideBarAccordion>
@@ -350,14 +361,14 @@ function TestSidebar({page,handleTestChange}) {
             <DropDown visible = {dropVisible} handleChange = {handleChange}/>
           </div>
           <SideBarAccordion id = {0} handleAccordion = {handleAccordion} active = {accordion[0]} txt = {'Sample'}>
-            <SideBarTestCell id = {'600'} handleTestChange={handleTestChange} txt = {'2017 Sample BMA'}/>
-            <SideBarTestCell id = {'601'} handleTestChange={handleTestChange} txt = {'2018 Sample BMA'}/>
-            <SideBarTestCell id = {'602'} handleTestChange={handleTestChange} txt = {'2019 Sample BMA'}/>
-            <SideBarTestCell id = {'603'} handleTestChange={handleTestChange} txt = {'2020 Sample BMA'}/>
-            <SideBarTestCell id = {'604'} handleTestChange={handleTestChange} txt = {'2021 Sample BMA'}/>
-            <SideBarTestCell id = {'605'} handleTestChange={handleTestChange} txt = {'2022 Sample BMA'}/>
-            <SideBarTestCell id = {'606'} handleTestChange={handleTestChange} txt = {'2023 Sample BMA'}/>
-            <SideBarTestCell id = {'607'} handleTestChange={handleTestChange} txt = {'2024 Sample BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'600'} handleTestChange={handleTestChange} txt = {'2017 Sample BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'601'} handleTestChange={handleTestChange} txt = {'2018 Sample BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'602'} handleTestChange={handleTestChange} txt = {'2019 Sample BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'603'} handleTestChange={handleTestChange} txt = {'2020 Sample BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'604'} handleTestChange={handleTestChange} txt = {'2021 Sample BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'605'} handleTestChange={handleTestChange} txt = {'2022 Sample BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'606'} handleTestChange={handleTestChange} txt = {'2023 Sample BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'607'} handleTestChange={handleTestChange} txt = {'2024 Sample BMA'}/>
           </SideBarAccordion>
           {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
           </SideBarAccordion>
@@ -409,10 +420,19 @@ function SideBarAccordion({id,children, active,txt,handleAccordion}) {
   );
 }
 
-function SideBarTestCell({txt, id, handleTestChange}) {
+function SideBarTestCell({statuses,user,txt, id, handleTestChange}) {
+  function getColor() {
+    if (id in statuses && statuses[id]['status'] == 'completed') {
+      return '#4BB543';
+    } else if (id in statuses && statuses[id]['status']  == 'incomplete') {
+      return '#FFA500';
+    } else {
+      return '#878282';
+    }
+  }
   return (
     <div onClick = {() => handleTestChange(id)} className = {styles.testcelldiv}>
-      <Dot className = {styles.testcelldot} color="#878282" />
+      <Dot className = {styles.testcelldot} color={getColor()} />
       <p className = {styles.testcelltxt}>{txt}</p>
     </div>
   );

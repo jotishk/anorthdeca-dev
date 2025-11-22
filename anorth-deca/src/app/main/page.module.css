@@ -304,15 +304,17 @@ body {
   margin-top: 2rem;
   font-size: 1.5rem;
   font-weight: 500;
-  background-color: var(--bglight);
-  color: black;
+  background-color: black;
+  color: white;
   border: none;
   border-radius: 0.5rem;
-  box-shadow: 0 0 16px 0 rgba(0, 113, 186, 0.6), 0 0 32px 4px rgba(0, 113, 186, 0.3);
+  /* box-shadow: 0 0 16px 0 rgba(0, 113, 186, 0.6), 0 0 32px 4px rgba(0, 113, 186, 0.3); */
 }
 .testbuttonNA:hover {
   cursor: pointer;
+  opacity: 0.9;
 }
+
 .testpageNAmid {
   display: flex;
   position: relative;
@@ -326,10 +328,12 @@ body {
   padding-bottom: 3rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem; */
-  height: 80%;
+  height: fit-content;
   padding-left: 2rem;
   padding-right: 2rem;
   border-radius: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   
 }
 .questionpanel {

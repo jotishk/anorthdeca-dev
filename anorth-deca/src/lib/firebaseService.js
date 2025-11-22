@@ -7,6 +7,7 @@ async function checkUsernameExists() {
 
 }
 
+
 async function submitTest(UID,SID,TID,selectedAnswers) {
   const sessionRef = doc(db,"users",UID,"sessions",SID);
   await updateDoc(sessionRef, {
@@ -59,6 +60,30 @@ async function fetchQuestions(TID) {
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 } 
+async function retrieveAllSessions(UID) {
+  let status = {};
+  const sessionsRef = collection(db, "users", UID, "sessions");
+  const snapshot = await getDocs(sessionsRef);
+  
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    const tid = data.tid;   
+    
+    if (data.status === 'active') {
+      status[tid] = {
+        id: doc.id,
+        status: 'incomplete'
+      };
+    } else if (data.status === 'inactive' && !(tid in status)) {
+      status[tid] = {
+        id: doc.id,
+        status: 'completed'
+      };
+    }
+  });
+  
+  return status;
+}
 async function retrieveSession(UID,TID) {
   const sessionsQuery = query(collection(db,"users",UID,"sessions"),where("tid", "==", TID));
   const sessions = await getDocs(sessionsQuery);
@@ -182,4 +207,4 @@ async function createTest(text) {
 
 
 
-export { submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
+export { retrieveAllSessions, submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
