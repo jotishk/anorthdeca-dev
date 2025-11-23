@@ -1,13 +1,26 @@
 import { db } from '@/lib/firebase';
 import { doc, setDoc, collection, query, where, getDocs, getDoc, updateDoc } from "firebase/firestore"; 
 import { v4 as uuidv4 } from 'uuid';
-
+import { cidToLabel } from '@/constants/constants.js';
 
 async function checkUsernameExists() {
 
 }
 
-
+async function printCategories(TID) {
+  const docRef = doc(db, "tests", TID);
+  const docSnap = await getDoc(docRef);
+  const data = docSnap.data().scode;
+  let codes = [];
+  for (let i = 1; i<=100; i++) {
+    let cd = data[`q${i}`].substring(0,2);
+    if (!codes.includes(cd) && !Object.keys(cidToLabel).includes(cd)) {
+      codes.push(cd);
+    }
+    
+  } 
+  console.log(codes);
+}
 async function submitTest(UID,SID,TID,selectedAnswers) {
   const sessionRef = doc(db,"users",UID,"sessions",SID);
   await updateDoc(sessionRef, {
@@ -49,10 +62,14 @@ async function fetchAttempts(UID,TID) {
   }
   return data;
 }
-async function saveSelectedAnswers(UID, SID, answers) {
+async function saveSelectedAnswers(UID, SID, answers,lastQuestion) {
+  
+  
   const sessionRef = doc(db,"users",UID,"sessions", SID);
+  
   await updateDoc(sessionRef, {
-    answers: answers
+    answers: answers,
+    lastQuestion: lastQuestion
   }, { merge:true });
 }
 async function fetchQuestions(TID) {
@@ -207,4 +224,4 @@ async function createTest(text) {
 
 
 
-export { retrieveAllSessions, submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
+export { printCategories, retrieveAllSessions, submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};

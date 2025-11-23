@@ -7,7 +7,7 @@ import { TestPage, QuestionPanel, QuestionPanelBtm,QuestionChoices} from '@/comp
 import { AnalyticsPage } from '@/components/analyticspage';
 import { getAuth,signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { retrieveSession,retrieveAllSessions } from '@/lib/firebaseService';
+import { printCategories, retrieveSession,retrieveAllSessions, saveSelectedAnswers } from '@/lib/firebaseService';
 
 
 export default function Main() {
@@ -19,6 +19,7 @@ export default function Main() {
   const [statuses, setStatuses] = useState({});
   const handlePageChange = (page) => {
     setPage(page);
+    setActive(false);
   }
   const handleTestChange = (tid) => {
     if (page == 'tests') {

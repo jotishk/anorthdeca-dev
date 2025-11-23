@@ -2,7 +2,8 @@
 
 import styles from './page.module.css'
 
-import { useState } from 'react';
+import { X,ChevronUp,Clock,Plus, MoveLeft, MoveRight } from 'lucide-react';
+import { useEffect,useState } from 'react';
 import { sendPasswordResetEmail,signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider, translateErr } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
@@ -136,11 +137,23 @@ function LoginGoogle({setLoading}) {
 }
 
 function ErrStatusBar({code}) {
+  const [closed,setClosed] = useState(false);
   
+  useEffect(() => {
+    if (code) {
+      setClosed(false);
+    }
+  }, [code]);
+
+  function closeBar() {
+    setClosed(true);
+  }
   return (
-    
-    code !== '' 
-    ? <div className={styles.signuperrbar}>{translateErr(code)}</div> 
+    code !== '' && !closed
+    ? <div className={styles.signuperrbar}>
+      <button onClick = {closeBar} className = {styles.closeerrbtn}><X className = {styles.closeerrx} color='white'/></button>
+      {translateErr(code)}
+    </div> 
     : null
 
   );

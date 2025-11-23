@@ -84,7 +84,21 @@ const cidToLabel = {
   'BL': 'Business Law',
   'NF': 'Information Management', 
   'HR': 'Human Resources Management',
-  'MK': 'Marketing'
+  'MK': 'Marketing',
+  'PM': 'Product/Service Management',
+  'EN': 'Entrepreneurship',
+  'MP': 'Marketing Planning',
+  'SE': 'Selling',
+  'PR': 'Promotion',
+  'QM': 'Quality Management',
+  'SM': 'Strategic Management',
+  'PI': 'Pricing',
+  'KM': 'Knowledge Management',
+  'PJ': 'Project Management',
+  'IM': 'Marketing Information-Management',
+  'CM': 'Channel Management',
+  
+
 }
 
 export {tidToLabel, cidToLabel}

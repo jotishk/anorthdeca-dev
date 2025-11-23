@@ -32,7 +32,7 @@ auth.languageCode = 'it';
 const firebaseErrorMap = {
   "auth/email-already-in-use": "Email already registered.",
   "auth/invalid-email": "Email not valid.",
-  "auth/weak-password": "Password must be at least 6 characters.",
+  "auth/password-does-not-meet-requirements": "Password must be at least 6 characters.",
   "auth/user-not-found": "No account found with that email.",
   "auth/wrong-password": "Incorrect password. Please try again.",
   "auth/missing-password": "Please enter your password.",
@@ -46,6 +46,7 @@ const firebaseErrorMap = {
   "auth/network-request-failed": "Network error. Check your connection.",
   "auth/internal-error": "An unexpected error occurred. Please try again.",
   "auth/invalid-credential": "Invalid email or password.",
+  "Invalid Email": "Invalid Email"
 };
 
 function translateErr(code) {

@@ -1,5 +1,7 @@
 @import '../globals.css';
-
+html {
+  height:100%;
+}
 body {
   margin: 0px;
   background-color: var(--bg);
@@ -7,8 +9,10 @@ body {
   background-size: cover;        /* scales image to cover entire div */
   background-position: center;
   background-repeat: no-repeat;
+  height: 100%;
 }
 .header {
+  position: absolute;
   display:flex;
   flex-direction: row;
   align-items: center;
@@ -35,14 +39,14 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  
+  height: 100%;
   
 }
 .signupformdiv {
   border: 1px solid hsl(0, 0%, 85%);
   width: 24rem;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-  height: 34.7rem;
+  height: 34rem;
   background-color: var(--bglight);
   padding: 0.3rem 3rem 0 3rem; 
   border-radius: 5px;
@@ -150,7 +154,9 @@ body {
 }
 .signuperrbar {
   position: absolute;
-  top: 23.5rem;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,8 +165,23 @@ body {
   font-size: 1rem;
   font-weight: 600;
   color:var(--txt);
-  width: 24rem;
+  width: fit-content;
+  padding-left: 4rem;
+  padding-right: 2rem;
   height: 3rem;
-  color: red;
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+  
+}
+.closeerrbtn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  left: 0.5rem;
 }
 

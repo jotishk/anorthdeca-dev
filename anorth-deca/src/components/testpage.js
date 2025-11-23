@@ -15,6 +15,13 @@ export function TestPage({tid,user,active, setActive}) {
   const [questionMap,setQuestionMap] = useState(false);
   const [qnum, setQnum] = useState(1);
 
+  useEffect(() => {
+    if (active===false) {
+      if (session) {
+          saveSelectedAnswers(user.uid,session.id,selectedAnswers,qnum);
+      }
+    }
+  },[active])  
   useEffect(()=> {
     if (user === null) return;
     async function fetchSession() {
@@ -35,7 +42,7 @@ export function TestPage({tid,user,active, setActive}) {
   useEffect(() => {
     async function saveAnswers() {
       if (active && user && tid) {
-        await saveSelectedAnswers(user.uid,session.id,selectedAnswers);
+        await saveSelectedAnswers(user.uid,session.id,selectedAnswers,qnum);
       }
     }
     const interval = setInterval(() => {
@@ -54,8 +61,10 @@ export function TestPage({tid,user,active, setActive}) {
         emptyAnswers[`q${i}`] = "";
       } 
       setSelectedAnswers(emptyAnswers);
+      setQnum(1);
     } else {
       setSelectedAnswers(session.answers);
+      setQnum(session.lastQuestion ? session.lastQuestion : 1);
     }
     const retrievedTest = await fetchQuestions("" + tid);
     setQuestionData(retrievedTest);
@@ -69,6 +78,8 @@ export function TestPage({tid,user,active, setActive}) {
   const submitSession = async () => {
     await submitTest(user.uid, session.id, tid, selectedAnswers);
     setActive(false);
+    setQuestionMap(false);
+    setQnum(1);
   }
 
   
@@ -93,7 +104,7 @@ export function TestPage({tid,user,active, setActive}) {
             <AttemptsAccordion user = {user} tid = {tid}/>
             <button onClick = {handleActive} className = {styles.testbuttonNA}>{status}</button>
           </div>
- 
+
         </div>
         <div className = {styles.testpagetimediv}>
           <Clock className = {styles.testpagetimeimg} size="30px"/>
