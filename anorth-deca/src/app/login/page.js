@@ -100,7 +100,7 @@ function LoginForm({setLoading}) {
         <input className = {styles.signupformsubmit} value = "Log in" type = "submit"></input>
         <LoginGoogle setLoading = {setLoading}/>
         <p className = {styles.signupformswitch}>
-          Don't have an account?
+          {"Don't have an account?"}
           <a  href = "/signup" className = {styles.signupformloginlnk}>Sign up</a>
         </p>
       </form>
