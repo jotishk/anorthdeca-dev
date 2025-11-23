@@ -47,7 +47,7 @@ export function TestPage({tid,user,active, setActive}) {
     }
     const interval = setInterval(() => {
       saveAnswers();
-    }, 10000);
+    }, 60000);
 
     return () => clearInterval(interval); 
   },[active,user,tid,session,selectedAnswers])
