@@ -274,7 +274,7 @@ function CategoriesGraph({categoriesWidth,label, numCorrect, numTotal}) {
     <div className={styles.categoriesgraphrow}>
       <p className={styles.categoriesgraphlabel}>{label + ' (' + numCorrect + '/' + numTotal + ')'}</p>
       <div className = {styles.categoriesgraphoutline}>
-        <div style={{ width: `${numCorrect*(categoriesWidth*0.4)/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
+        <div style={{ width: `${numCorrect*((categoriesWidth-4)*2.5/5.5)/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
       </div>
     </div>
   );
@@ -285,7 +285,8 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
   const [answerChoiceText, setAnswerChoiceText] = useState({});
   const [selected, setSelected] = useState({});
   const [status,setStatus] = useState({});
-  const [categoryText, setCategoryText] = useState('');
+  const [categoryText, setCategoryText] = useState({});
+  const [explanationText, setExplanationText] = useState({});
   const [questionMap,setQuestionMap] = useState(false);
   const [answerStates, setAnswerStates] = useState({});
 
@@ -369,6 +370,25 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
       
     }
   }, [qnum,sessionData,selectedAttempt])
+
+  useEffect(()=>{
+    let explanationsObj = {};
+    let categoriesObj = {};
+    if (testData) {
+      for (let i = 1; i<=100; i++) {
+        if ('explanations' in testData && 'scode' in testData) {
+          explanationsObj[`q${i}`] = testData['explanations'][`q${i}`];
+          categoriesObj[`q${i}`] = cidToLabel[testData['scode'][`q${i}`].substring(0,2)];
+        } else {
+          explanationsObj[`q${i}`] = '';
+          categoriesObj[`q${i}`] = '';
+        }
+      }
+    }
+    
+    setExplanationText(explanationsObj);
+    setCategoryText(categoriesObj);
+  },[testData])
   return(
     <div className = {styles.questionbreakdowndiv}>
       <div className = {styles.cardheaderdiv} style={{ alignSelf: 'flex-start', width: '100%' }}>
@@ -392,17 +412,13 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
           {questionMap ? <QuestionMap answerStates = {answerStates} setQnum = {setQnum} handleQuestionMap = {handleQuestionMap}/> : null }
           
         </div>
-        {/* <div className = {styles.questionpaneldescription}>
+        <div className = {styles.questionpaneldescription}>
           <p className = {styles.qpaneldescriptionheader}>Explanation:</p>
           <p className = {styles.qpaneldescriptiontxt}> 
-            In a private enterprise system, an unequal distribution of income exists because 
-            workers with high levels of education, training, skills, and efficiency generally receive higher salaries than 
-            less qualified workers. Some people own a great deal of property while others own little or none because 
-            they do not have the money to buy it. Skilled workers may also pay higher taxes, belong to a union, or 
-            work longer hours, but those factors do not affect the distribution of property and income
+            {explanationText[`q${qnum}`]}
           </p>
-          <p className = {styles.qpaneldescriptionsource}>Category: {categoryText}</p>
-        </div> */}
+          <p className = {styles.qpaneldescriptionsource}>Category: {categoryText[`q${qnum}`]}</p>
+        </div>
       </div>
       
     </div>
