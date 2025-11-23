@@ -128,7 +128,7 @@ function LoginGoogle({setLoading}) {
   return (
     <>
       <ErrStatusBar code = {err}/>
-      <button onClick = {handleSigninGoogle} className={styles.signupgooglebtn} value="Sign in with Google">
+      <button type="button" onClick = {handleSigninGoogle} className={styles.signupgooglebtn} value="Sign in with Google">
         <img className={styles.signupgooglelogo} src="/header/googlelogo.png"  />
         <p className = {styles.signupgoogletxt}>Sign in with Google</p>
       </button>
@@ -152,7 +152,7 @@ function ErrStatusBar({code}) {
     code !== '' && !closed
     ? <div className={styles.signuperrbar}>
       <button onClick = {closeBar} className = {styles.closeerrbtn}><X className = {styles.closeerrx} color='white'/></button>
-      {code}
+      {translateErr(code)}
     </div> 
     : null
 
