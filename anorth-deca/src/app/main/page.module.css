@@ -1,7 +1,7 @@
 @import '../globals.css';
 
 
-body {
+:global(body) {
   margin: 0px;
   background-color: var(--bg);
 }

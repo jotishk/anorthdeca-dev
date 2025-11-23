@@ -1,8 +1,8 @@
 @import '../globals.css';
-html {
+:global(html) {
   height:100%;
 }
-body {
+:global(body) {
   margin: 0px;
   background-color: var(--bg);
   background-image: url('/images/coolbackgrounds-fractalize-clear_lagoon.png');
