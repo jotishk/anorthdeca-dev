@@ -133,7 +133,7 @@ function ErrStatusBar({code}) {
     code !== '' && !closed
     ? <div className={styles.signuperrbar}>
       <button onClick = {closeBar} className = {styles.closeerrbtn}><X className = {styles.closeerrx} color='white'/></button>
-      {translateErr(code)}
+      {code}
     </div> 
     : null
 
