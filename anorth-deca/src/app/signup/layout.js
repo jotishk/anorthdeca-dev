@@ -1,3 +1,5 @@
+import './globals.css';
+
 export default function SignupLayout({ children }) {
   return (
     <html style={{ height: "100%" }}>
