@@ -274,7 +274,7 @@ function CategoriesGraph({categoriesWidth,label, numCorrect, numTotal}) {
     <div className={styles.categoriesgraphrow}>
       <p className={styles.categoriesgraphlabel}>{label + ' (' + numCorrect + '/' + numTotal + ')'}</p>
       <div className = {styles.categoriesgraphoutline}>
-        <div style={{ width: `${numCorrect*(categoriesWidth-12.5)/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
+        <div style={{ width: `${numCorrect*(categoriesWidth*0.4)/numTotal}rem` }} className={styles.categoriesgraphbox}></div>
       </div>
     </div>
   );
