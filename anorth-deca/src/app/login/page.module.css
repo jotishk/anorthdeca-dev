@@ -1,16 +1,5 @@
 @import '../globals.css';
-:global(html) {
-  height:100%;
-}
-:global(body) {
-  margin: 0px;
-  background-color: var(--bg);
-  background-image: url('/images/coolbackgrounds-fractalize-clear_lagoon.png');
-  background-size: cover;        /* scales image to cover entire div */
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%;
-}
+
 .header {
   position: absolute;
   display:flex;

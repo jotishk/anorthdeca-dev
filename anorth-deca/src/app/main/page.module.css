@@ -1,10 +1,7 @@
 @import '../globals.css';
 
 
-:global(body) {
-  margin: 0px;
-  background-color: var(--bg);
-}
+
 .loadingoverlay {
   position: fixed;
 
