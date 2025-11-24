@@ -9,7 +9,13 @@ export default function Home() {
   const router = useRouter();
   
   useEffect(() => {
-    router.push('/login'); 
+    const ua = navigator.userAgent;
+    const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(ua);
+    if (isMobile) {
+      router.replace("/unsupported");
+    } else {
+      router.push('/login'); 
+    }
   }, [router]);
 
   return null;        
