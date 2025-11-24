@@ -801,4 +801,46 @@
   .testattemptsdiv {
     width: 24rem;       /* 30rem * 0.8 */
   }
+  .questionpanel {
+    width: 24rem;
+    height: 28rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+  .questiontitle {
+    font-size: 1.6rem;
+  }
+  .questioncontent {
+    min-height: 4.8rem;
+    max-height: 4.8rem;
+  }
+  .questionchoicediv {
+    width: 24rem;
+    height: 2.25rem;
+  }
+  .answerchoicetxt {
+    font-size: 0.72rem;
+  }
+  .questionchoiceltr {
+    min-width: 1.2rem;
+    min-height: 1.2rem;
+  }
+  .questionpanelbtmdiv {
+    height: 3rem;
+  }
+  .questionchoiceltractive {
+    min-width: 1.2rem;
+    min-height: 1.2rem;
+  }
+  .blackdropbox {
+    height:1.6875rem;
+    font-size: 0.72rem;
+  }
+  .bluebtn {
+    height:1.6875rem;
+    font-size: 0.72rem;
+    border-radius: 0.84375rem;
+  }
 }
