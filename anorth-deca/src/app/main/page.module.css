@@ -793,9 +793,10 @@
     font-size: 1.3rem;
   }
 }
-
 /* Small screens / Chromebooks */
 @media (max-width: 1366px) {
+
+  /* Center card and shrink width */
   .testpageNAmid {
     width: 70%;
     padding-left: 2rem;
@@ -804,24 +805,104 @@
     padding-bottom: 3rem;
   }
 
+  /* Title */
   .testtitleNA {
-    font-size: 3rem; /* smaller title */
+    font-size: 3rem;
   }
 
+  /* Description */
   .testdescription {
-    width: 100%;
     font-size: 1.2rem;
   }
 
+  /* Buttons */
   .testbuttonNA {
     width: 8rem;
     height: 3rem;
     font-size: 1.3rem;
   }
+
+  /* Question panel */
+  .questionpanel {
+    width: 25rem;
+    height: 30rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  /* Question title */
+  .questiontitle {
+    font-size: 1.7rem;
+  }
+
+  /* Question choice div */
+  .questionchoicediv {
+    width: 25rem;
+    height: 2.8rem;
+  }
+
+  .questionchoiceltr,
+  .questionchoiceltractive {
+    min-width: 1.3rem;
+    min-height: 1.3rem;
+    font-size: 0.8rem;
+  }
+
+  .answerchoicetxt {
+    font-size: 0.85rem;
+  }
+
+  /* Question panel bottom buttons */
+  .questionpanelnextbtn {
+    width: 4.5rem;
+    height: 2.3rem;
+    font-size: 0.9rem;
+  }
+
+  /* Test attempts */
+  .testattemptsdiv {
+    width: 25rem;
+  }
+  .attemptsaccordion,
+  .testattemptscelldiv {
+    width: 25rem;
+    height: 2.5rem;
+  }
+  .attemptsaccordiontxt,
+  .testattemptscellcount,
+  .testattemptscellscore {
+    font-size: 1rem;
+  }
+
+  /* Question map */
+  .questionmapdiv {
+    width: 35rem;
+    height: 24rem;
+  }
+  .questionmapgrid {
+    width: 33rem;
+    height: 16rem;
+    grid-template-columns: repeat(10, 2.5rem);
+    column-gap: 0.8rem;
+    row-gap: 0.8rem;
+  }
+  .questionboxdiv {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+  }
+  .questionmapbtm {
+    width: 33rem;
+    height: 4rem;
+  }
+
 }
 
 /* Even smaller Chromebooks / 1024px width and below */
 @media (max-width: 1024px) {
+
   .testpageNAmid {
     width: 85%;
     padding-left: 1.5rem;
@@ -831,7 +912,7 @@
   }
 
   .testtitleNA {
-    font-size: 2.5rem; /* further smaller */
+    font-size: 2.5rem;
   }
 
   .testdescription {
@@ -842,5 +923,77 @@
     width: 7.5rem;
     height: 2.8rem;
     font-size: 1.2rem;
+  }
+
+  /* Question panel */
+  .questionpanel {
+    width: 22rem;
+    height: 26rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .questiontitle {
+    font-size: 1.5rem;
+  }
+
+  .questionchoicediv {
+    width: 22rem;
+    height: 2.5rem;
+  }
+
+  .questionchoiceltr,
+  .questionchoiceltractive {
+    min-width: 1.2rem;
+    min-height: 1.2rem;
+    font-size: 0.75rem;
+  }
+
+  .answerchoicetxt {
+    font-size: 0.8rem;
+  }
+
+  .questionpanelnextbtn {
+    width: 4rem;
+    height: 2rem;
+    font-size: 0.85rem;
+  }
+
+  .testattemptsdiv {
+    width: 22rem;
+  }
+  .attemptsaccordion,
+  .testattemptscelldiv {
+    width: 22rem;
+    height: 2.3rem;
+  }
+  .attemptsaccordiontxt,
+  .testattemptscellcount,
+  .testattemptscellscore {
+    font-size: 0.9rem;
+  }
+
+  /* Question map */
+  .questionmapdiv {
+    width: 30rem;
+    height: 20rem;
+  }
+  .questionmapgrid {
+    width: 28rem;
+    height: 14rem;
+    grid-template-columns: repeat(10, 2.2rem);
+    column-gap: 0.6rem;
+    row-gap: 0.6rem;
+  }
+  .questionboxdiv {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
+  .questionmapbtm {
+    width: 28rem;
+    height: 3.5rem;
   }
 }
