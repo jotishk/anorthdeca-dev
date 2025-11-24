@@ -747,7 +747,7 @@
     min-height: 1.2rem;
   }
   .questionpanelbtmdiv {
-    height: 3rem;
+    height: 5rem;
   }
   .questionchoiceltractive {
     min-width: 1.2rem;
@@ -805,4 +805,5 @@
     width: 24rem;
     height: 2.4rem;
   }
+  
 }
