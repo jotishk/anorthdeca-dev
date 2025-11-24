@@ -778,7 +778,10 @@
     max-width: 30rem;
     height: auto;               /* let it shrink with content */
     max-height: calc(100vh - 4rem - 2rem); /* viewport minus header */
-    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     overflow-y: auto;           /* scroll if content is too tall */
   }
 
