@@ -159,4 +159,38 @@
   left: 0.5rem;
 }
 
+@media (max-width: 1366px) { 
+  .signupformdiv {
+    width: 19.2rem;
+    height: 30rem;
+  }
+  .signupformtitle {
+    font-size: 1.6rem;
+  }
+  .signupformsubtitle {
+    font-size: 0.88rem;
+  }
+  .signupforminput {
+    height: 2.2rem;
+    font-size: 0.8rem;
+  }
+  .signupformsubmit {
+    height: 2.2rem;
+    font-size: 0.8rem;
+  }
+  .signupgooglebtn {
+    height: 2.2rem;
+  }
+  .signupgoogletxt {
+    font-size: 0.8rem;
+    
+  }
+  .signupgooglelogo {
+    width: 1.6rem;
+    height:1.6rem;
+  }
+  .signupformswitch {
+    font-size: 0.8rem;
+  }
+}
 
