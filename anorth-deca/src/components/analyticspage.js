@@ -398,7 +398,7 @@ function QuestionBreakdown({selectedAttempt, sessionData,testData}) {
       </div>
       <div className = {styles.questionbreakdowncontent}>
         <div className = {styles.questionpanel}>
-          <p className = {styles.questiontitle}>{'Question ' + qnum}</p>
+          <p className = {styles.questiontitleanalytics}>{'Question ' + qnum}</p>
           <p className = {styles.questioncontent}>
             {questionContent}
           </p>

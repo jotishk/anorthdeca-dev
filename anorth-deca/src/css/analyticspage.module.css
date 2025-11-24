@@ -206,7 +206,7 @@
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 }
-.questiontitle {
+.questiontitleanalytics {
   margin-top: 0px;
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
@@ -684,3 +684,125 @@
     width: calc(22rem * 13);
   } */
 /* } */ 
+
+@media (max-width: 1366px) {
+  .testtitleNA {
+    font-size: 3.2rem; /* 4rem * 0.8 */
+  }
+  .testdescription {
+    font-size: 1.04rem; /* 1.3rem * 0.8 */
+    width: 32rem;       /* 40rem * 0.8 */
+  }
+  .attemptsaccordion {
+    width: 24rem;       /* 30rem * 0.8 */
+    height: 2.4rem;     /* 3rem * 0.8 */
+  }
+  .attemptsaccordiontxt {
+    font-size: 0.88rem; /* 1.1rem * 0.8 */
+  }
+  .testattemptscelldiv {
+    width: 24rem;       /* 30rem * 0.8 */
+    height: 2.4rem;     /* 3rem * 0.8 */
+  }
+  .testattemptscellscore {
+    font-size: 0.88rem; /* 1.1rem * 0.8 */
+  }
+  .testattemptscellcount {
+    font-size: 0.88rem;
+  }
+  .testbuttonNA {
+    width: 7.6rem;      /* 9.5rem * 0.8 */
+    height: 2.98rem;    /* 3.725rem * 0.8 */
+    font-size: 1.2rem;  /* 1.5rem * 0.8 */
+  }
+  .testattemptsdiv {
+    width: 24rem;       /* 30rem * 0.8 */
+  }
+  .questionpanel {
+    width: 24rem;
+    height: 28rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+  .questiontitleanalytics {
+    font-size: 1.04rem;
+  }
+  .questioncontent {
+    min-height: 4.8rem;
+    max-height: 4.8rem;
+    max-width: 24rem;
+    font-size: 0.84rem;
+  }
+  .questionchoicediv {
+    width: 24rem;
+    height: 2.25rem;
+  }
+  .answerchoicetxt {
+    font-size: 0.72rem;
+  }
+  .questionchoiceltr {
+    min-width: 1.2rem;
+    min-height: 1.2rem;
+  }
+  .questionpanelbtmdiv {
+    height: 3rem;
+  }
+  .questionchoiceltractive {
+    min-width: 1.2rem;
+    min-height: 1.2rem;
+  }
+  .blackdropbox {
+    height:1.6875rem;
+    font-size: 0.72rem;
+  }
+  .bluebtn {
+    height:1.6875rem;
+    font-size: 0.72rem;
+    border-radius: 0.84375rem;
+  }
+  .questionmapheader {
+    font-size: 1.28rem;
+  }
+  .questionboxdivfull {
+    font-size: 1.12rem;
+  }
+  .questionboxdivempty {
+    font-size: 1.12rem;
+  }
+  .questionmapgrid {
+    grid-template-columns: 2.4rem 2.4rem 2.4rem 2.4rem 2.4rem 2.4rem 2.4rem 2.4rem 2.4rem 2.4rem;
+    gap: 0.8rem;
+    width: 31.2rem;
+    height: 15.2rem;
+  }
+  .questionmapdiv {
+    width: 32.8rem;
+    height:22.4rem;
+  }
+  .questionmapbtm {
+    width: 32.8rem;
+    height: 4rem;
+  }
+  .questionbreakdowndiv {
+    height: 25rem;
+  }
+  .qpaneldescriptionheader {
+    font-size: 0.88rem;
+  }
+  .qpaneldescriptiontxt {
+    font-size: 0.72rem;
+  }
+  .qpaneldescriptionsource {
+    font-size: 0.72rem;
+  }
+  .questionshadergreen {
+    width: 24rem;
+    height: 2.4rem;
+  }
+  .questionshaderred {
+    width: 24rem;
+    height: 2.4rem;
+  }
+}
