@@ -771,3 +771,46 @@
   cursor: pointer;
 
 }
+
+/* Small screens / Chromebooks */
+@media (max-width: 1366px) {
+  .testpageNAmid {
+    width: 70%;           /* shrink card width */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .testdescription {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+
+  .testbuttonNA {
+    width: 8rem;
+    height: 3rem;
+    font-size: 1.3rem;
+  }
+}
+
+/* Even smaller Chromebooks / 1024px width and below */
+@media (max-width: 1024px) {
+  .testpageNAmid {
+    width: 85%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .testdescription {
+    font-size: 1.1rem;
+  }
+
+  .testbuttonNA {
+    width: 7.5rem;
+    height: 2.8rem;
+    font-size: 1.2rem;
+  }
+}
