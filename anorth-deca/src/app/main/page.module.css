@@ -771,34 +771,34 @@
   cursor: pointer;
 
 }
-
 @media (max-width: 1366px) {
   .testtitleNA {
-    font-size: 3rem;
+    font-size: 3.2rem; /* 4rem * 0.8 */
   }
   .testdescription {
-    font-size:0.975rem;
-    width: 30rem;
+    font-size: 1.04rem; /* 1.3rem * 0.8 */
+    width: 32rem;       /* 40rem * 0.8 */
   }
   .attemptsaccordion {
-    width: 22.5rem;
-    height:2.25rem;
+    width: 24rem;       /* 30rem * 0.8 */
+    height: 2.4rem;     /* 3rem * 0.8 */
   }
   .attemptsaccordiontxt {
-    font-size: 0.825rem;
+    font-size: 0.88rem; /* 1.1rem * 0.8 */
   }
   .testattemptscelldiv {
-    width: 22.5rem;
-    height:2.25rem;
-  }
-  .attemptsaccordiontxt {
-    font-size: 0.825rem;
+    width: 24rem;       /* 30rem * 0.8 */
+    height: 2.4rem;     /* 3rem * 0.8 */
   }
   .testattemptscellscore {
-    font-size: 0.825rem;
+    font-size: 0.88rem; /* 1.1rem * 0.8 */
   }
   .testbuttonNA {
-    width: 7.125rem;
-    height:2.626rem;
+    width: 7.6rem;      /* 9.5rem * 0.8 */
+    height: 2.98rem;    /* 3.725rem * 0.8 */
+    font-size: 1.2rem;  /* 1.5rem * 0.8 */
+  }
+  .testattemptsdiv {
+    width: 24rem;       /* 30rem * 0.8 */
   }
 }
