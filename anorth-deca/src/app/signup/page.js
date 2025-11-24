@@ -9,6 +9,17 @@ import { createUser } from '../../lib/firebaseService';
 import { X,ChevronUp,Clock,Plus, MoveLeft, MoveRight } from 'lucide-react';
 
 export default function Signup() {
+  const router = useRouter();
+  
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(ua);
+    if (isMobile) {
+      router.replace("/unsupported");
+    } else {
+      router.push('/login'); 
+    }
+  }, [router]);
   return (
     <>
       <Header/>

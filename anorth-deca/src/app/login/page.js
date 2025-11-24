@@ -10,6 +10,17 @@ import { useRouter } from 'next/navigation';
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(ua);
+    if (isMobile) {
+      router.replace("/unsupported");
+    } else {
+      router.push('/login'); 
+    }
+  }, [router]);
   return (
     <>
       {loading && <div className = {styles.loadingoverlay}></div>}

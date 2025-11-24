@@ -41,6 +41,17 @@ export default function Main() {
       retrieveStatuses();
     }
   }, [user]);
+  const router = useRouter();
+  
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(ua);
+    if (isMobile) {
+      router.replace("/unsupported");
+    } else {
+      router.push('/login'); 
+    }
+  }, [router]);
   // const handleAnalyticTestChange = (tid) => {
   //   setTidAnalytic(tid);
   // }
