@@ -40,15 +40,26 @@ const tidToLabel = {
   305: "2022 Sample Entrepreneurship",
   306: "2023 Sample Entrepreneurship",
   307: "2024 Sample Entrepreneurship",
+  308: "2021 State Entrepreneurship",
+  309: "2023 ICDC Entrepreneurship",
+  310: "2024 ICDC Entrepreneurship",
 
-  400: "2017 Sample Hospitality & Tourism",
-  401: "2018 Sample Hospitality & Tourism",
-  402: "2019 Sample Hospitality & Tourism",
-  403: "2020 Sample Hospitality & Tourism",
-  404: "2021 Sample Hospitality & Tourism",
-  405: "2022 Sample Hospitality & Tourism",
-  406: "2023 Sample Hospitality & Tourism",
-  407: "2024 Sample Hospitality & Tourism",
+
+  400: "2017 Sample HospitalityTourism",
+  401: "2018 Sample HospitalityTourism",
+  402: "2019 Sample HospitalityTourism",
+  403: "2020 Sample HospitalityTourism",
+  404: "2021 Sample HospitalityTourism",
+  405: "2022 Sample HospitalityTourism",
+  406: "2023 Sample HospitalityTourism",
+  407: "2024 Sample HospitalityTourism",
+  408: "2021 State HospitalityTourism",
+  409: "2022 State HospitalityTourism",
+  410: "2023 State HospitalityTourism",
+  411: "2024 State HospitalityTourism",
+  412: "2023 ICDC HospitalityTourism",
+  
+
 
   500: "2017 Sample Marketing",
   501: "2018 Sample Marketing",
@@ -58,6 +69,13 @@ const tidToLabel = {
   505: "2022 Sample Marketing",
   506: "2023 Sample Marketing",
   507: "2024 Sample Marketing",
+  508: "2022 State Marketing",
+  509: "2023 State Marketing",
+  510: "2024 State Marketing",
+  511: "2020 ICDC Marketing",
+  512: "2022 ICDC Marketing",
+  513: "2023 ICDC Marketing",
+  514: "2024 ICDC Marketing",
   
   600: "2017 Sample BMA",
   601: "2018 Sample BMA",
@@ -67,9 +85,10 @@ const tidToLabel = {
   605: "2022 Sample BMA",
   606: "2023 Sample BMA",
   607: "2024 Sample BMA",
-  
-
-
+  608: "2013 State BMA",
+  609: "2022 State BMA",
+  610: "2020 ICDC BMA",
+  611: "2023 ICDC BMA",
 }
 const cidToLabel = {
   'FM': 'Financial-Info Management',

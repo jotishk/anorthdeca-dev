@@ -206,8 +206,8 @@ async function createTest(text) {
     window.testData = { questions, choices, answers, explanations, sourceCodes, sourceRefs };
     console.log("✅ Parsed 100 questions and answers into window.testData");
     const test = {
-      label: "2024 Sample BMA Exam",
-      category: "businessmanagement",
+      label: "2022 ICDC BMA",
+      category: "marketing",
       questions: questions,
       choices: choices,
       explanations: explanations,
@@ -215,7 +215,7 @@ async function createTest(text) {
       scode: sourceCodes,
       source: sourceRefs
     };
-    await setDoc(doc(db, "tests", "607"), test);
+    await setDoc(doc(db, "tests", "609"), test);
     console.log("uploaded successfully");
   } catch (err) {
     console.log(err.message);

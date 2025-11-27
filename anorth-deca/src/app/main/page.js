@@ -298,11 +298,13 @@ function TestSidebar({statuses,user,page,handleTestChange}) {
             <SideBarTestCell statuses = {statuses} user = {user} id = {'306'} handleTestChange={handleTestChange} txt = {'2023 Sample Entrepreneurship'}/>
             <SideBarTestCell statuses = {statuses} user = {user} id = {'307'} handleTestChange={handleTestChange} txt = {'2024 Sample Entrepreneurship'}/>
           </SideBarAccordion>
-          {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'308'} handleTestChange={handleTestChange} txt = {'2021 State Entrepreneurship'}/>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
-
-          </SideBarAccordion> */}
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'309'} handleTestChange={handleTestChange} txt = {'2023 ICDC Entrepreneurship'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'310'} handleTestChange={handleTestChange} txt = {'2024 ICDC Entrepreneurship'}/>
+          </SideBarAccordion>
         </div>
       );
       
@@ -326,11 +328,15 @@ function TestSidebar({statuses,user,page,handleTestChange}) {
             <SideBarTestCell statuses = {statuses} user = {user} id = {'406'} handleTestChange={handleTestChange} txt = {'2023 Sample HospitalityTourism'}/>
             <SideBarTestCell statuses = {statuses} user = {user} id = {'407'} handleTestChange={handleTestChange} txt = {'2024 Sample HospitalityTourism'}/>
           </SideBarAccordion>
-          {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'408'} handleTestChange={handleTestChange} txt = {'2021 State HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'409'} handleTestChange={handleTestChange} txt = {'2022 State HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'410'} handleTestChange={handleTestChange} txt = {'2023 State HospitalityTourism'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'411'} handleTestChange={handleTestChange} txt = {'2024 State HospitalityTourism'}/>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
-
-          </SideBarAccordion> */}
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'412'} handleTestChange={handleTestChange} txt = {'2023 ICDC HospitalityTourism'}/>
+          </SideBarAccordion>
         </div>
       );
       
@@ -354,11 +360,17 @@ function TestSidebar({statuses,user,page,handleTestChange}) {
             <SideBarTestCell statuses = {statuses} user = {user} id = {'506'} handleTestChange={handleTestChange} txt = {'2023 Sample Marketing'}/>
             <SideBarTestCell statuses = {statuses} user = {user} id = {'507'} handleTestChange={handleTestChange} txt = {'2024 Sample Marketing'}/>
           </SideBarAccordion>
-          {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'508'} handleTestChange={handleTestChange} txt = {'2022 State Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'509'} handleTestChange={handleTestChange} txt = {'2023 State Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'510'} handleTestChange={handleTestChange} txt = {'2024 State Marketing'}/>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
-
-          </SideBarAccordion> */}
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'511'} handleTestChange={handleTestChange} txt = {'2020 ICDC Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'512'} handleTestChange={handleTestChange} txt = {'2022 ICDC Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'513'} handleTestChange={handleTestChange} txt = {'2023 ICDC Marketing'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'514'} handleTestChange={handleTestChange} txt = {'2024 ICDC Marketing'}/>
+          </SideBarAccordion>
         </div>
       );
       
@@ -382,11 +394,14 @@ function TestSidebar({statuses,user,page,handleTestChange}) {
             <SideBarTestCell statuses = {statuses} user = {user} id = {'606'} handleTestChange={handleTestChange} txt = {'2023 Sample BMA'}/>
             <SideBarTestCell statuses = {statuses} user = {user} id = {'607'} handleTestChange={handleTestChange} txt = {'2024 Sample BMA'}/>
           </SideBarAccordion>
-          {/* <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+          <SideBarAccordion id = {1} handleAccordion = {handleAccordion} active = {accordion[1]} txt = {'State'}>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'608'} handleTestChange={handleTestChange} txt = {'2013 State BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'609'} handleTestChange={handleTestChange} txt = {'2022 State BMA'}/>
           </SideBarAccordion>
           <SideBarAccordion id = {2} handleAccordion = {handleAccordion} active = {accordion[2]} txt = {'ICDC'}>
-
-          </SideBarAccordion> */}
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'610'} handleTestChange={handleTestChange} txt = {'2020 ICDC BMA'}/>
+            <SideBarTestCell statuses = {statuses} user = {user} id = {'611'} handleTestChange={handleTestChange} txt = {'2023 ICDC BMA'}/>
+          </SideBarAccordion>
         </div>
       );
       
