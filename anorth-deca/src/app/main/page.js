@@ -5,6 +5,8 @@ import {LogOut, Settings, ClipboardPen, ChartGantt, Zap, School, Dot, MoveLeft, 
 import { useAuth } from '@/context/AuthContext';
 import { TestPage, QuestionPanel, QuestionPanelBtm,QuestionChoices} from '@/components/testpage';
 import { AnalyticsPage } from '@/components/analyticspage';
+import { QuickPracticePage } from '@/components/quickpracticepage';
+
 import { getAuth,signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { printCategories, retrieveSession,retrieveAllSessions, saveSelectedAnswers } from '@/lib/firebaseService';
@@ -85,6 +87,9 @@ export default function Main() {
       <div className = {styles.pageblock} style={{ display: page === 'analytics' ? 'block' : 'none' }}>
         <AnalyticsPage tidAnalytic={tidAnalytic} user={user} />
       </div>
+      <div className = {styles.pageblock} style={{ display: page === 'quickpractice' ? 'block' : 'none' }}>
+        <QuickPracticePage tidAnalytic={tidAnalytic} user={user} />
+      </div>
     </div>
     
   );
@@ -111,6 +116,7 @@ function Header({handlePageChange}) {
       <div className = {[styles.headerrightsection]}>
         <HeaderNav onClick = {() => {handlePageChange('tests')}} className = {styles.headernav} txt = {'Tests'}/>
         <HeaderNav onClick = {() => {handlePageChange('analytics')}} className = {styles.headernav} txt = {'Analytics'}/>
+        <HeaderNav onClick = {() => {handlePageChange('quickpractice')}} className = {styles.headernav} txt = {'Quick Practice'}/>
         <HeaderNav onClick = {() => {handleLogoutDropdown()}} className = {styles.headernav} txt = {'Settings'}/>
       </div>
       {logoutDropdown &&
@@ -138,7 +144,7 @@ function HeaderNav({txt, onClick, className}) {
   if (txt === 'Quick Practice') {
     return (
       <div className={className} onClick={onClick} style={{cursor: 'pointer'}}>
-        <Zap color='rgb(62, 62, 62)'/> 
+        <Zap strokeWidth={1.5} color='rgb(62, 62, 62)'/> 
         <p className = {styles.headernavtxt}>{txt}</p>
       </div>
     );
