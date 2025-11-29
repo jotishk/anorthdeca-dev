@@ -17,10 +17,13 @@ function AuthProvider({children}) {
       if (user) {
         setUser(user);
         setLoading(false);
-        router.push('/main');
+        // router.push('/main');
+        router.push('/error')
       } else {
         if (pathname === '/main') {
-          router.push('/login');
+          // router.push('/login');
+          router.push('/error')
+
         } 
       }
       
