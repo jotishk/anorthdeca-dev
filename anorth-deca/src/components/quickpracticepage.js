@@ -2,22 +2,13 @@
 import styles from '../css/quickpracticepage.module.css'
 import { useRef, useContext, useEffect, useState } from 'react';
 import { ChevronUp, X, Check, Square } from 'lucide-react';
+import { retrieveQuestionBank, printCategories, retrieveSession,retrieveAllSessions, saveSelectedAnswers } from '@/lib/firebaseService';
+import { tidToLabel, cidToLabel } from '@/constants/constants';
 
 
 export function QuickPracticePage({user}) {
+  const [questionBank, setQuestionBank] = useState({});
   const [questionData,setQuestionData] = useState({});
-  return (
-    <>
-      <FilterBar user = {user}/>
-      <div className = {styles.quickpracticepagediv}>
-
-      </div>
-    </>
-  )
-}
-
-function FilterBar({user}) {
-  const [dropdownVisible, setDropdownVisible] = useState(false);
   const [selected, setSelected] = useState([]);
   const [notSelected, setNotSelected] = useState([
     'Business Law',
@@ -46,6 +37,47 @@ function FilterBar({user}) {
     'Selling',
     'Strategic Management'
   ]);
+
+  function generateQuestion(bank) {
+    console.log(Object.keys(bank).length);
+    if (bank && Object.keys(bank).length > 0) {
+      let filtered = {}
+      for (const qid in bank) {
+        if (selected.includes(cidToLabel[bank[qid]["scode"].substring(0,2)])) {
+          filtered[qid] = bank[qid];
+        }
+      }
+      const keys = Object.keys(filtered);     
+      const randomKey = keys[Math.floor(Math.random() * keys.length)];
+      const randomQuestion = filtered[randomKey];
+      setQuestionData(randomQuestion);
+    }
+  } 
+  useEffect(() =>{
+    let questionBankLoad = {};
+    async function loadBank() {
+      questionBankLoad = await retrieveQuestionBank();
+      setQuestionBank(questionBankLoad);
+      generateQuestion(questionBankLoad);
+    }
+    loadBank();
+  },[])
+
+  return (
+    <>
+      <FilterBar selected={selected} notSelected={notSelected} setNotSelected={setNotSelected} setSelected={setSelected} user={user} />
+      <div className={styles.quickpracticepagediv}>
+        {questionData && Object.keys(questionData).length > 0 && (
+          <QuestionPanel questionData={questionData} />
+        )}
+      </div>
+    </>
+  )
+}
+
+function FilterBar({selected, notSelected, setSelected, setNotSelected, user}) {
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  
 
   const handleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
@@ -119,7 +151,7 @@ function FilterCard({label, onClick}) {
     </div>
   )
 }
-export function QuestionPanel({selectedAnswers, setSelectedAnswers, questionData}) {
+export function QuestionPanel({questionData}) {
   const [selected,setSelected] = useState([false,false,false,false]);
                       
   const handleSelected = (ltr) => {
@@ -147,7 +179,7 @@ export function QuestionPanel({selectedAnswers, setSelectedAnswers, questionData
   return (
     <div className = {styles.questionpanel}>
       <p className = {styles.questiontitle}>
-        {'Category: ' + qnum}
+        {'Category: ' + cidToLabel[questionData["scode"].substring(0,2)]}
       </p>
       <p className = {styles.questioncontent}>{questionData["questions"][`q${qnum}`]}</p>
       <div className = {styles.questionchoicesdiv}>

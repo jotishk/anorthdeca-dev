@@ -1,12 +1,51 @@
 import { db } from '@/lib/firebase';
 import { doc, setDoc, collection, query, where, getDocs, getDoc, updateDoc } from "firebase/firestore"; 
 import { v4 as uuidv4 } from 'uuid';
-import { cidToLabel } from '@/constants/constants.js';
+import { tidToLabel, cidToLabel } from '@/constants/constants.js';
 
 async function checkUsernameExists() {
 
 }
+async function retrieveQuestionBank() {
+  
 
+  return dataObject;
+}
+async function updateQuestions() {
+  let errors = 0;
+  function removeUndefined(obj) {
+    return Object.fromEntries(
+      Object.entries(obj).filter(([_, v]) => v !== undefined)
+    );
+  }
+  for (const TID in tidToLabel) {
+    
+    const testRef = await getDoc(doc(db,"tests",TID));
+  
+    const testData = testRef.data();
+    for (let i = 1; i<101; i++) {
+      let currQuestion = {
+        questionText: testData["questions"][`q${i}`],
+        choices: testData["choices"][`q${i}`],
+        category: testData["category"],
+        answer: testData["anskey"][`q${i}`],
+        explanations: testData["explanations"][`q${i}`],
+        scode: testData["scode"][`q${i}`],
+        source: testData["source"][`q${i}`],
+      }
+      const missingCount = Object.values(currQuestion).filter(v => v === undefined).length;
+
+      if (missingCount > 0) {
+        errors++;
+        console.log(`Question ${TID}-${i} has ${missingCount} missing fields`);
+      }
+      const cleaned = removeUndefined(currQuestion);
+      console.log("Errors so far:", errors);
+      await setDoc(doc(db,"questions",`${TID}-${i}`),cleaned);
+    }
+  };
+
+}
 async function printCategories(TID) {
   const docRef = doc(db, "tests", TID);
   const docSnap = await getDoc(docRef);
@@ -206,8 +245,8 @@ async function createTest(text) {
     window.testData = { questions, choices, answers, explanations, sourceCodes, sourceRefs };
     console.log("✅ Parsed 100 questions and answers into window.testData");
     const test = {
-      label: "2022 ICDC BMA",
-      category: "marketing",
+      label: "2013 ICDC Finance Exam",
+      category: "finance",
       questions: questions,
       choices: choices,
       explanations: explanations,
@@ -215,7 +254,7 @@ async function createTest(text) {
       scode: sourceCodes,
       source: sourceRefs
     };
-    await setDoc(doc(db, "tests", "609"), test);
+    await setDoc(doc(db, "tests", "100"), test);
     console.log("uploaded successfully");
   } catch (err) {
     console.log(err.message);
@@ -224,4 +263,4 @@ async function createTest(text) {
 
 
 
-export { printCategories, retrieveAllSessions, submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
+export { retrieveQuestionBank, updateQuestions, printCategories, retrieveAllSessions, submitTest, fetchAttempts, createUser, createTest, createSession, retrieveSession, fetchQuestions, saveSelectedAnswers};
