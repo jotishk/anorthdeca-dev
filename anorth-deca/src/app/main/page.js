@@ -87,7 +87,7 @@ export default function Main() {
       <div className = {styles.pageblock} style={{ display: page === 'analytics' ? 'block' : 'none' }}>
         <AnalyticsPage tidAnalytic={tidAnalytic} user={user} />
       </div>
-      <div className = {styles.pageblock} style={{ display: page === 'quickpractice' ? 'block' : 'none' }}>
+      <div className = {styles.pageblock} style={{ display: page === 'quickpractice' ? 'flex' : 'none' }}>
         <QuickPracticePage tidAnalytic={tidAnalytic} user={user} />
       </div>
     </div>

@@ -1,5 +1,5 @@
 const tidToLabel = {
-  
+  0: "No test selected",
   100: "2013 ICDC Finance Exam",
   101: "2020 ICDC Finance Exam",
   102: "2023 ICDC Finance Exam",
@@ -102,7 +102,7 @@ const cidToLabel = {
   'OP': 'Operations',
   'BL': 'Business Law',
   'NF': 'Information Management', 
-  'HR': 'Human Resources Management',
+  'HR': 'HR Management',
   'MK': 'Marketing',
   'PM': 'Product/Service Management',
   'EN': 'Entrepreneurship',
@@ -114,7 +114,7 @@ const cidToLabel = {
   'PI': 'Pricing',
   'KM': 'Knowledge Management',
   'PJ': 'Project Management',
-  'IM': 'Marketing Information-Management',
+  'IM': 'Marketing Info-Management',
   'CM': 'Channel Management',
   
 
