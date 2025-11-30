@@ -18,8 +18,8 @@ export default function Login() {
     if (isMobile) {
       router.replace("/unsupported");
     } else {
-      // router.push('/login'); 
-      router.push('/error');
+      router.push('/login'); 
+      // router.push('/error');
     }
   }, [router]);
   return (

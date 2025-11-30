@@ -17,8 +17,8 @@ export default function Signup() {
     if (isMobile) {
       router.replace("/unsupported");
     } else {
-      // router.push('/signup'); 
-      router.push('/error');
+      router.push('/signup'); 
+      // router.push('/error');
     }
   }, [router]);
   return (

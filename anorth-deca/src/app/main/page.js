@@ -49,8 +49,8 @@ export default function Main() {
     if (isMobile) {
       router.replace("/unsupported");
     } else {
-      // router.push('/login'); 
-      router.push('/error');
+      router.push('/login'); 
+      // router.push('/error');
     }
   }, [router]);
   // const handleAnalyticTestChange = (tid) => {
