@@ -1396,7 +1396,7 @@ cultural attitudes do not reflect a shift in the competition.
 SOURCE: NF:015
 SOURCE: LAP-NF-015—Get the 4-1-1 (Conducting an Environmental Scan)
 75. B
-7. Central tendency refers to a type of average. Mode is a measure of central tendency and is the
+Central tendency refers to a type of average. Mode is a measure of central tendency and is the
 number that appears most frequently in a group of numbers. A business might determine the mode so it
 can identify the most common responses for questions appearing on a customer survey. The business
 assigns a numerical value to each response option on the survey. For example, the response, "extremely
