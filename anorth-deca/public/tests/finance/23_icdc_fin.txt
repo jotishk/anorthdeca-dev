@@ -1,603 +1,625 @@
-1. Marcus is one of the earliest investors for a new teeth-whitening kit. Since then, he has convinced several other people to invest in the kit, allowing him and other early backers to profit from their investments. What type of investment scam is this scenario describing? 
+1. Marcus is one of the earliest investors for a new teeth-whitening kit. Since then, he has convinced several other
+people to invest in the kit, allowing him and other early backers to profit from their investments. What type of
+investment scam is this scenario describing?
 A. Viatical investment scam
 B. Boiler room
 C. Ponzi scheme
 D. Predatory lending
 
-2. Which of the following statements about insider trading is true: 
+2. Which of the following statements about insider trading is true:
 A. It is always legal.
 B. It is always illegal.
 C. Information traded is public.
 D. It can result in fines or jail time.
 
-3. Which of the following is something that may be subject to a luxury tax: 
+3. Which of the following is something that may be subject to a luxury tax:
 A. Flat-screen TV
 B. Commercial plane ticket
 C. Smart phone
 D. Mansion
 
-4. A compliance department typically has five areas of responsibility. Which are two of those areas? 
+4. A compliance department typically has five areas of responsibility. Which are two of those areas?
 A. Identification and prevention
 B. Resolution and investigation
 C. Monitoring/detection and discipline
 D. Advisory and complexity
 
-5. Mina has a $3,000 investment held for four years in her savings account with 10% interest paid annually. What is the future value of her money? 
+5. Mina has a $3,000 investment held for four years in her savings account with 10% interest paid annually. What
+is the future value of her money?
 A. $5,100
 B. $3,500
 C. $4,200
 D. $3,400
 
-6. Virtual audits are different than traditional audits in that virtual audits 
+6. Virtual audits are different than traditional audits in that virtual audits
 A. must offer printed copies of data.
 B. cannot be done remotely.
 C. don't rely on technology.
 D. involve sharing documents online.
 
-7. Which of the following is an advantage of using a virtual audit: 
+7. Which of the following is an advantage of using a virtual audit:
 A. Increased efficiency
 B. Longer implementation time
 C. Decreased flexibility
 D. Lack of rapport
 
-8. The letter of the law refers to the __________ of the law, while the spirit of the law refers to the __________ of the law. 
+8. The letter of the law refers to the __________ of the law, while the spirit of the law refers to the __________ of
+the law.
 A. intent; literal meaning
 B. enforcement; intent
 C. literal meaning; intent
 D. literal meaning; enforcement
 
-9. When a business is looking to employ communication styles appropriate for its target audience, which of the following should it do: 
+9. When a business is looking to employ communication styles appropriate for its target audience, which of the
+following should it do:
 A. Research the needs of the target audience beforehand
 B. Avoid changing the message, no matter the reaction
 C. Prioritize business needs over the target audience's needs
 D. Tailor messages to the general public rather than the target audience
 
-10. Which of the following statements best represents the Cornell Method of note-taking: 
+10. Which of the following statements best represents the Cornell Method of note-taking:
 A. Notes are separated and organized into boxes.
 B. Information is organized into several columns.
 C. The page is divided into three or four sections.
 D. Notes are divided into branches and connected with arrows.
 
-11. Max, the editor of a business magazine, wants his team to start sending daily emails to their subscribers to keep them engaged with their content. What type of professional writing should Max and his team use? 
+11. Max, the editor of a business magazine, wants his team to start sending daily emails to their subscribers to
+keep them engaged with their content. What type of professional writing should Max and his team use?
 A. Newsletter
 B. Report
 C. Business letter
 D. Agenda
 
-12. Which of the following is a true statement about financial advisors: 
+12. Which of the following is a true statement about financial advisors:
 A. They only help clients with investing and budgeting.
 B. They help clients execute trades in the market.
 C. They meet with their clients once.
 D. They can only help wealthy people.
 
-13. When a customer-centric business constantly strives to align its objectives and activities with customer needs by stressing innovation and technology, it is engaging in 
+13. When a customer-centric business constantly strives to align its objectives and activities with customer needs
+by stressing innovation and technology, it is engaging in
 A. customer experience management.
 B. continuous improvement.
 C. business process management.
 D. organizational structure.
 
-14. A company utilizes customer relationship management data to 
+14. A company utilizes customer relationship management data to
 A. increase profits and expenses.
 B. weed out unreliable customers.
 C. be more like its competition.
 D. better understand its customers.
 
-15. With an effective customer strategy, a business can increase revenues by 
+15. With an effective customer strategy, a business can increase revenues by
 A. providing products and services customers want.
 B. prioritizing new customers over existing customers.
 C. helping sales staff close deals at a slower pace.
 D. prioritizing existing customers over new customers.
 
-16. Which of the following statements best represents a seller’s market: 
+16. Which of the following statements best represents a seller’s market:
 A. There is low demand, high supply, and low prices.
 B. There is high demand, low supply, and rising prices.
 C. Producers produce less and consumers buy more.
 D. It is the best time for consumers to buy.
 
-17. There are two basic ways a business can increase profit—decreasing its expenses and increasing its sales. Which of the following is most likely to help a business increase its sales: 
+17. There are two basic ways a business can increase profit—decreasing its expenses and increasing its sales.
+Which of the following is most likely to help a business increase its sales:
 A. Change what it provides
 B. Increase worker efficiency
 C. Eliminate some free services
 D. Avoid extra payroll expenses
 
-18. Which of the following is an advantage of unions for businesses: 
+18. Which of the following is an advantage of unions for businesses:
 A. They increase costs and decrease control.
 B. They help with the recruitment of new employees.
 C. They lead to higher wages and better benefits.
 D. They improve working conditions for employees.
 
-19. Economic activities can be impacted by __________ changes like droughts, floods, and blizzards. 
+19. Economic activities can be impacted by __________ changes like droughts, floods, and blizzards.
 A. psychological
 B. political
 C. climatic
 D. demographic
 
-20. Which of the following statements about resistance is accurate: 
+20. Which of the following statements about resistance is accurate:
 A. Resistance can occur at any point in the change process.
 B. Resistance shouldn’t be addressed when implementing change.
 C. Resistance is a bad thing when leading change.
 D. Resistance can only occur after a change has been made.
 
-21. Samantha wants to make a more conscious effort of setting goals for herself. Which of the following is a tip that could help her set smart goals: 
+21. Samantha wants to make a more conscious effort of setting goals for herself. Which of the following is a tip that
+could help her set smart goals:
 A. Not tying goals to a timetable
 B. Writing down her goals
 C. Keeping them vague and qualifiable
 D. Making them easily attainable
 
-22. As a team member, you find motivational techniques such as saying “thank you” and giving verbal praise especially effective because they 
+22. As a team member, you find motivational techniques such as saying “thank you” and giving verbal praise
+especially effective because they
 A. guarantee you a promotion.
 B. encourage fierce competition.
 C. are at virtually no cost to you.
 D. make your group members laugh.
 
-23. When a discussion becomes emotionally heated or the other person does not like what you say, you can use __________ to shift the power. 
+23. When a discussion becomes emotionally heated or the other person does not like what you say, you can use
+__________ to shift the power.
 A. BATNA
 B. deadlines
 C. alternative planning
 D. silence
 
-24. Rather than doing them all himself, Sam asked a classmate to create a few of the slides for their group presentation. Sam recognized that he could not do everything himself and instead decided to 
+24. Rather than doing them all himself, Sam asked a classmate to create a few of the slides for their group
+presentation. Sam recognized that he could not do everything himself and instead decided to
 A. prioritize.
 B. delegate.
 C. overcommit.
 D. divulge.
 
-25. Which of the following are two guidelines for using power appropriately: 
+25. Which of the following are two guidelines for using power appropriately:
 A. Maintain perspective and show respect
 B. Avoid commitments and maintain perspective
 C. Show respect and hold onto power
 D. Hold onto power and avoid commitments
 
-26. Which of the following is a reason why businesses offer credit: 
+26. Which of the following is a reason why businesses offer credit:
 A. To diminish convenience
 B. To encourage customers to save
 C. To increase interest rates
 D. To be competitive
 
-27. When looking at a personal budget, which of the following is an example of something that may be included as an expense: 
+27. When looking at a personal budget, which of the following is an example of something that may be included as
+an expense:
 A. Interest payment in savings account
 B. Cash birthday gift
 C. Bi-weekly paycheck
 D. Rent and utilities
 
-28. Lyla recently earned her doctorate and wants to meet with a financial advisor to map out her financial future. Which of the following steps should she do first: 
+28. Lyla recently earned her doctorate and wants to meet with a financial advisor to map out her financial future.
+Which of the following steps should she do first:
 A. Determine what type of financial advisor she needs
 B. Understand how financial advisors are compensated
 C. Check for complaints about the financial advisor
 D. Make sure the financial advisor has reputable credentials
 
-29. Which of the following best explains the overall purpose of accounting: 
+29. Which of the following best explains the overall purpose of accounting:
 A. To control finances by keeping accurate financial information
 B. To reduce financial uncertainty and make accidental loss manageable
 C. To help a business make the most money possible
 D. To identify external opportunities and threats
 
-30. Which of the following is a consequence of noncompliance in the financial industry: 
+30. Which of the following is a consequence of noncompliance in the financial industry:
 A. Improved communication
 B. Audits and damaged reputation
 C. Rule violation prevention
 D. Protection from lawsuits
 
-31. To calculate the future value of money, you need the present value, the length of time, and the 
+31. To calculate the future value of money, you need the present value, the length of time, and the
 A. interest rate.
 B. wage.
 C. utility.
 D. bottom line.
 
-32. Which of the following statements about financial statements is true: 
+32. Which of the following statements about financial statements is true:
 A. They don't include a cash flow statement.
 B. They include a mission statement.
 C. They communicate an entity's financial activities.
 D. They are presented in an unstructured manner.
 
-33. Which of the following is an external source of corporate information that can aid an organization in understanding securities: 
+33. Which of the following is an external source of corporate information that can aid an organization in
+understanding securities:
 A. Sales reports
 B. Customer records
 C. Accounts receivable
 D. Investment research firms
 
-34. If you want to find out the greatest price at which a stock was traded over the last year, what part of the stock table would provide this information? 
+34. If you want to find out the greatest price at which a stock was traded over the last year, what part of the stock
+table would provide this information?
 A. 52-week high
 B. Ask price
 C. Dividend yield
 D. 52-week low
 
-35. When looking at a particular stock on a stock table, what information does the volume section provide? 
+35. When looking at a particular stock on a stock table, what information does the volume section provide?
 A. The ratio between the stock's price and the company's earnings
 B. The lowest price of the stock in the last 52 weeks
 C. The amount of shares of the stock that were traded in that day
 D. The change in the stock's price from the previous day's closing price
 
-36. Which of the following statements about commercial banks is true: 
+36. Which of the following statements about commercial banks is true:
 A. They are only available online.
 B. They do not offer credit cards.
 C. They are owned and operated by members.
 D. They offer checking and savings accounts.
 
-37. An insurance company is different from a bank in that an insurance company 
+37. An insurance company is different from a bank in that an insurance company
 A. insures its customers against certain risks.
 B. accepts short-term deposits and makes long-term loans.
 C. is part of a centralized clearing and payment system.
 D. is not considered a financial institution.
 
-38. Which of the following statements about the equity market is true: 
+38. Which of the following statements about the equity market is true:
 A. Equity investments typically involve less risk than debt securities.
 B. It is where investors and traders buy and sell stock.
 C. Stocks are the most common form of debt investment.
 D. It is where investors and traders buy and sell bonds.
 
-39. Which of the following best represents what happens in the spot market: 
+39. Which of the following best represents what happens in the spot market:
 A. Creation and sale of new securities
 B. Trade of financial instruments for immediate delivery
 C. Delivery of an asset and funds at a future date
 D. Purchase and sale of loans
 
-40. If a company is looking to consolidate, it will __________ its assets. 
+40. If a company is looking to consolidate, it will __________ its assets.
 A. combine
 B. destroy
 C. increase
 D. sell
 
-41. Which of the following are two indicators of a recession: 
+41. Which of the following are two indicators of a recession:
 A. Sales rise and income falls
 B. Sales fall and production rises
 C. Production and employment fall
 D. Employment and income rise
 
-42. After 10 years of working for the same company, Marco was recently laid off due to budget cuts. Since then, he has struggled to find a new job. Which of the following is a result of Marco being unemployed: 
+42. After 10 years of working for the same company, Marco was recently laid off due to budget cuts. Since then, he
+has struggled to find a new job. Which of the following is a result of Marco being unemployed:
 A. Less disposable income for his family
 B. Greater contribution to the economy
 C. Less work for his former colleagues
 D. Greater purchasing power
 
-43. Which of the following factors can lead an investor to develop a home bias: 
+43. Which of the following factors can lead an investor to develop a home bias:
 A. Fewer barriers to entry in foreign markets
 B. Higher risk associated with international investing
 C. Less availability of domestic investments
 D. Better familiarity with foreign markets
 
-44. Which of the following sentences about equity statements is true: 
+44. Which of the following sentences about equity statements is true:
 A. Companies need to prepare them once a month.
 B. Companies are not required to prepare them.
 C. Using them typically increases a company’s equity.
-D. They report changes in a company's equity
+D. They report changes in a company's equity.
 
-45. Which of the following is the formula used to calculate retained earnings: 
+45. Which of the following is the formula used to calculate retained earnings:
 A. Beginning period retained earnings − Net income (or loss) + Net dividends
 B. Beginning period retained earnings + Net income (or loss) − Net dividends
 C. Capital expenditures + Net income (or loss) − Net dividends
 D. Operating cash flow − Capital expenditures + Net income (or loss)
 
-46. Which of the following is considered a direct cost: 
+46. Which of the following is considered a direct cost:
 A. Raw materials
 B. Rent
 C. Office supplies
 D. Utilities
 
-47. A large corporation decides to close one of its branches. The previous costs of running that branch—including rent, utilities, and equipment—would all be considered __________ costs. 
+47. A large corporation decides to close one of its branches. The previous costs of running that branch—including
+rent, utilities, and equipment—would all be considered __________ costs.
 A. appraisal
 B. employment
 C. avoidable
 D. mixed
 
-48. Which of the following statements about marginal analysis is true: 
+48. Which of the following statements about marginal analysis is true:
 A. Marginal cost is often equal to fixed costs.
 B. The goal is for costs to outweigh benefits.
 C. It is not necessary when looking to expand.
 D. Companies use it to maximize profits.
 
-49. The goal of marginal analysis should be to ensure that 
+49. The goal of marginal analysis should be to ensure that
 A. marginal revenue exceeds marginal cost.
 B. opportunity cost equals marginal revenue.
 C. marginal cost equals opportunity cost.
 D. marginal cost exceeds marginal revenue.
 
-50. As opposed to financial accountants, managerial accountants primarily 
+50. As opposed to financial accountants, managerial accountants primarily
 A. hire externally.
 B. report externally.
 C. hire internally.
 D. report internally.
 
-51. Which of the following is most likely to impact a company’s corporate governance: 
-A. Suppliers
-B. Board of directors
-C. Global citizens
-D. Auditors
+51. Which of the following is most likely to impact a company’s corporate governance:
+A. Suppliers  
+B. Board of directors  
+C. Global citizens  
+D. Auditors  
 
-52. Shemar is doing a quantitative study into the difference between planned and actual behavior. In other words, he is conducting a(n) __________ analysis. 
-A. environmental
-B. break-even
-C. cash flow
-D. variance
+52. Shemar is doing a quantitative study into the difference between planned and actual behavior. In other words, he is conducting a(n) __________ analysis.  
+A. Environmental  
+B. Break-even  
+C. Cash flow  
+D. Variance  
 
-53. Cost accounting is an activity used mainly in __________ accounting. 
-A. managerial
-B. forensic
-C. financial
-D. electric
+53. Cost accounting is an activity used mainly in __________ accounting.  
+A. Managerial  
+B. Forensic  
+C. Financial  
+D. Electric  
 
-54. Companies that effectively allocate costs 
-A. improve short-term and hurt long-term decision-making.
-B. increase profits and expenses.
-C. spread costs among departments.
-D. determine one department to cover all costs.
+54. Companies that effectively allocate costs  
+A. improve short-term and hurt long-term decision-making.  
+B. increase profits and expenses.  
+C. spread costs among departments.  
+D. determine one department to cover all costs.  
 
-55. Employee payroll is an example of a(n) __________ cost. 
-A. direct
-B. indirect
-C. manufacturing
-D. utility
+55. Employee payroll is an example of a(n) __________ cost.  
+A. Direct  
+B. Indirect  
+C. Manufacturing  
+D. Utility  
 
-56. Which of the following is an advantage for a company that implements a financial management information system: 
-A. Decreased efficiency
-B. Less capacity to plan
-C. More inaccuracies
-D. Better decision-making
+56. Which of the following is an advantage for a company that implements a financial management information system:  
+A. Decreased efficiency  
+B. Less capacity to plan  
+C. More inaccuracies  
+D. Better decision-making  
 
-57. A possible consequence of poorly-executed corporate governance is 
-A. limited profitability.
-B. increased ethics.
-C. decreased risk.
-D. greater payroll.
+57. Which of the following statements about accounting information systems is true:  
+A. They typically avoid the use of internal controls.  
+B. They help a company's different departments work together.  
+C. They use software, but not hardware, to store and retrieve data.  
+D. They collect data to be used only by accountants.  
 
-58. Generally, a company’s board of directors makes decisions on behalf of the company as a(n) 
-A. president.
-B. actuary.
-C. fiduciary.
-D. consumer.
+58. Following ethical financial accounting practices often leads to  
+A. receiving fines or sanctions.  
+B. maintaining public faith.  
+C. losing revenue.  
+D. pushing away investors.  
 
-59. A company’s board of directors frequently provides timely, accurate, and clear information about the business’s anticipated risks and financial performance. What ethical principle is demonstrated in this example? 
-A. Fairness
-B. Respect
-C. Accountability
-D. Transparency
+59. A financial organization is most likely to have which of the following standards in its code of ethics:  
+A. Share confidential information and data  
+B. Provide people with subjective information  
+C. Disclose positive and negative information  
+D. Welcome conflicts of interest  
 
-60. What is a benefit of setting organizational goals? 
-A. It is easier to assess organizational progress.
-B. Organizations will be unable to make changes.
-C. There is no need for channel management.
-D. Organizations will have fewer expenses.
+60. By reviewing an income statement to see how every line item compares to revenue, Anna conducted a __________ analysis.  
+A. Horizontal  
+B. Vertical  
+C. Break-even  
+D. SWOT  
 
-61. How do employees benefit from being involved in achieving governance objectives? 
-A. Increased job satisfaction
-B. Reduced communication
-C. Limited union support
-D. Greater profits
+61. Which of the following statements about ethics and risk management is true:  
+A. Ethical risk management starts at the bottom.  
+B. Ethical codes of conduct can support and go above and beyond legal compliance.  
+C. Only management must be concerned about promoting ethics in risk management.  
+D. It’s helpful to reward unethical behavior.  
 
-62. A company budgeted $20,000 for its monthly sales, but only earned $16,000 by the end of the month. When conducting a variance analysis, what is the variance in this situation? 
-A. $4,000
-B. $36,000
-C. $16,000
-D. $20,000
+62. By using a central data repository for financial information, companies receive  
+A. Up-to-date data.  
+B. Slower responses to queries.  
+C. Less predictability.  
+D. Inconsistent data.  
 
-63. Many companies aim for excellent corporate governance, because for many stakeholders, it is often not enough for a company to simply be profitable. The company must also 
-A. appoint government officers.
-B. facilitate the lowering of capital.
-C. demonstrate social responsibility.
-D. increase the chance of corruption.
+63. Just before the beginning of the year, Audrey is working with a management team to develop a budget forecasting the revenues and expenses expected for the coming year. What type of budget is Audrey’s company using?  
+A. Cash budget  
+B. Operating budget  
+C. Promotional budget  
+D. Long-term budget  
 
-64. Lyudmila’s company uses the McKinsey 7-S model for its strategic planning because it helps the company identify where it excels and where it needs improvement. Which of the following S-components would most likely assess the company’s management functions: 
-A. Skills
-B. Shared values
-C. Strategy
-D. Structure
+64. Nathan develops a budget for his business and runs it past the different members of his management team... This example demonstrates the importance of __________ in the development of an effective budget.  
+A. Rewards  
+B. Accuracy  
+C. Company-wide support  
+D. Long-term motivation  
 
-65. Corporate governance can greatly impact company decision-making because governance processes act as __________ reaching company goals. 
-A. a framework for
-B. stakeholders
-C. brainstorming before
-D. a bulwark against
+65. Zach wants to better understand how his company compares to its competition. He intends to run financial analyses to compare the business practices and standards between firms in his industry. What strategy is Zach using?  
+A. Smishing  
+B. Benchmarking  
+C. Forecasting  
+D. Exporting  
 
-66. Lena is deciding whether to purchase flood insurance for her company. On one hand, she is putting the company and its employees at risk if there is no insurance. On the other hand, the insurance is costly and isn’t technically required by law. This is an example of a(n) __________ issue in risk management. 
-A. political
-B. financial
-C. technological
-D. ethical
+66. Which of the following statements about the use of technology in financial analysis is true?  
+A. Its use is declining within certain industries.  
+B. It is reserved for legal corporations.  
+C. It only supports outdated methodologies.  
+D. It helps inform and support decision-making  
 
-67. Emi wants to better understand her company’s financial performance over several years. To best compare historical data over a number of accounting periods, Emi should use __________ analysis. 
-A. break-even
-B. horizontal
-C. SWOT
-D. vertical
+67. Which approach to operational efficiency focuses on reducing waste?  
+A. Agile  
+B. Kaizen  
+C. Six Sigma  
+D. Lean  
 
-68. Which of the following helps businesses predict risk for a given strategy or initiative: 
-A. Risk checklist
-B. Retroactive risk
-C. Risk tolerance
-D. Risk model
+68. Which two elements of the marketing mix involve getting a product to the consumer?  
+A. Product and pricing  
+B. Promotion and place  
+C. Product and promotion  
+D. Pricing and place  
 
-69. Which of the following is a possible legal result of effective risk management: 
-A. Decreased compliance with laws
-B. Increased workplace safety
-C. Reduced liability exposure
-D. Improved operational efficiency
+69. Which of the following is a recommended step for students interested in web development?  
+A. Avoid learning code  
+B. Learn basic HTML code  
+C. Focus only on app design  
+D. Skip programming basics  
 
-70. Which of the following is an example of external risk: 
-A. Ineffective leadership
-B. Union strikes
-C. Changes in import laws
-D. Outdated technology
+70. Which market research method involves gathering opinions from a small group?  
+A. Survey  
+B. Focus group  
+C. Observation  
+D. Experiment  
 
-71. Which of the following is an example of internal risk: 
-A. Changes in export laws
-B. An economic downturn
-C. Injured employees
-D. An earthquake
+71. Which of the following is an advantage of cloud storage for financial information?  
+A. Slower processing speeds  
+B. Increased errors  
+C. Less accessibility  
+D. Better protection  
 
-72. Which of the following is the best way to describe enterprise risk management: 
-A. Traditional strategy
-B. Bottom-up approach
-C. Divisive approach
-D. Firmwide strategy
+72. Why is standardization important in accounting?  
+A. Fewer calculations  
+B. Personalized records  
+C. Decreased clarity  
+D. Standard format  
 
-73. A company implementing enterprise risk management has placed a keypad at the entry of a sensitive area as an internal control measure. This is an example of __________ control. 
-A. quality
-B. preventative
-C. self
-D. detective
-74. If there is an accident in the workplace, in what time frame should a manager complete an initial incident report?  
-A. 3 weeks  
+73. One key purpose of an internal audit is to  
+A. Increase revenue  
+B. Fire employees  
+C. Detect the possibility of fraud  
+D. Create advertisements  
+
+74. How long is typical biometric data stored?  
+A. 12 hours  
 B. 24 hours  
-C. 10 days  
-D. 1 week  
+C. 48 hours  
+D. One week  
 
-75. Phil typically works at his office from 9 a.m. to 5 p.m. Although he is a valuable member of his team, he spends at least 1 hour of every workday playing games on his phone. When he records his time, he consistently logs 8 hours, even though he typically only works 7. Phil is guilty of  
-A. time theft.  
-B. impartiality.  
-C. misusing company equipment.  
-D. unethical inventory management.  
+75. An employee getting paid for hours not worked is committing  
+A. Time theft  
+B. Identity theft  
+C. Insider trading  
+D. Embezzlement  
 
-76. During a one-on-one meeting with his boss, Joe learned important information about a high-profile client. His boss asked him not to share the information with anyone so it would remain  
-A. on the record.  
-B. public.  
-C. confidential.  
-D. personal.  
+76. Sensitive company information should be labeled as  
+A. Public  
+B. Limited  
+C. Confidential  
+D. Ethical  
 
-77. Russell, the manager of a department store, is known for his organization skills and has a habit of planning projects. Russell tends to set smaller project goals for his team members that contribute to the long-term goals of the project. As a result, his team is very organized and works diligently to achieve these short-term goals. This is an example of how planning is  
-A. influenced by the potential risks.  
-B. impacted by the project's leadership.  
-C. emphasized by the political environment.  
-D. affected by the project's budget.  
+77. A project’s success is most affected by being  
+A. Crowdfunded  
+B. Impacted by the project’s leadership  
+C. Avoided  
+D. Duplicated  
 
-78. Two of Toby’s close friends get into a fight. Toby doesn’t want to get involved, but both friends are demanding that he hear their perspective and resolve the matter. This is an example of a __________ problem.  
-A. school  
-B. work  
-C. peer  
-D. personal  
+78. Professional feedback from someone at the same level is called a __________ review.  
+A. Manager  
+B. Vendor  
+C. Peer  
+D. Customer  
 
-79. A claims adjuster is most likely to work within which of the following areas of the finance industry:  
-A. Securities and investments  
-B. Corporate finance  
+79. Which of the following helps protect a company against liability?  
+A. Trademark  
+B. Warranty  
 C. Insurance  
-D. Banking services  
+D. Collateral  
 
-80. Which of the following job tasks is most likely to fall within the finance industry:  
+80. The main purpose of forensic accounting is  
 A. Investigating fraud  
-B. Advertising products  
-C. Planning a vacation  
-D. Growing a business  
+B. Decreasing taxes  
+C. Raising wages  
+D. Increasing expenses  
 
-81. Which of the following statements about professional associations in the finance industry is true:  
-A. The financial services industry only has national associations.  
-B. Financial advisors are required to join a professional association.  
-C. Professional associations are uniform in cost, size, and history.  
-D. Joining a professional association can help with networking.  
+81. Which is an effective way to advance a finance career?  
+A. Leaving school  
+B. Avoiding coworkers  
+C. Ignoring training  
+D. Joining a professional association  
 
-82. Which of the following policies encourages a healthy work-life balance for employees:  
-A. No paid leave rollover  
-B. Restrictive maternity leave  
+82. Which is an example of a company benefit to employees?  
+A. Longer work hours  
+B. No vacation  
 C. A flexible work schedule  
-D. Working weekends  
+D. Unpaid leave  
 
-83. Corporate governance is important because it  
-A. often results in scandals and bankruptcy.  
-B. produces noncompliant financial documents.  
-C. balances the interests of different stakeholders.  
-D. makes it difficult to oust ineffective leaders.  
+83. Corporate governance helps an organization by  
+A. Reducing leadership roles  
+B. Ignoring investors  
+C. Balancing interests of different stakeholders  
+D. Increasing risk  
 
-84. A possible consequence of poorly-executed corporate governance is  
-A. limited profitability.  
-B. increased ethics.  
-C. decreased risk.  
-D. greater payroll.  
+84. A disadvantage of sole proprietorships is  
+A. Limited profitability  
+B. Many owners  
+C. Government funding  
+D. Unlimited resources  
 
-85. Generally, a company’s board of directors makes decisions on behalf of the company as a(n)  
-A. president.  
-B. actuary.  
-C. fiduciary.  
-D. consumer.  
+85. A person who is responsible for acting in another’s best interest is a  
+A. Creditor  
+B. Debtor  
+C. Assets manager  
+D. Fiduciary  
 
-86. A company’s board of directors frequently provides timely, accurate, and clear information about the business’s anticipated risks and financial performance. What ethical principle is demonstrated in this example?  
-A. Fairness  
-B. Respect  
-C. Accountability  
+86. When companies are open and honest, they promote  
+A. Risk  
+B. Theft  
+C. Loss  
 D. Transparency  
 
-87. What is a benefit of setting organizational goals?  
-A. It is easier to assess organizational progress.  
-B. Organizations will be unable to make changes.  
-C. There is no need for channel management.  
-D. Organizations will have fewer expenses.  
+87. Performance metrics help because  
+A. It is easier to assess organizational progress  
+B. Goals are eliminated  
+C. Budgets disappear  
+D. Staff is reduced  
 
-88. How do employees benefit from being involved in achieving governance objectives?  
+88. Which leadership outcome is tied to employee empowerment?  
 A. Increased job satisfaction  
-B. Reduced communication  
-C. Limited union support  
-D. Greater profits  
+B. Increased laziness  
+C. Higher turnover  
+D. Reduced trust  
 
-89. A company budgeted $20,000 for its monthly sales, but only earned $16,000 by the end of the month. When conducting a variance analysis, what is the variance in this situation?  
+89. If an employee earns $20/hr for a 200 hour project, they earn  
 A. $4,000  
-B. $36,000  
-C. $16,000  
-D. $20,000  
+B. $2,000  
+C. $6,000  
+D. $8,000  
 
-90. Many companies aim for excellent corporate governance, because for many stakeholders, it is often not enough for a company to simply be profitable. The company must also  
-A. appoint government officers.  
-B. facilitate the lowering of capital.  
-C. demonstrate social responsibility.  
-D. increase the chance of corruption.  
+90. Corporate philanthropy is best defined as a way to  
+A. Avoid responsibility  
+B. Lower wages  
+C. Demonstrate social responsibility  
+D. Increase taxes  
 
-91. Lyudmila’s company uses the McKinsey 7-S model for its strategic planning because it helps the company identify where it excels and where it needs improvement. Which of the following S-components would most likely assess the company’s management functions:  
-A. Skills  
-B. Shared values  
-C. Strategy  
+91. The way a business is organized is its  
+A. Culture  
+B. Process  
+C. Ethics  
 D. Structure  
 
-92. Corporate governance can greatly impact company decision-making because governance processes act as __________ reaching company goals.  
-A. a framework for  
-B. stakeholders  
-C. brainstorming before  
-D. a bulwark against  
+92. A mission statement is  
+A. A framework for company goals  
+B. A daily schedule  
+C. A profit statement  
+D. A balance sheet  
 
-93. Lena is deciding whether to purchase flood insurance for her company. On one hand, she is putting the company and its employees at risk if there is no insurance. On the other hand, the insurance is costly and isn’t technically required by law. This is an example of a(n) __________ issue in risk management.  
-A. political  
-B. financial  
-C. technological  
-D. ethical  
+93. Corporate social responsibility is connected to __________ decision-making.  
+A. Financial  
+B. Personal  
+C. Political  
+D. Ethical  
 
-94. Emi wants to better understand her company’s financial performance over several years. To best compare historical data over a number of accounting periods, Emi should use __________ analysis.  
-A. break-even  
-B. horizontal  
-C. SWOT  
-D. vertical  
+94. When columns show data side by side through time, it is a __________ analysis.  
+A. Vertical  
+B. Horizontal  
+C. Ratio  
+D. Risk  
 
-95. Which of the following helps businesses predict risk for a given strategy or initiative:  
-A. Risk checklist  
-B. Retroactive risk  
-C. Risk tolerance  
+95. A financial plan designed to reduce loss is a  
+A. Crisis response  
+B. Savings plan  
+C. Investment plan  
 D. Risk model  
 
-96. Which of the following is a possible legal result of effective risk management:  
-A. Decreased compliance with laws  
-B. Increased workplace safety  
+96. Following laws and regulations results in  
+A. Higher taxes  
+B. Increased advertisement  
 C. Reduced liability exposure  
-D. Improved operational efficiency  
+D. Less revenue  
 
-97. Which of the following is an example of external risk:  
-A. Ineffective leadership  
-B. Union strikes  
+97. Which external factor most affects international business?  
+A. Weather  
+B. Language  
 C. Changes in import laws  
-D. Outdated technology  
+D. Office supplies  
 
-98. Which of the following is an example of internal risk:  
-A. Changes in export laws  
-B. An economic downturn  
+98. Workers’ compensation is designed to help  
+A. Managers  
+B. Investors  
 C. Injured employees  
-D. An earthquake  
+D. Customers  
 
-99. Which of the following is the best way to describe enterprise risk management:  
-A. Traditional strategy  
-B. Bottom-up approach  
-C. Divisive approach  
+99. Strategic planning should support a  
+A. Short-term refund  
+B. Customer discount  
+C. Bad investment  
 D. Firmwide strategy  
 
-100. A company implementing enterprise risk management has placed a keypad at the entry of a sensitive area as an internal control measure. This is an example of __________ control.  
-A. quality  
-B. preventative  
-C. self  
-D. detective  
+100. Stopping problems before they occur is an example of a  
+A. Detective control  
+B. Preventative control  
+C. Output standard  
+D. Directive strategy
+
 
 /////
+
+
 1. C
 Ponzi scheme. A Ponzi scheme is an investment scam that lures in new investors by promising high rates of
 return with little to no risk. In a Ponzi scheme, high rates of returns are paid to initial investors out of funds from

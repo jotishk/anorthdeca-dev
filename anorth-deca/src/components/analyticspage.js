@@ -7,23 +7,23 @@ import { tidToLabel, cidToLabel } from '@/constants/constants';
 
 
 
-export function AnalyticsPage({user,tidAnalytic}) {
+export function AnalyticsPage({user,tidAnalytic,setTidAnalytic}) {
   const [sessionData,setSessionData] = useState(null);
   const [testData, setTestData] = useState(null);
-  const [selectedAttempt,setSelectedAttempt] = useState(0);
+  const [selectedAttempt,setSelectedAttempt] = useState(1);
 
   const changeAttempt = (num) => {
     setSelectedAttempt(num);
   }
   useEffect(() => {
-    
+    setTidAnalytic("507");
     async function retrieveData() {
+      
       if (user && tidAnalytic) {
-        const retrievedSessionData = await fetchAttempts(user.uid,tidAnalytic);
-        const retrievedTestData = await fetchQuestions(tidAnalytic);
+        const retrievedSessionData = await fetchAttempts("nkrwfa8q77VidVC1Deb9KvLvfBQ2","507");
+        const retrievedTestData = await fetchQuestions("507");
         
-        
-        setSelectedAttempt(0);
+        setSelectedAttempt(1);
         setTestData(retrievedTestData);
         setSessionData(retrievedSessionData);
       }
