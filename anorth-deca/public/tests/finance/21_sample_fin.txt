@@ -1443,7 +1443,7 @@ how certain factors impact some industries more than others.
 SOURCE: NF:015 Conduct an environmental scan to obtain business information
 SOURCE: LAP-NF-015—Get the 4-1-1 (Conducting an Environmental Scan)
 75. A
-5. The mode is the most frequently occurring number in a data set. In this example, more customers
+The mode is the most frequently occurring number in a data set. In this example, more customers
 gave the product five stars versus four, three, two, or one stars, so the mode is five. Four is the mean
 (average), and 4.5 is the median (middle number).
 SOURCE: NF:093 Interpret statistical findings
