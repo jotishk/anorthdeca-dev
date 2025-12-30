@@ -795,7 +795,9 @@ current and up to date, it can generate accurate reports that help the business 
 decisions. Businesses do not use data-cleansing applications to calculate statistical data.
 SOURCE: CR:024
 SOURCE: Technopedia. (2010-2018). Data cleansing. Retrieved September 14, 2018, from
-http://www.techopedia.com/definition/1174/data-cleansing18. C
+http://www.techopedia.com/definition/1174/data-cleansing
+
+18. C
 Concert tickets. Opportunity cost is the benefit that is lost when a decision is made to use scarce
 resources for one purpose rather than for another. In this case, the concert tickets were given up;
 therefore, they are the opportunity cost.

@@ -245,7 +245,7 @@ async function createTest(text) {
     window.testData = { questions, choices, answers, explanations, sourceCodes, sourceRefs };
     console.log("✅ Parsed 100 questions and answers into window.testData");
     const test = {
-      label: "2021 Sample Finance Exam",
+      label: "2019 Sample Finance Exam",
       category: "finance",
       questions: questions,
       choices: choices,
@@ -254,7 +254,7 @@ async function createTest(text) {
       scode: sourceCodes,
       source: sourceRefs
     };
-    await setDoc(doc(db, "tests", "108"), test);
+    await setDoc(doc(db, "tests", "106"), test);
     console.log("uploaded successfully");
   } catch (err) {
     console.log(err.message);
