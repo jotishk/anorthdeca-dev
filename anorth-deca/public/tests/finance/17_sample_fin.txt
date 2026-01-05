@@ -1586,7 +1586,7 @@ SOURCE: OP:013
 SOURCE: Slater, D. (2010, July 28). Retail security: Critical strategies. Retrieved September 14, 2016,
 from http://www.csoonline.com/article/2125650/investigations-forensics/investigationsforensics-retail-security-critical-strategies.html
 78. B
-30. An important part of developing a project plan is determining how much time it will take to perform
+An important part of developing a project plan is determining how much time it will take to perform
 each task. Then, the business develops a schedule specifying the number of hours to spend on each
 task during each week of the project. In Week 3, Task 2 is allocated 10 hours and Task 4 is allocated 20
 hours for a total of 30 hours (10 + 20 = 30).
